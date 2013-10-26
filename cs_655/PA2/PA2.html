@@ -1,0 +1,474 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0065)http://media.pearsoncmg.com/aw/aw_kurose_network_2/labs/lab3.html -->
+<HTML><HEAD><TITLE>Programming Assignment 2: Implementing a Reliable Transport 
+Protocol</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<STYLE type=text/css>H1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 19pt; COLOR: #A77C46; FONT-FAMILY: Arial, sans-serif
+}
+H3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR:#A77C46; FONT-FAMILY: Arial, sans-serif
+}
+P {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial, sans-serif
+}
+TD {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial, sans-serif
+}
+TH {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial, sans-serif
+}
+LI {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial, sans-serif
+}
+A:link {
+	COLOR: #000066
+}
+A:visited {
+	COLOR: #666666
+}
+</STYLE>
+
+<META content="Microsoft FrontPage 5.0" name=GENERATOR><meta name="Microsoft Theme" content="blank 011, default">
+</HEAD>
+<BODY background="_themes/blank/blbkgnd.gif" bgcolor="#FFFFFF" text="#000000" link="#999999" vlink="#990000" alink="#666666"><!--mstheme--><font face="arial,arial,helvetica">
+<H1><!--mstheme--><b><b><b><b><b><b><b><b><b><b><b><b><b>Programming Assignment 2: Implementing a Reliable Transport Protocol</b></b></b></b></b></b></b></b></b></b></b></b><!--mstheme--></b></H1>
+<P>
+<H3>Overview</H3>
+<P><a href="PA2-cs455-GradingCriteria.txt">PA2 Grading Criteria</a><P>In this second programming assignment, you will be writing the sending 
+and receiving transport-level code for implementing the&nbsp;Go-Back-N reliable data 
+transfer protocol. This  should be <B>fun</B> since your implementation will differ very little from what 
+would be required in a real-world situation. 
+<P><strong>CS 655 students should also complete an extension to this assignment -- <a href="#cs655ext">see below</a>.</strong>
+<P>Since we do not have standalone machines (with an OS that you can modify), 
+your code will have to execute in a simulated hardware/software environment. 
+However, the programming interface provided to your routines (i.e., 
+the code that would call your entities from above (i.e., from layer 5, denoting 
+the application layer) and from below 
+(i.e., from layer 3, denoting the network layer) is very close to what is done in an actual UNIX 
+environment. (Indeed, the software interfaces described in this programming 
+assignment are much more realistic that the infinite loop senders and receivers 
+that the textbook describes). Stopping/starting 
+of timers are also simulated, and timer interrupts will cause your timer 
+handling routine to be activated. 
+<P><font color="#ff0000">The description of the routines below is given in C.&nbsp; 
+See text at end regarding the C++ and Java versions of this assignment. Note 
+that you do not need a network connection to run this assignment, so you can do 
+it pretty much on any machine you would like. </font>
+<font color="#ff0000" face="arial,arial,helvetica">Recall however, that you need 
+to make sure that your program ultimately compiles and runs correctly on our 
+csa2/csa3 machines where it will be graded. </font><H3>The routines you will write</H3>
+<P>The procedures you will write are for the sending entity (A) and the 
+receiving entity (B). Only unidirectional transfer of data (from A to B) is 
+required. Of course, the B-side will have to send packets to A to acknowledge 
+receipt of data. Your routines are to be implemented in the form of the 
+procedures described below. These procedures will be called by (and will call) 
+procedures that you are given which emulate a network environment. The overall 
+structure of the environment is shown in the following Figure:<P>
+<img border="0" src="figpa21.gif" width="663" height="254"><P>The unit of data passed between the upper layers and your protocols is a 
+<I>message,</I> which is declared as: 
+<P><!--mstheme--></font><PRE><TT>struct msg {
+&nbsp; char data[20];
+&nbsp; };</TT></PRE><!--mstheme--><font face="arial,arial,helvetica">
+<P>This declaration, and all other data structure and emulator routines, as well 
+as stub routines (i.e., those you are to complete) are in the file, 
+<B>pa2.c,</B> described later. Your sending entity will thus receive data in 
+20-byte chunks from layer5; your receiving entity should deliver 20-byte chunks 
+of correctly received (and in sequence) data to layer5 at the receiving side. 
+<P>The unit of data passed between your routines and the network layer is the 
+<I>packet,</I> which is declared as: 
+<P><!--mstheme--></font><PRE><TT>struct pkt {
+&nbsp;&nbsp; int seqnum;
+&nbsp;&nbsp; int acknum;
+&nbsp;&nbsp; int checksum;
+&nbsp;&nbsp; char payload[20];
+&nbsp;&nbsp;&nbsp; };</TT></PRE><!--mstheme--><font face="arial,arial,helvetica">
+<P>Your routines will fill in the payload field from the message data passed 
+down from layer5. The other packet fields will be used by your protocols to 
+insure reliable delivery, as we've seen in class. 
+<P>The routines you will write are detailed below. As noted above, such 
+procedures in real-life would be part of the operating system, and would be 
+called by other procedures in the operating system. 
+<P>&nbsp;<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>A_output(message), </B>where <TT>message</TT> is a structure of type 
+  <TT>msg,</TT> containing data to be sent to the B-side. This routine will be 
+  called whenever the upper layer at the sending side (A) has a message to send. 
+  It is the job of your protocol to insure that the data in such a message is 
+  delivered in-order, and correctly, to the receiving side upper layer. 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>A_input(packet), </B>where <TT>packet</TT> is a structure of type 
+  <TT>pkt. </TT>This routine will be called whenever a packet sent from the 
+  B-side (i.e., as a result of a <TT>tolayer3()</TT> being done by a B-side 
+  procedure) arrives at the A-side. <TT>packet</TT> is the (possibly corrupted) 
+  packet sent from the B-side. 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>A_timerinterrupt()&nbsp; </B>This routine will be called when A's timer 
+  expires (thus generating a timer interrupt). You'll probably want to use this 
+  routine to control the retransmission of packets. See <TT>starttimer()</TT> 
+  and <TT>stoptimer()</TT> below for how the timer is started and stopped. 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>A_init() </B>This routine will be called once, before any of your other 
+  A-side routines are called. It can be used to do any required initialization. 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>B_input(packet), </B>where <TT>packet</TT> is a structure of type 
+  <TT>pkt. </TT>This routine will be called whenever a packet sent from the 
+  A-side (i.e., as a result of a <TT>tolayer3()</TT> being done by an A-side 
+  procedure) arrives at the B-side. <TT>packet</TT> is the (possibly corrupted) 
+  packet sent from the A-side. 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>B_init() </B>This routine will be called once, before any of your other 
+  B-side routines are called. It can be used to do any required initialization.
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+<!--msthemelist--></table><!--mstheme--><font face="arial,arial,helvetica">
+<P>
+<H3>Software Interfaces</H3>
+<P>The procedures described above are the ones that you will write. You are 
+given the following routines which can be called by your routines:
+<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>starttimer(calling_entity,increment), </B>where <TT>calling_entity</TT> 
+  is either 0 (for starting the A-side timer) or 1 (for starting the B-side 
+  timer), and <TT>increment</TT> is a <I>double</I> value indicating the amount 
+  of time that will pass before the timer interrupts. A's timer should only be 
+  started (or stopped) by A-side routines, and similarly for the B-side timer. 
+  Note that since we only care about unidirectional data transfer from A to B, 
+  only the A-side should maintain such timer. To give you an idea of the appropriate increment value to use: a packet sent 
+  into the network takes an average of 5 time units to arrive at the other side 
+  when there are no other messages in the medium. 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>stoptimer(calling_entity), </B>where <TT>calling_entity</TT> is either 
+  0 (for stopping the A-side timer) or 1 (for stopping the B-side timer).<P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>tolayer3(calling_entity,packet), </B>where <TT>calling_entity</TT> is 
+  either 0 (for the A-side send) or 1 (for the B-side send), and <TT>packet</TT> 
+  is a structure of type <TT>pkt. </TT>Calling this routine will cause the 
+  packet to be sent into the network, destined for the other entity. 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>tolayer5(message), </B>where <TT>message</TT> is a structure of type <TT>msg </TT>
+  to be passed up to layer 5 of the B-side. Note that we simplified the 
+  interface here so you don't need to explicitly specify 
+  <TT>calling_entity </TT>(A-side or B-side) since we are only dealing with unidirectional data delivery to the B-side.<!--mstheme--></font><!--msthemelist--></td></tr>
+<!--msthemelist--></table><!--mstheme--><font face="arial,arial,helvetica">
+<P>
+<H3>The simulated network environment</H3>
+<P>A call to procedure <TT>tolayer3()</TT> sends packets into the medium (i.e., 
+into the network layer). Your procedures <TT>A_input()</TT> and 
+<TT>B_input()</TT> are called when a packet is to be delivered from the medium 
+to your protocol layer. 
+<P>The medium is capable of corrupting and losing packets. It will not reorder 
+packets. When you compile your procedures and the procedures you're given together and run the 
+resulting program, you will be asked to specify values regarding the simulated 
+network environment:
+<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>Number of messages to simulate.</B> The emulator (and your routines) 
+  will stop as soon as this number of messages have been passed down from layer 
+  5, regardless of whether or not all of the messages have been correctly 
+  delivered. Thus, you need <B>not</B> worry about undelivered or unACK'ed 
+  messages still in your sender when the emulator stops. Note that if you set 
+  this value to 1, your program will terminate immediately, before the message 
+  is delivered to the other side. Thus, this value should always be greater than 
+  1. 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>Loss.</B> You are asked to specify a packet loss probability. A value 
+  of 0.1 would mean that one in ten packets (on average) are lost. 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>Corruption.</B> You are asked to specify a packet corruption probability. A 
+  value of 0.2 would mean that <font face="Times New Roman,Times">FOR THOSE 
+  PACKETS THAT ARE NOT LOST, </font>one in five packets (on average) are corrupted. 
+  Note that the contents of payload, sequence, ack, or checksum fields can be 
+  corrupted. Your checksum should thus include the data, sequence, and ack 
+  fields. <br>
+&nbsp;<!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>Average time between messages from sender's layer5.</B> You can set 
+  this value to any non-zero, positive value. Note that the smaller the value 
+  you choose, the faster packets will be arriving to your sender. <br>
+&nbsp;<!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><b>Window size.</b> This allows you to set a limit on the send window.<br>
+&nbsp;<!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><b>Retransmission timeout.</b> This allows you to set the value of the 
+  retransmission timeout.<P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>Tracing.</B> Setting a tracing value of 1 or 2 will print out useful 
+  information about what is going on inside the emulation (e.g., what's 
+  happening to packets and timers). A tracing value of 0 will turn this off. A 
+  tracing value greater than 2 will display all sorts of odd messages that were 
+  used for emulator-debugging purposes. A tracing value of 2 may be helpful to 
+  you in debugging your code. You should keep in mind that <I>real</I> 
+  implementors do not have underlying networks that provide such nice 
+  information about what is going to happen to their packets! <br>
+&nbsp;<!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><b>Random seed.</b> This allows you to set an initial seed for the 
+  generation of random numbers used to schedule packet arrivals, delays on the 
+  network, loss and corruption events.<P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+<!--msthemelist--></table><!--mstheme--><font face="arial,arial,helvetica">
+<H3>Implementing Go-Back-N</H3>
+<P>You are to write the procedures, 
+<TT>A_output(),A_input(),A_timerinterrupt(),A_init(),B_input(),</TT> and 
+<TT>B_init()</TT> which together will implement a Go-Back-N unidirectional 
+transfer of data from the A-side to the B-side. Your protocol should use only ACK 
+(i.e. no NACK) messages. 
+<P>You should put your procedures in a file called pa2.c. You will need the 
+initial version of this file, containing the emulation routines you are given, 
+and the stubs for your procedures. You can obtain this program
+<a href="PA2_helper/GBN-C">here</a> together with a &quot;compile&quot; file - please use 
+that compile file (which you may modify) and make sure your program runs on csa2 
+or csa3.<P><B>This lab can be completed on any machine supporting C. It makes no use of 
+UNIX features.</B> (You can simply&nbsp;copy the pa2.c file to whatever 
+machine and OS you choose). 
+<P>It is <B>STRONGLY</B> recommended that you first implement the  Alternating-Bit 
+(stop-and-wait) protocol and then extend your code to implement the harder 
+version 
+(Go-Back-N). It will <B>not</B> be time wasted! However, some new 
+considerations for your Go-Back-N code (which do not apply to the Alternating-Bit protocol) are:
+<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>A_output(message), </B>where <TT>message</TT> is a structure of type 
+  <TT>msg,</TT> containing data to be sent to the B-side. 
+  <P>Your A_output() routine will now sometimes be called when there are 
+  outstanding, unacknowledged messages in the medium - implying that you will 
+  have to buffer multiple messages in your sender. Also, you'll also need 
+  buffering in your sender because of the nature of Go-Back-N: sometimes your 
+  sender will be called but it won't be able to send the new message because the 
+  new message falls outside of the window. 
+  <P>Rather than have you worry about buffering an arbitrary number of messages, 
+  it will be OK for you to have some finite, maximum number of buffers available 
+  at your sender (say for 50 messages) and have your sender simply abort (give 
+  up and exit) should all 50 buffers be in use at one point (Note: using the 
+  values given below, this should never happen!) In the ``real-world,'' of 
+  course, one would have to come up with a more elegant solution to the finite 
+  buffer problem! 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>A_timerinterrupt() </B>This routine will be called when A's timer 
+  expires (thus generating a timer interrupt). Remember that you've only got one 
+  timer, and may have many outstanding, unacknowledged packets in the medium, so 
+  you'll have to think a bit about how to use this single timer. <!--mstheme--></font><!--msthemelist--></td></tr>
+<!--msthemelist--></table><!--mstheme--><font face="arial,arial,helvetica">
+<h3>What to Submit</h3>
+<P>Following our submission guidelines, you should 
+hand in  a design document and a testing document (with sample outputs).  
+<P>For your sample 
+output, your procedures might print out a message whenever an event occurs at 
+your sender or receiver (a message/packet arrival, or a timer interrupt) as well 
+as any action taken in response.  
+<P>You should hand in output 
+for a run that was long enough so that at least 20 messages were successfully 
+transferred from sender to receiver (i.e., the sender receives ACK for these 
+messages), a window size of 8, a retransmission timeout of 20, a random seed of 
+2233, a loss probability of 0.2, a corruption probability of 0.2, a trace level 
+of 2, and a mean time between arrivals of 10. You should annotate parts of your 
+printout with a colored pen showing how your protocol correctly recovered from 
+packet (data and ack) loss and corruption. Make sure you 
+distinguish which packets are delivered and which are <font face="Arial">not, 
+identify at least one place where a full window is retransmitted after a 
+timeout, identify at least one place where an ack is lost and a later cumulative 
+ack in the same direction moves the sender's window by more than 1.</font><P>
+<font face="Arial">Your program should also gather statistics (e.g. number of 
+original data packets transmitted,&nbsp; number of retransmissions, number of 
+ack packets, number of corrupted packets received, average RTT, etc.) under 
+various loss and corruption probabilities. You should argue/show whether or not 
+the loss and corruption values for each run (it should be long enough, say, with 
+1000 messages) are reasonable. (Hint: if the loss probability is .1, then 
+roughly 10% of the packets should have been lost. If the corruption probability 
+is .15, then roughly 15% of the NON LOST packets should have been corrupted.) If 
+your loss and corruption probabilities were not accurately simulated, your 
+program may have a bug. </font><P><font face="Arial">Explain how you decided on 
+the initial value of your retransmission timer, and how that value changes 
+during the simulation. (Note: a static retransmission timer value is acceptable 
+for this assignment.)</font>
+<p>Produce a 
+single meaningful figure that shows the average time to communicate a packet, 
+that is, the time from when the packet is first sent into the network until the 
+time when the sender receives the first ack for that packet (dependent variable), as a function of loss (independent variable) 
+and corruption (independent variable). Consider a 3-D graph or a barchart. For 
+your results to be statistically meaningful, you should present the average 
+performance over several independent runs (i.e. with different  seeds for the 
+random number generator) and 
+compute confidence intervals (say, 90%) as a function of the sample mean 
+(average) and sample standard deviation (Note: you may need to review this topic 
+from your CS-350 notes or check these
+<a href="http://people.hofstra.edu/faculty/Stefan_Waner/RealWorld/finitetopic1/confint.html">
+online notes</a> on how to compute confidence intervals.)
+</p>
+
+<H3><a name="cs655ext"></a>Extra Assignment for CS 655 Students Only</H3>
+<p><a href="PA2-cs655ext-GradingCriteria.txt">PA2-extension Grading Criteria</a><br>
+  Also simulate unidirectional    transfer of data using Selective Repeat and selective acks (rather than    cumulative acks as used in the Go-Back-N part.) Submit traces, statistics,    etc., that clearly demonstrates your code performs correctly. It is your    responsibility to provide output that convincingly demonstrates that your code    works correctly (similar to what was asked in the GBN part of the assignment).    Make sure you demonstrate the differences in behavior between SR and GBN by    appropriate annotations of your traces and by comparing various performance    metrics (e.g. throughput, goodput, and average packet delay).&nbsp;&nbsp; </p>
+<H3>Helpful Hints and the like</H3>
+<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>Checksumming.</B> You can use whatever approach for checksumming you 
+  want. Remember that the sequence number and ack field can also be corrupted. 
+  We would suggest a TCP-like checksum, which consists of the sum of the 
+  (integer) sequence and ack field values, added to a character-by-character sum 
+  of the payload field of the packet (i.e., treat each character as if it were 
+  an 8-bit integer and just add them together). 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica">Note that any shared "state" among your routines needs to be in the form 
+  of global variables. Note also that any information that your procedures need 
+  to save from one invocation to the next must also be a global (or static) 
+  variable. For example, your routines will need to keep a copy of a packet for 
+  possible retransmission. It would probably be a good idea for such a data 
+  structure to be a global variable in your code. Note, however, that if one of 
+  your global variables is used by your sender side, that variable should 
+  <B>NOT</B> be accessed by the receiving side entity, since in real life, 
+  communicating entities connected only by a communication channel can not share 
+  global variables. 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica">There is a double global variable called <I>time</I> that you can access 
+  from within your code to help you out with your diagnostics messages. 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>START SIMPLE.</B> Set the probabilities of loss and corruption to zero 
+  and test out your routines. Better yet, design and implement your procedures 
+  for the case of no loss and no corruption, and get them working first. Then 
+  handle the case of one of these probabilities being non-zero, and then finally 
+  both being non-zero. 
+  <P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><B>Debugging.</B> It is recommended that you set the tracing level to 2 and 
+  put LOTS of printf's in your code while you're debugging your procedures. <br>
+&nbsp;<!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica">The routine <b>Simulation_done()</b> is called at the end 
+  of the simulation and could be used to print final statistics.<P></P>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+<!--msthemelist--></table><!--mstheme--><font face="arial,arial,helvetica">
+<H3>Q&amp;A</H3>
+<P><a target="_new" href="PA_GBN_QA.htm">PA_GBN_QA.htm</a> 
+</P><!--msthemeseparator--></font>
+<hr>
+<font face="arial,arial,helvetica">
+<h3>JAVA files</h3>
+<p>Here are the class files and source code for the
+  <a href="PA2_helper/GBN-Java">JAVA files</a> that you'll need if you want to do 
+the assignment in Java rather than C. </p>
+<p><span style="font-style: normal; font-weight: 700">Some notes:</span></p>
+<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><i>NetworkSimulator</i> is an abstract class that is the bulk of the 
+  simulator. <i>StudentNetworkSimulator</i> is the only class that you will have 
+  to modify.<!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><i>Packet, Message, Event,</i> and <i>EventListImpl </i>are support 
+  classes.&nbsp; EventList is an interface.&nbsp; <i>Project</i> is the &quot;driver&quot; for the 
+  whole thing.<!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica">You only need the&nbsp; .class&nbsp; files, and <i>StudentNetworkSimulator.java</i>.&nbsp; 
+  The other sources are there in case you are interested.<!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><ul>
+    <li></li>
+  </ul></td>
+    <td valign="top" width="100%"><!--mstheme--><font face="arial,arial,helvetica"><i>StudentNetworkSimulator.java</i> contains inline comments documenting 
+  the interfaces of the other classes that you will need.&nbsp; These class files 
+  will need to be in the CLASSPATH (which will happen automatically if you edit 
+  and compile StudentNetworkSimulator.java in the same directory as the other 
+  class files).<!--mstheme--></font><!--msthemelist--></td></tr>
+<!--msthemelist--></table><!--mstheme--><font face="arial,arial,helvetica">
+<!--msthemeseparator--></font>
+<hr>
+<font face="arial,arial,helvetica">
+<h3>C++ files</h3>
+<p>Here is the <a href="PA2_helper/GBN-C++">C++ version</a> if you want to do 
+the assignment in C++ rather than C.</p>
+<!--msthemeseparator--></font>
+<hr>
+<font face="arial,arial,helvetica">
+<p align="center">&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<!--mstheme--></font>
+</BODY></HTML>
