@@ -1,0 +1,13 @@
+Shan Sikdar
+class: Networks CS655
+Languages: Java
+
+grad_school >> cs_655 >> PA1:
+
+This programming assignment contains two simple client server programs.
+The first one simply has the client send a string to the server, and the server sends a message
+back acknowledging that it recieved the message.
+
+ The second program extends the first so that the client can send a request of how many messages to send.
+The server can then parse the request and subsequent messages. Error checking is included to make sure no faulty messages are sent.
+For more information I have included the orginal assigment pdf given out labeled PA1
