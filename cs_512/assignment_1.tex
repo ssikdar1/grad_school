@@ -1,0 +1,93 @@
+%% to produce a PDF copy, issue the following command:
+%%
+%%     pdflatex propositional-logic-examples.tex
+%%
+%% in the same directory containing the LaTeX style files:
+%%
+%%     prooftree.sty  and  boxproof.sty
+
+\documentclass[11pt,leqno,fleqn]{article}
+
+\usepackage{graphicx} 
+\usepackage{times}              % better fonts for mathematical symbols
+\usepackage{bm}                 % unlike \boldmath,
+                                % \bm can be used anywhere within math mode
+\usepackage[scaled=0.9]{helvet} % makes text a little smaller throughout,
+                                % but not the text in math mode.
+\usepackage{./tex/latex/misc/prooftree}
+\usepackage{./tex/latex/misc/boxproof}
+
+\setlength\hoffset{-5pt}      % horizontal offset, to move text horizontally
+\setlength{\textwidth}{4.5in} % try different widths
+\setlength\voffset{-5pt}      % vertical offset, to move text vertically
+\setlength{\textheight}{7in}  % try different heights
+
+\newcommand{\Hide}[1]{}             % use \Hide{bla bla} to hide ``bla bla''
+\newcommand{\code}[1]{\texttt{#1}}  % use \code{...} to produce ASCII chars
+\newcommand{\Intro}[1]{{#1}{\textrm{i}}}
+\newcommand{\Elim}[1]{{#1}{\textrm{e}}}
+
+\title{CS 512, Spring 2014
+       \\[1ex]
+       \textbf{Assignment 1}}
+\author{Shan Sikdar} 
+\date{Due Monday January 27th} % omit date
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 1(a): $P\to Q,  P \to \neg{Q}\vdash \neg{P}$}
+
+\begin{proofbox}
+   \label{a1}\: P\to Q \= \textrm{premise} \\
+   \label{a2}\: P\to \neg{Q} \= \textrm{premise} \\
+   \[
+      \label{a3}\: P  \= \textrm{assume} \\
+      \label{a4}\: Q    \= \Elim{\to}\ \ref{a1},\ref{a3} \\
+       \label{a5}\: \neg{Q}    \= \Elim{\to}\ \ref{a2},\ref{a3} \\
+        \label{a6}\: \bot \= {\Elim{\neg{}}}\ \ \ref{a4},\ref{a5}\\
+   \]
+     \label{a7}\: \neg{P} \= \Intro{\neg{}} \\
+\end{proofbox}
+
+\section{Problem 1(b): $P\to(Q\to R),P,\neg{R} \vdash \neg{Q}$}
+
+\begin{proofbox}
+   \label{b1}\: P\to(Q\to R) \= \textrm{premise} \\
+    \label{b2}\: P \= \textrm{premise} \\
+     \label{b3}\: \neg{R} \= \textrm{premise} \\
+   \[
+      \label{b4}\: Q    \= \textrm{assume} \\
+      \label{b5}\:  Q\to R \= \Elim{\to}\ \ \ref{b1},\ref{b2}\\
+      \label{b6}\:  R \= \Elim{\to}\ \ \ref{b4},\ref{b5}\\
+      \label{b7}\: \bot \= {\Elim{\neg{}}}\ \ \ref{b3},\ref{b6}\\
+   \]
+       \label{b8}\: \neg{Q} \= \Intro{\neg{}} \\
+\end{proofbox}
+
+\section{Problem 2(g): $p \land \neg{p} \vdash \neg{(r \to q)} \land (r \to q)$}
+\begin{proofbox}
+   \label{c1}\: p\land \neg{p} \= \textrm{premise} \\
+    \label{c2}\: p \= \Elim{\land}_1\ \ \ref{c1} \\
+     \label{c3}\: \neg{p} \= \Elim{\land}_1 \ \ \ref{c1} \\
+      \label{c4}\: \bot \= {\Elim{\neg{}}}\ \ \ref{c2},\ref{c3} \\
+      \label{}\: \neg{(r \to q)} \land (r \to q) \= \Elim{\bot} \\
+\end{proofbox}
+
+\section{Problem 2(h): $p \to q, s\to t \vdash p \lor s \to q \land t$}
+
+\section{Problem 2(i): $ \neg{(\neg{p} \lor q)} \vdash p $}
+
+\begin{proofbox}
+	\label{e1}\: \neg{(\neg{p} \lor q)}  \=  \textrm{premise}\\
+	  \[
+      \label{e2}\: \neg{p}    \= \textrm{assume} \\
+      \label{e3}\: \neg{p} \lor q \= \Intro{\lor}\ \ \ref{e2}\\
+      \label{e4}\: \bot \= {\Elim{\neg{}}}\ \ \ref{e1},\ref{e3}\\
+   \]
+	\label{e5}\: p \= \Intro{\neg{}}\\
+\end{proofbox}
+
+\end{document}
+

@@ -1,0 +1,115 @@
+%% to produce a PDF copy, issue the following command:
+%%
+%%     pdflatex propositional-logic-examples.tex
+%%
+%% in the same directory containing the LaTeX style files:
+%%
+%%     prooftree.sty  and  boxproof.sty
+
+\documentclass[11pt,leqno,fleqn]{article}
+
+\usepackage{graphicx} 
+\usepackage{times}              % better fonts for mathematical symbols
+\usepackage{bm}                 % unlike \boldmath,
+                                % \bm can be used anywhere within math mode
+\usepackage[scaled=0.9]{helvet} % makes text a little smaller throughout,
+                                % but not the text in math mode.
+\usepackage{./tex/latex/misc/prooftree}
+\usepackage{./tex/latex/misc/boxproof}
+
+\setlength\hoffset{-5pt}      % horizontal offset, to move text horizontally
+\setlength{\textwidth}{4.5in} % try different widths
+\setlength\voffset{-5pt}      % vertical offset, to move text vertically
+\setlength{\textheight}{7in}  % try different heights
+
+\newcommand{\Hide}[1]{}             % use \Hide{bla bla} to hide ``bla bla''
+\newcommand{\code}[1]{\texttt{#1}}  % use \code{...} to produce ASCII chars
+\newcommand{\Intro}[1]{{#1}{\textrm{i}}}
+\newcommand{\Elim}[1]{{#1}{\textrm{e}}}
+
+\title{CS 512, Spring 2014
+       \\[1ex]
+       \textbf{Examples in Propositional Logic}}
+\author{Assaf Kfoury} 
+\date{} % omit date
+
+\begin{document}
+
+\maketitle
+
+\section{Example: $P \vdash Q\to(P\land Q)$}
+
+\begin{proofbox}
+   \label{a1}\: P \= \textrm{premise} \\
+   \[
+      \label{a2}\: Q  \= \textrm{assume} \\
+      \: P\land Q    \= \Intro{\land}\ \ref{a1},\ref{a2} \\
+   \]
+   \: Q\to(P\land Q) \= \Intro{\to}  \\
+\end{proofbox}
+
+\section{Example: $P\to(Q\to R) \vdash P\land Q\to R$}
+
+\begin{proofbox}
+   \label{b1}\: P\to(Q\to R) \= \textrm{premise} \\
+   \[
+      \label{b2}\: P\land Q    \= \textrm{assume} \\
+      \label{b3}\: P \= {\Elim{\land}}_1\ \ \ref{b2}\\
+      \label{b4}\: Q\to R \= \Elim{\to}\ \ \ref{b1},\ref{b3}\\
+      \label{b5}\: Q \= {\Elim{\land}}_2\ \ \ref{b2}\\
+      \: R \=\Elim{\to}\ \ \ref{b4},\ref{b5}\\
+   \]
+      \: P\land Q\to R \= \Intro{\to} \\
+\end{proofbox}
+
+\section{Example: $P\land Q\to R \vdash P\to(Q\to R)$}
+
+\begin{proofbox}
+   \label{c1}\: P\land Q\to R \= \textrm{premise} \\
+   \[
+      \label{c2}\: P     \= \textrm{assume} \\
+      \[
+         \label{c3}\: Q  \= \textrm{assume} \\
+         \label{c4}\: P\land Q \= \Intro\land\ \ref{c2},\ref{c3}\\
+         \: R \= \Elim\to\ \ref{c1},\ref{c4}
+      \]
+      \: Q\to R \= \Intro\to \\
+   \]
+   \: P\to(Q\to R) \= \Intro\to \\
+\end{proofbox}
+
+\section{Example: $P\to(Q\to R) \vdash (P\to Q)\to(P\to R)$}
+
+\begin{proofbox}
+   \label{d1}\: P\to(Q\to R) \= \textrm{premise} \\
+   \[
+      \label{d2}\: P\to Q  \= \textrm{assume} \\
+      \[
+         \label{d3}\: P    \= \textrm{assume} \\
+         \label{d4}\: Q \= \Elim\to\ \ref{d2},\ref{d3}\\
+         \label{d5}\: Q\to R \= \Elim\to \ref{d1},\ref{d3}\\
+         \: R \= \Elim\to\ \ref{d5},\ref{d4}\\
+      \]
+      \: P\to R \= \Intro\to \\
+   \]
+   \: (P\to Q)\to(P\to R) \= \Intro\to \\
+\end{proofbox}
+
+\section{Example:  $\quad P\land\neg{Q}\to R,\ \ \neg{R},\ \ P \quad\vdash\quad Q$}
+
+\begin{proofbox}
+   \label{aa}\: P\land\neg{Q}\to R \= \textrm{premise}\\
+   \label{bb}\: \neg{R} \= \textrm{premise}\\
+   \label{cc}\: P \= \textrm{premise}\\
+   \[
+      \label{dd}\: \neg{Q} \= \textrm{assume}\\
+      \label{ee}\: P\land\neg{Q} \= {\Intro{\land}}\ \ \ref{cc},\ref{dd}\\
+      \label{ff}\: R \= \Elim{\to}\ \ \ref{aa},\ref{ee}\\
+      \label{gg}\: \bot \= {\Elim{\neg{}}}\ \ \ref{ff},\ref{bb}\\
+   \]
+      \label{hh}\: \neg{\neg{Q}} \= \Intro{\neg{}} \\
+      \: Q \= \Elim{\neg{\neg{}}}\ \ \ref{hh} \\
+\end{proofbox}
+
+\end{document}
+
