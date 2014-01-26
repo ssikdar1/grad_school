@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.8.1)  21 JAN 2014 08:46
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.8.1)  26 JAN 2014 15:59
 entering extended mode
 **assignment_1.tex
 ("C:\Users\Shan\Documents\grad school\CS512\assignment_1.tex"
@@ -182,29 +182,74 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 {C:/Users/Shan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-("C:\Users\Shan\Documents\grad school\CS512\assignment_1.aux") ) 
+Underfull \hbox (badness 10000) in paragraph at lines 157--160
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--181
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--195
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--195
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--195
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
+
+ []
+
+[6] ("C:\Users\Shan\Documents\grad school\CS512\assignment_1.aux") ) 
 Here is how much of TeX's memory you used:
- 1559 strings out of 493921
- 20378 string characters out of 3144880
- 72810 words of memory out of 3000000
- 4852 multiletter control sequences out of 15000+200000
- 23170 words of font info for 61 fonts, out of 3000000 for 9000
+ 1565 strings out of 493921
+ 20441 string characters out of 3144880
+ 86810 words of memory out of 3000000
+ 4857 multiletter control sequences out of 15000+200000
+ 24052 words of font info for 64 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,10n,24p,295b,187s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Fil
-es (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files (x86)/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
-/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/
-utmr8a.pfb>
-Output written on assignment_1.pdf (2 pages, 88560 bytes).
+ 27i,15n,24p,295b,203s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program
+ Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/ti
+mes/utmr8a.pfb>
+Output written on assignment_1.pdf (6 pages, 112448 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

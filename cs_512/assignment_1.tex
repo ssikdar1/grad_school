@@ -66,7 +66,7 @@
        \label{b8}\: \neg{Q} \= \Intro{\neg{}} \\
 \end{proofbox}
 
-\section{Problem 2(g): $p \land \neg{p} \vdash \neg{(r \to q)} \land (r \to q)$}
+\section{Problem 2: 1.2.2(g): $p \land \neg{p} \vdash \neg{(r \to q)} \land (r \to q)$}
 \begin{proofbox}
    \label{c1}\: p\land \neg{p} \= \textrm{premise} \\
     \label{c2}\: p \= \Elim{\land}_1\ \ \ref{c1} \\
@@ -75,9 +75,72 @@
       \label{}\: \neg{(r \to q)} \land (r \to q) \= \Elim{\bot} \\
 \end{proofbox}
 
-\section{Problem 2(h): $p \to q, s\to t \vdash p \lor s \to q \land t$}
+\section{Problem 2: 1.2.2(h): $p \to q, s\to t \vdash p \lor s \to q \land t$}
+ Since in the truth table some valuations have the left evaluate to T while the result false,
+ the sequent is not valid.
 
-\section{Problem 2(i): $ \neg{(\neg{p} \lor q)} \vdash p $}
+
+\newcommand{\TTT}{\bm{\mathsf{T}}}
+\newcommand{\FFF}{\bm{\mathsf{F}}}
+
+
+\[
+\begin{array}{ c | c | c | c | c | c | c | c | c }
+ p & q & s &  t
+    & p \to q & s\to t  & p \lor s &  q \land t &  p \lor s \to q \land t
+
+% s: TRUE
+% t: TRUE
+\\ \hline 
+ \TTT & \TTT & \TTT & \TTT & \TTT & \TTT &  \TTT & \TTT & \TTT
+\\ \hline  
+ \TTT & \FFF & \TTT & \TTT & \FFF  & \TTT  &  \TTT  & \FFF & \FFF
+\\ \hline  
+ \FFF & \TTT & \TTT & \TTT & \TTT  & \TTT  &   \TTT & \TTT & \TTT
+\\ \hline  
+ \FFF & \FFF & \TTT & \TTT & \TTT  & \TTT &     \TTT & \FFF & \FFF
+
+% s: TRUE
+% t: FALSE
+\\ \hline 
+ \TTT & \TTT & \TTT & \FFF & \TTT  & \FFF  &  \TTT & \FFF & \FFF
+\\ \hline  
+ \TTT & \FFF & \TTT & \FFF & \FFF  &  \FFF &  \TTT   & \FFF  & \FFF
+\\ \hline  
+ \FFF & \TTT & \TTT & \FFF & \TTT & \FFF &     \TTT & \FFF & \FFF
+\\ \hline  
+ \FFF & \FFF & \TTT & \FFF & \TTT & \FFF  &     \TTT & \FFF & \FFF
+
+
+% s: FALSE
+% t: TRUE
+\\ \hline 
+ \TTT & \TTT & \FFF & \TTT & \TTT  & \TTT  &  \TTT  & \TTT & \TTT
+\\ \hline  
+ \TTT & \FFF & \FFF & \TTT & \FFF  &  \TTT &  \TTT    & \FFF & \FFF
+\\ \hline  
+ \FFF & \TTT & \FFF & \TTT & \TTT  & \TTT  &  \FFF  &  \TTT & \TTT
+\\ \hline  
+ \FFF & \FFF & \FFF & \TTT & \TTT  & \TTT  &  \FFF   & \FFF & \FFF
+
+% s: FALSE
+% t: FALSE
+\\ \hline 
+ \TTT & \TTT & \FFF & \FFF & \TTT  & \TTT  & \TTT  & \FFF & \FFF
+\\ \hline  
+ \TTT & \FFF & \FFF & \FFF & \FFF  & \TTT  &  \TTT   & \FFF & \FFF
+\\ \hline  
+ \FFF & \TTT & \FFF & \FFF & \TTT  &  \TTT &  \FFF   & \FFF &  \TTT
+\\ \hline  
+ \FFF & \FFF & \FFF & \FFF & \TTT  & \TTT  & \FFF & \FFF &  \TTT
+
+
+\end{array}
+\]
+
+
+
+\section{Problem 2: 1.2.2(i): $ \neg{(\neg{p} \lor q)} \vdash p $}
 
 \begin{proofbox}
 	\label{e1}\: \neg{(\neg{p} \lor q)}  \=  \textrm{premise}\\
@@ -88,6 +151,89 @@
    \]
 	\label{e5}\: p \= \Intro{\neg{}}\\
 \end{proofbox}
+
+\section{Problem 3:}
+
+ $  S -1 = C$ \\
+Justification:
+For every propostional atom you add to a well formed formula, you need a binary connective to join it to.\\
+
+$N \leq S + C $\\
+
+This inequality assumes that any series of negation signs can be reduced to one or no negation signs (e.g. $\neg{\neg{\neg{q}}} = \neg{q} $ or $\neg{\neg{\neg{\neg{q}}}} = q$) . Otherwise there is no upperbound for the value of N
+
+\section{Problem 4: 1.4.12(a):}
+If $p$ is True, $q$ is True, then $\neg{p} \lor (q \to p) $ is True while $\neg{p} \land q$ is False. So sequent not valid.
+
+\section{Problem 4: 1.4.12(b):}
+If r is True , q is False, and p is true, then $\neg{r} \to (p \lor q)$ is True, and $r \land \neg{q}$ is True. But $r \to q$ is False. So sequent not valid.
+
+\section{Problem 4: 1.4.12(c):}
+If p is True, q is False, and r is True, then $p \to (q \to r)$ is True. But $p \to (r \to q)$ is false. So sequent not valid.
+
+\newpage
+\section{problem 5:}
+
+Use induction based on the height of the parse tree formed by the WFF $\varphi$.\\
+
+Base Case: Height = 1,\\
+If Height = 1, then the parse tree must only conisist of propsitional atom, say p. Then $\varphi  = p$ and $\varphi * = \neg{p} = \neg{\varphi}$.\\
+
+Inductive Step: Assume true for all WFF's of height  n. Prove for height n + 1.\\ \\
+Let $\varphi$ be a WFF with height n+1. For $\varphi$ to have this hieght one of the following cases must happen:\\
+1. $\varphi$ is made up of another WWF $\phi$ of parse tree height  n with a $\neg{}$ in front of it: ( $\varphi = \neg{\phi}$)\\
+2. $\varphi$ is made up of two WFF's $\phi,\rho$ of parse tree height n connected by $\land$: ($\varphi = \phi \land \rho$) \\
+3. $\varphi$ is made up of two WFF's $\phi,\rho$ of parse tree height n connected by $\lor$: ($\varphi = \phi \lor \rho$) \\
+\\
+Case 1: $\varphi = \neg{\phi}$ \\
+  Using the inductive hypothesis we know $\phi * $ is tuautologically equivelent to $\neg{\phi}$. So $\varphi = \phi * = \neg{\phi}$ \\
+ Then: \\
+ $\varphi * =  \neg{(\neg{\phi})}$\\
+$\varphi * =  \neg{(\phi *)}$\\
+$\varphi * =  \neg{(\varphi )}$\\
+$\varphi * =  \neg{\varphi }$\\
+ 
+Case 2:  $\varphi = \phi \land \rho $ . Using the inductive hypothesis we know $\neg{\phi} = \phi *$ and $\neg{\rho} = \rho *$\\
+Then because:\\
+$ \neg{\varphi}  = \neg{(\phi \land \rho)}$ and $\varphi * =  \neg{\phi} \lor \neg{\rho}  =  \phi * \lor \rho* $ . \\
+I can use a truth table to show $\varphi *$ and $ \neg{\varphi}$ tautological equivlence: 
+
+\[
+\begin{array}{ c | c | c | c | c | c | c | c | c }
+ \phi & \rho & \varphi = \phi \land \rho &  \neg{\varphi} & \neg{\phi} & \neg{\rho}&\varphi * = \neg{\phi} \lor \neg{\rho} 
+\\ \hline 
+ \TTT & \TTT & \TTT & \FFF & \FFF  & \FFF & \FFF
+\\ \hline  
+ \TTT & \FFF &  \FFF & \TTT  & \FFF & \TTT & \TTT
+ \\ \hline  
+ \FFF & \TTT & \FFF & \TTT & \TTT & \FFF & \TTT
+ \\ \hline  
+ \FFF & \FFF & \FFF  & \TTT  & \TTT &  \TTT & \TTT
+\end{array}
+\]
+
+The $\varphi * $ column has the same values as the $\neg{\varphi}$ column. So they are tautologically equivelent \\
+
+Case 3: $\varphi = \phi \lor \rho$. Again  using the inductive hypothesis, $\neg{\phi} = \phi *$ and $\neg{\rho} = \rho *$\\
+Then because:\\
+$ \neg{\varphi}  = \neg{(\phi \lor \rho)}$ and $\varphi * =  \neg{\phi} \land \neg{\rho}  =  \phi * \land \rho* $ . \\
+I can use a truth table to show $\varphi *$ and $ \neg{\varphi}$ tautological equivlence: 
+
+\[
+\begin{array}{ c | c | c | c | c | c | c | c | c }
+ \phi & \rho & \varphi = \phi \lor \rho &  \neg{\varphi} & \neg{\phi} & \neg{\rho}&\varphi * = \neg{\phi} \land \neg{\rho} 
+\\ \hline 
+ \TTT & \TTT & \TTT & \FFF & \FFF  & \FFF & \FFF
+\\ \hline  
+ \TTT & \FFF &  \TTT & \FFF  & \FFF & \TTT & \FFF
+ \\ \hline  
+ \FFF & \TTT & \TTT & \FFF & \TTT & \FFF & \FFF
+ \\ \hline  
+ \FFF & \FFF & \FFF  & \TTT  & \TTT &  \TTT & \TTT
+\end{array}
+\]
+
+The $\varphi * $ column has the same values as the $\neg{\varphi}$ column. So they are tautologically equivelent \\
 
 \end{document}
 
