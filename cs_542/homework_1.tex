@@ -1,0 +1,68 @@
+%% to produce a PDF copy, issue the following command:
+%%
+%%     pdflatex propositional-logic-examples.tex
+%%
+%% in the same directory containing the LaTeX style files:
+%%
+%%     prooftree.sty  and  boxproof.sty
+
+\documentclass[11pt,leqno,fleqn]{article}
+
+\usepackage{graphicx} 
+\usepackage{times}              % better fonts for mathematical symbols
+\usepackage{bm}                 % unlike \boldmath,
+
+                                % \bm can be used anywhere within math mode
+                                
+ \usepackage{amsfonts}
+\usepackage{amsmath}                               
+\usepackage[scaled=0.9]{helvet} % makes text a little smaller throughout,
+                                % but not the text in math mode.
+
+
+\setlength\hoffset{-5pt}      % horizontal offset, to move text horizontally
+\setlength{\textwidth}{4.5in} % try different widths
+\setlength\voffset{-5pt}      % vertical offset, to move text vertically
+\setlength{\textheight}{7in}  % try different heights
+
+\newcommand{\Hide}[1]{}             % use \Hide{bla bla} to hide ``bla bla''
+\newcommand{\code}[1]{\texttt{#1}}  % use \code{...} to produce ASCII chars
+
+
+\title{CS 512, Spring 2014
+       \\[1ex]
+       \textbf{Assignment 1}}
+\author{Shan Sikdar} 
+\date{Due Monday January 27th} % omit date
+
+\begin{document}
+
+\maketitle
+
+\section{(*) 2.1 }
+Verify $ \sum\limits_{x=0}^1 p(x | \mu) =1 $ \\
+Proof.  $  \sum\limits_{x=0}^1 p(x | \mu) = p( x = 0 | \mu) + p( x= 1 | \mu) =  \mu + 1 - \mu = 1 $\\
+\\
+\\
+Verify: $\mathbb{E}[x] = \mu$\\
+Proof.   $\mathbb{E}[x] =  \sum\limits_{x} x \ \  p(x | \mu)  = 1* \mu + 0*(1 - \mu) = \mu$\\
+\\
+\\
+Verify $var[x] = \mu (1 - \mu) $\\
+Proof.  \\
+$var(x) = \mathbb{E}[(x - E[x])^2]$\\
+$= (1 - \mu )(0 - \mu)^2  + \mu (1 - \mu)^2$\\
+$= (1 - \mu )(\mu)^2  + \mu (1 - \mu)^2$\\
+$ = \mu - \mu^2 $ $ = \mu(1-\mu)$\\
+\\
+\\
+Show entropy of H[x] of a Bernoulli distributed random variable x is given by : $H[x] = - \mu \  ln \mu - ( 1- \mu) ln(1-\mu)$\\
+By definition of entropy: $ H[x] = - \sum\limits_{x} p(x | \mu)  \ ln[p(x | \mu)]  $\\
+$= -[ (1 - \mu) ln(1-\mu) + (\mu \ ln \mu)]  =  - \mu \  ln \mu - ( 1- \mu) ln(1-\mu)$
+
+\section{(**) 2.5}
+
+\section{}
+
+\end{document}
+

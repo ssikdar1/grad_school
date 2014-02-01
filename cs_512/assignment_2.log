@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.8.1)  29 JAN 2014 21:02
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.8.1)  29 JAN 2014 21:34
 entering extended mode
 **assignment_2.tex
 (C:\Users\Shan\Documents\GitHub\grad_school\cs_512\assignment_2.tex
@@ -262,12 +262,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 69--76
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--91
+Underfull \hbox (badness 10000) in paragraph at lines 77--93
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--91
+Underfull \hbox (badness 10000) in paragraph at lines 77--93
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--93
 
  []
 
@@ -291,7 +296,7 @@ eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX
 TeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/
 MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/
 fonts/type1/urw/times/utmr8a.pfb>
-Output written on assignment_2.pdf (2 pages, 88624 bytes).
+Output written on assignment_2.pdf (2 pages, 88665 bytes).
 PDF statistics:
  46 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
