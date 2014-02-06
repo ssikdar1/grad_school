@@ -37,18 +37,18 @@
 I have uploaded an excel spredsheet, that contains the harmonics, aliased frequencies, the absolute value of those frequencies, and them all sorted.
 \section{}
 a.\\
-$\omega = 2 \pi f = 2 * \pi * 261.6 = 1643.68$
+$\omega = 2 \pi f = 2 * \pi * 261.6 = 1643.68$\\
 b.\\
 From equation 2.55 in the book $sin(\theta) =-i \frac{e^{i \theta} - e^{-i \theta}}{2}$\\
 So in our case:\\
-
-$sin(\omega * i/rate) = sin(2 \pi (261.6) * i /rate)$
+Let $\phi = 2 * \pi * 261.6  * i/rate$ (where i is the iteration in the for loop)\\
+Then $sin(\phi) = -i \frac{e^{i \phi} - e^{-i \phi}}{2}$ would be expression for the phasor representing middle C.
 \section{}
 SNR - Signal to Noise Ratio\\
 DR- Dynamic Range\\
 \\
 64 bit Integer:\\
-$SNR = DR = 20\ log_{10} (2^{64}) = 385.28$\\
+$SNR = DR = 20\ log_{10} (2^{64}) = 385.31$\\
 \\
 64 Bit Floating Point\\
 $DR = 6.02 * 2^{11} = 12328.96$\\
@@ -61,15 +61,19 @@ b.1.\\
 $(i+1)^6 = ((i+1)^2)^3 = (1 + 2i + i^2)^3 = (2i)^3 = -8i$\\
 Absolute Value: $8$\\
 Complex Conjugate: $8i$\\
+\\
 b.2.\\
 $i^{17} = i^{16} i^1 = (i^4)^4i = i$\\
 Absolute Value: $1$\\
 Complex Conjugate: $-i$\\
 \\
+\\
 c.\\
-$i^5 + i + 1 = i^4 i + i 1 = 1 + 2 i$\\
+$i^5 + i + 1 = i^4 i + i + 1 = 1 + 2 i$\\
+\\
 d.1\\
 $8 =  8( cos(2 \pi k) + isin(2 \pi k) ) , k \in \mathbb{Z}$\\
+\\
 d.2\\
 $6 =  6( cos( \frac{\pi}{2}  k) + isin( \frac{\pi}{2} k) ) , k \in \mathbb{Z}$\\
 \end{document}

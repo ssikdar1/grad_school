@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.8.1)  5 FEB 2014 16:57
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.8.1)  5 FEB 2014 20:59
 entering extended mode
 **homework_1.tex
 (C:\Users\Shan\Documents\GitHub\grad_school\cs_591\homework_1.tex
@@ -193,11 +193,6 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 40.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 39--44
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 47--56
 
  []
@@ -213,17 +208,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--56
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--75
+Underfull \hbox (badness 10000) in paragraph at lines 57--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--75
+Underfull \hbox (badness 10000) in paragraph at lines 57--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--75
+Underfull \hbox (badness 10000) in paragraph at lines 57--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--79
 
  []
 
@@ -253,7 +268,7 @@ public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
 urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/u
 tmr8a.pfb>
-Output written on homework_1.pdf (2 pages, 107927 bytes).
+Output written on homework_1.pdf (2 pages, 109153 bytes).
 PDF statistics:
  58 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

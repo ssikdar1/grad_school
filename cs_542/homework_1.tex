@@ -4,7 +4,7 @@
 %%
 %% in the same directory containing the LaTeX style files:
 %%
-%%     prooftree.sty  and  boxproof.sty
+
 
 \documentclass[11pt,leqno,fleqn]{article}
 
@@ -40,7 +40,7 @@
 
 \maketitle
 
-\section{(*) 2.1 }
+\section{ 2.1 }
 Verify $ \sum\limits_{x=0}^1 p(x | \mu) =1 $ \\
 Proof.  $  \sum\limits_{x=0}^1 p(x | \mu) = p( x = 0 | \mu) + p( x= 1 | \mu) =  \mu + 1 - \mu = 1 $\\
 \\
@@ -152,5 +152,36 @@ Facts I used:\\
 Confirm that this result agrees with that of excercise 1.10.\\
 You can consider one variable to be a vector with one element so the first proof shows that 1.28 holds.
 In the single variable case, covariance reduces to just normal varince so 1.29 holds.
+
+\section{2.28}
+Consider a joint distribution over the variable $z =  \binom {x} {y}$ whoose mean and covairiance are given by (2.108) and (2.105) respectively.  
+\\
+\\
+I. By making use of the results (2.92) and (2.93) show that the marginal distribution p(x) is given by  $p(x) = N(x| \mu , \Lambda ^{-1})$\\
+ So find the mean and covariance of the marginal distribution:\\
+By 2.92 we know that marginal  ditribution p(x) has the mean given by $E[x] = \mu_x$  but we also know that the mean vector for z is givien by $E[z] = \binom{\mu}{A \mu + b}$. Therefore $ \mu_x = \mu $ and so the mean of the marginal distribution p(x) is $\mu$.  From 2.93, we know that the covariance of the marginal distribution p(x) is given by $cov[x] = \Sigma_{xx}$. But from 2.105 we know that covariance matrix for z is
+$cov[z] =  \binom {\Lambda^{-1} \ \ \    \Lambda^{-1}A^T} {A \Lambda^{-1} \ \ \ L-1 + A \Lambda^{-1} A^T}$\\
+So: $ \Lambda^{-1} = \Sigma_{xx} = cov[x] $ then $\Lambda^{-1}$ is the covariance of the marginal distribution. Therefore $p(x) = N(x| \mu , \Lambda^{-1})$\\
+\\
+ II. Similarly, by making useof the results (2.81) and (2.82) show that the conditional distribution $p(y|x) = N(y| Ax+b, L^{-1})$\\
+ So find the mean and covariance of the conditonal distribution:\\
+By 2.81:\\
+ $\mu_{y|x} = \mu_y + \Sigma_{xy} \Sigma_{xx}^{-1} (x - \mu_x)$\\
+$ = A \mu + b + (A \Lambda^{-1})(\Lambda^{-1})^{-1}(x - \mu)  $ (using 2.108 and 2.105)\\
+$ = A \mu + b + (A \Lambda^{-1})(\Lambda)(x - \mu)  $\\
+$ = A \mu + b + (A )(x - \mu)  $\\
+$ = A \mu + b + (Ax - A\mu)  $\\
+$ =  Ax + b $\\
+And so the mean for the conditonal distribution is $Ax + b$\\
+
+By 2.82:\\
+$\Sigma_{y|x} = \Sigma_{yy} - \Sigma_{yx} \Sigma_{yx}^{-1} \Sigma_{xy}$\\
+$= L^{-1} + A \Lambda^{-1} A^{T} - (A \Lambda^{-1})(\Lambda^{-1})^{-1}(\Lambda^{-1} A^T)$ (using 2.105)\\
+$= L^{-1} + A \Lambda^{-1} A^{T} - (A \Lambda^{-1})(\Lambda)(\Lambda^{-1} A^T)$\\
+$= L^{-1} + A \Lambda^{-1} A^{T} - (A \Lambda^{-1} A^T)$\\
+$= L^{-1}$\\
+And so the variance for the conditonal distribution is $L^{-1}$ Therefore the conditonal distribution is $N(y| Ax+b, L^{-1})$
+
+\section{2.31}
 \end{document}
 
