@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.8.1)  1 FEB 2014 13:52
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.8.1)  5 FEB 2014 20:44
 entering extended mode
 **homework_1.tex
 (C:\Users\Shan\Documents\GitHub\grad_school\cs_542\homework_1.tex
@@ -151,19 +151,19 @@ LaTeX Info: Redefining \] on input line 2666.
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
 (C:\Users\Shan\Documents\GitHub\grad_school\cs_542\homework_1.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 39.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -183,74 +183,168 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 \everyMPtoPDFconversion=\toks22
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
-LaTeX Font Info:    Try loading font information for U+msa on input line 40.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
+LaTeX Font Info:    Try loading font information for U+msa on input line 41.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 40.
+LaTeX Font Info:    Try loading font information for U+msb on input line 41.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 42.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 43.
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--62
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--62
+Underfull \hbox (badness 10000) in paragraph at lines 44--63
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--62
+Underfull \hbox (badness 10000) in paragraph at lines 44--63
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--62
+Underfull \hbox (badness 10000) in paragraph at lines 44--63
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--62
+Underfull \hbox (badness 10000) in paragraph at lines 44--63
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--62
+Underfull \hbox (badness 10000) in paragraph at lines 44--63
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--63
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
 [1
 
 {C:/Users/Shan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(C:\Users\Shan\Documents\GitHub\grad_school\cs_542\homework_1.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 66--77
+
+ []
+
+
+Overfull \hbox (24.3333pt too wide) in paragraph at lines 66--77
+\OML/cmm/m/it/10.95 H\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.9
+5 ] = \OMS/cmsy/m/n/10.95   [] \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cm
+m/m/it/10.95 x\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 \OT1/cmr/m/n/10.95 ) \O
+ML/cmm/m/it/10.95 ln\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95
+ (\OML/cmm/m/it/10.95 x\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 \OT1/cmr/m/n/1
+0.95 )] = \OMS/cmsy/m/n/10.95  \OT1/cmr/m/n/10.95 [(([]) \OML/cmm/m/it/10.95 ln
+\OT1/cmr/m/n/10.95 (([]))  +  (([]) \OML/cmm/m/it/10.95 ln\OT1/cmr/m/n/10.95 ((
+[]))] =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--105
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 107--126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--126
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 128--155
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--155
+
+ []
+
+
+Overfull \hbox (8.81212pt too wide) in paragraph at lines 128--155
+[] \OT1/cmr/m/n/10.95 + [] = [] = []$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--155
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--155
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--155
+
+ []
+
+[4] (C:\Users\Shan\Documents\GitHub\grad_school\cs_542\homework_1.aux) ) 
 Here is how much of TeX's memory you used:
- 1962 strings out of 493921
- 25337 string characters out of 3144880
- 78367 words of memory out of 3000000
- 5234 multiletter control sequences out of 15000+200000
+ 1963 strings out of 493921
+ 25340 string characters out of 3144880
+ 84375 words of memory out of 3000000
+ 5235 multiletter control sequences out of 15000+200000
  22037 words of font info for 61 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,6n,24p,293b,207s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program
- Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
-s/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
-onts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
-urw/times/utmr8a.pfb>
-Output written on homework_1.pdf (1 page, 79375 bytes).
+ 27i,6n,24p,308b,207s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
+1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/ti
+mes/utmr8a.pfb>
+Output written on homework_1.pdf (4 pages, 122068 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
+ 64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

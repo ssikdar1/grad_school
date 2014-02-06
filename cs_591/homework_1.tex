@@ -1,0 +1,76 @@
+%% to produce a PDF copy, issue the following command:
+%%
+%%     pdflatex propositional-logic-examples.tex
+%%
+%% in the same directory containing the LaTeX style files:
+%%
+%%     prooftree.sty  and  boxproof.sty
+
+\documentclass[11pt,leqno,fleqn]{article}
+
+\usepackage{graphicx} 
+\usepackage{times}              % better fonts for mathematical symbols
+\usepackage{bm}                 % unlike \boldmath,
+
+                                % \bm can be used anywhere within math mode
+                                
+\usepackage{amsfonts}
+\usepackage{amsmath}                               
+\usepackage[scaled=0.9]{helvet} % makes text a little smaller throughout,
+                                % but not the text in math mode.
+
+
+\setlength\hoffset{-5pt}      % horizontal offset, to move text horizontally
+\setlength{\textwidth}{4.5in} % try different widths
+\setlength\voffset{-5pt}      % vertical offset, to move text vertically
+\setlength{\textheight}{7in}  % try different heights
+
+\newcommand{\Hide}[1]{}             % use \Hide{bla bla} to hide ``bla bla''
+\newcommand{\code}[1]{\texttt{#1}}  % use \code{...} to produce ASCII chars
+
+\newcommand{\Cov}{\mathrm{Cov}}
+
+
+\begin{document}
+
+\section{}
+I have uploaded an excel spredsheet, that contains the harmonics, aliased frequencies, the absolute value of those frequencies, and them all sorted.
+\section{}
+a.\\
+$\omega = 2 \pi f = 2 * \pi * 261.6 = 1643.68$
+b.\\
+From equation 2.55 in the book $sin(\theta) =-i \frac{e^{i \theta} - e^{-i \theta}}{2}$\\
+So in our case:\\
+
+$sin(\omega * i/rate) = sin(2 \pi (261.6) * i /rate)$
+\section{}
+SNR - Signal to Noise Ratio\\
+DR- Dynamic Range\\
+\\
+64 bit Integer:\\
+$SNR = DR = 20\ log_{10} (2^{64}) = 385.28$\\
+\\
+64 Bit Floating Point\\
+$DR = 6.02 * 2^{11} = 12328.96$\\
+$SNR = 6.02 * {52} = 313.04$\\
+\section{}
+a. \\
+$\frac{-4 + i}{-3 +2i} = \frac{-4 + i}{-3 +2i} * \frac{-3 - 2i}{-3 - 2i}  = \frac{12 + 8i -3i -2i^2}{13} = \frac{14 + 5i}{13}$\\
+\\
+b.1.\\
+$(i+1)^6 = ((i+1)^2)^3 = (1 + 2i + i^2)^3 = (2i)^3 = -8i$\\
+Absolute Value: $8$\\
+Complex Conjugate: $8i$\\
+b.2.\\
+$i^{17} = i^{16} i^1 = (i^4)^4i = i$\\
+Absolute Value: $1$\\
+Complex Conjugate: $-i$\\
+\\
+c.\\
+$i^5 + i + 1 = i^4 i + i 1 = 1 + 2 i$\\
+d.1\\
+$8 =  8( cos(2 \pi k) + isin(2 \pi k) ) , k \in \mathbb{Z}$\\
+d.2\\
+$6 =  6( cos( \frac{\pi}{2}  k) + isin( \frac{\pi}{2} k) ) , k \in \mathbb{Z}$\\
+\end{document}
+
