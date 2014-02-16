@@ -1,0 +1,71 @@
+%% to produce a PDF copy, issue the following command:
+%%
+%%     pdflatex propositional-logic-examples.tex
+%%
+%% in the same directory containing the LaTeX style files:
+%%
+%%     prooftree.sty  and  boxproof.sty
+
+\documentclass[11pt,leqno,fleqn]{article}
+
+\usepackage{graphicx} 
+\usepackage{times}              % better fonts for mathematical symbols
+\usepackage{bm}                 % unlike \boldmath,
+
+                                % \bm can be used anywhere within math mode
+                                
+\usepackage{amsfonts}
+\usepackage{amsmath}                               
+\usepackage[scaled=0.9]{helvet} % makes text a little smaller throughout,
+                                % but not the text in math mode.
+
+
+\setlength\hoffset{-5pt}      % horizontal offset, to move text horizontally
+\setlength{\textwidth}{4.5in} % try different widths
+\setlength\voffset{-5pt}      % vertical offset, to move text vertically
+\setlength{\textheight}{7in}  % try different heights
+
+\newcommand{\Hide}[1]{}             % use \Hide{bla bla} to hide ``bla bla''
+\newcommand{\code}[1]{\texttt{#1}}  % use \code{...} to produce ASCII chars
+
+\newcommand{\Cov}{\mathrm{Cov}}
+
+
+\begin{document}
+\section{}
+ Attached seperately.\\
+\section{}
+(i)\\
+proof:\\
+$Ae^{i \theta}$ where A is complex.\\
+$A$ complex implies that $A = Be^{i \phi}$ where B and $\phi$ are real\\
+so $Ae^{i \theta} = Be^{i \phi }e^{i \theta} = Be^{i (\theta + \phi)} =  Be^{i (\beta)} $\\
+Here B and $\beta$ are real, so found a real representation.\\
+\\
+(ii)\\
+proof:\\
+$Ae^{i \theta}$ where $\theta$ is complex.\\
+$\theta$ complex means that $\theta = r(cos(\phi) + i sin(\phi))$ for some r and $\phi$ complex\\
+So: $Ae^{i \theta} = Ae^{i \ r(cos(\phi) + i sin(\phi))} = A e^{-  r sin(\phi)} e^{i r cos(\phi)} = Ce^{i \alpha} $\\
+Where C and $\alpha$ are real.
+\\
+\newpage
+\section{}
+(A)\\
+If we add to waves using the complex eponential, we add the real parts together. But then we are only adding the cosine parts of both waves so it represents the sum of two real cosine waves.\\
+\\
+(B)\\
+Square: $(Ae^{i 2 \pi f t})^2 = (A^2 \ e^{2(i 2 \pi f t)})  = (A^2 \ e^{(i 4 \pi f t)})  $\\
+Problem: Here the values of this result could still be negative. The problem with this is if we square the wave, all of its values should be greater than 0.\\
+\\
+(C)\\
+So let $\theta =  2 \pi \ f t$.\\
+The represent $A cos(\theta) = A (\frac{e^{i \theta} + e^{-i \theta}}2{})$\\
+To show what happens with square show what happens when we square cosine:\\
+$cos(\theta)^2 = (\frac{e^{i \theta} + e^{-i \theta}}{2})^2 = (\frac{e^{i \theta}}{2})^2 + 2 (\frac{e^{i \theta}}{2}) (\frac{e^{-i \theta}}{2}) + (\frac{e^{- i \theta}}{2})^2$\\
+$=  (\frac{e^{i \theta}}{4}) + \frac{1}{2} (e^{i \theta - i \theta}) + (\frac{e^{- i \theta}}{4})$\\
+$=  (\frac{e^{i \theta}}{4}) + \frac{1}{2} + (\frac{e^{- i \theta}}{4})$\\
+$ = \frac{1}{2} cos(2 \theta) + \frac{1}{2}$
+\\
+\end{document}
+

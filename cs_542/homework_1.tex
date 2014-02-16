@@ -30,11 +30,11 @@
 
 \newcommand{\Cov}{\mathrm{Cov}}
 
-\title{CS 512, Spring 2014
+\title{CS 542, Spring 2014
        \\[1ex]
        \textbf{Assignment 1}}
 \author{Shan Sikdar} 
-\date{Due Monday January 27th} % omit date
+\date{} % omit date
 
 \begin{document}
 
@@ -75,6 +75,22 @@ $var[x] = \mathbb{E}[x^2] - \mathbb{E}[x]^2 = (-1)^2(\frac{1- \mu}{2}) + (1)^2(\
 Evaluate its Entropy:\\
 $H[x] =  - \sum\limits_{x} p(x | \mu)  \ ln[p(x | \mu)]  = - [  ((\frac{1- \mu}{2}) \ ln( (\frac{1- \mu}{2})) \ + \   ((\frac{1+ \mu}{2}) \ ln( (\frac{1+ \mu}{2}))] = -  ((\frac{1- \mu}{2}) \ ln( (\frac{1- \mu}{2})) \ - \   ((\frac{1+ \mu}{2}) \ ln( (\frac{1+ \mu}{2})) $
 
+\section{2.5}
+$\Gamma (a) \Gamma(b) =  \int\limits_0^\infty e^{-x} x^{a-1} dx \int\limits_0^\infty e^{-y}y^{b-1}dy$\\
+$= \int\limits_0^\infty  \int\limits_0^\infty  e^{-(x+y)} x^{a-1} y^{b-1} dydx$\\
+Change of variable t = y + x, so y = t - x and dy = dt. The limits of integration change as well:\\
+$= \int\limits_0^\infty  \int\limits_x^\infty  e^{-(t)} x^{a-1} (t-x)^{b-1} dtdx$\\
+Interchange the order of integration, the limits will have to change so the same area is being integrated:\\
+$= \int\limits_0^\infty  \int\limits_0^t  e^{-(t)} x^{a-1} (t-x)^{b-1} dxdt$\\
+Make change of variables $x = \mu t $ so $dx = t d\mu$ The limits of integration change again as well:\\
+$= \int\limits_0^\infty  \int\limits_0^1  e^{-(t)} (t \mu)^{a-1} (t- t \mu)^{b-1} t \ d\mu dt$\\
+$= \int\limits_0^\infty e^{-(t)}  t^{a-1} t^{b-1} t dt \int\limits_0^1   ( \mu)^{a-1} (1-  \mu)^{b-1} d\mu  $\\
+$= \int\limits_0^\infty e^{-(t)}  t^{(a+b) - 1} dt \int\limits_0^1   ( \mu)^{a-1} (1-  \mu)^{b-1} d\mu  $\\
+$= \Gamma(a+b) \int\limits_0^1   ( \mu)^{a-1} (1-  \mu)^{b-1} d\mu  $\\
+So:\\
+$\Gamma (a) \Gamma(b) = \Gamma(a+b) \int\limits_0^1   ( \mu)^{a-1} (1-  \mu)^{b-1} d\mu  $\\
+$\frac{\Gamma (a) \Gamma(b)}{ \Gamma(a+b)} =  \int\limits_0^1   ( \mu)^{a-1} (1-  \mu)^{b-1} d\mu$
+
 \section{2.7}
 Show that the posterior mean value of x lies between the prior mean and the maximum likelihood estimate for $\mu$. To do this show the posterior mean can be written as $\lambda$ times the prior mean plus $(1 - \lambda)$ times the maximum likelihood estimate where $0 \leq \lambda \leq 1$.\\
 \\
@@ -113,7 +129,7 @@ So $0 \leq \lambda \leq 1$
 $ = \int_y \int_x  p(x|y) \ \ p(y) \ \ x \ dx \ dy $\\ % ( the limits of $\int$ may change,but thats okay )\\
 $= \int_ y p(y) \int_x  p(x|y) \ x \ dx \ dy $\\
 $ = \int_ y p(y) \  E_x[x|y] \ dy $\\
-$ = E_y[E[x|y]] $\\
+$ = E_y[E_x[x|y]] $\\
 \\
 Prove: $var[x] = \mathbb{E}_y[var_x[x|y]] + var_y[\mathbb{E}_x[x|y]] $\\
 $ var[x] =  \mathbb{E}[x^2] - \mathbb{E}[x]^2$\\
@@ -132,7 +148,7 @@ Proof: Let $x = [x_1,.......,x_n]$ and $z = [z_1,........,z_n]$ then: \\
 \\
 $\frac{x_1 + x_2+ .... + x_n}{n} + \frac{z_1 + z_2 + .... + z_n}{n} = \frac{(x_1+z_1) + (x_2 + z_2) + .... + (x_n + z_n)}{n} = \frac{y_1 + y_2 + ... + y_n}{n}$\\
 \\ 
-Show that the covariance atrix of y is given by the sum of the covariance matrices x and z.\\
+Show that the covariance matrix of y is given by the sum of the covariance matrices x and z.\\
 Proof: Using formula 2.63:\\
 $cov[y] = \mathbb{E}[(y - E[y])(y - E[y])^{T}]$\\
 $=  \mathbb{E}[((x+z) - E[(x+ z)])((x+z)) - E[(x+z)])^{T}]$\\
@@ -183,5 +199,60 @@ $= L^{-1}$\\
 And so the variance for the conditonal distribution is $L^{-1}$ Therefore the conditonal distribution is $N(y| Ax+b, L^{-1})$
 
 \section{2.31}
+Find an expression for the marginal distribution p(y) by considering the linear-Gaussian model compromising the product of the marginal distribution p(x) and the conditonal distribution $p(y|x)$\\
+Since: p(x) is gaussian, $p(x) = N(x| \mu_x, \Sigma_x)$\\
+From page 91 in the book that $p(x) = N(x|\mu,\Lambda^{-1})$\\
+So $\Sigma_x = \Lambda^{-1}$ and $\mu_x = \mu$.\\
+Since y is made up of x and z, $p(y|x)$ needs to be written in terms of x and z so $p(y|x) = N(y| \mu_z + x, \Sigma_z)$\\
+Also from page 91  $p(y|x) = N(y|Ax+b, L^{-1})$\\
+So: $Ax + b  = x + \mu_z $ and $L^{-1} = \Sigma_z$ then A = I and $b = \mu_z$\\
+Now using formula 2.115 and plugging in found values:\\
+$p(y) = N(x| A \mu + b, L^{-1} + A \Lambda^{-1} A^T)$\\
+$p(y) = N(x| I \mu_x + \mu_z , \Sigma_z + I \Sigma_x I^T)$\\
+$p(y) = N(x|  \mu_x + \mu_z , \Sigma_z +  \Sigma_x )$\\
+
+\newpage
+\section{2.34}
+log of the likelihood function:\\
+$ln p(X| \mu , \Sigma)  = -\frac{ND}{2} ln(2 \pi) - \frac{N}{2} ln|\Sigma|-  \frac{1}{2} \sum\limits_{n=1}^N (x_n - \mu)^T \Sigma^{-1} (x_n - \mu) $\\
+\\
+To find the where the max will be, take the derivative and set it equal to 0. When the derivative is take with respect to $\Sigma$ the first term will become 0.
+Using (c.21) the second term will become $-\frac{N}{2} (\Sigma^{-1})^T =-\frac{N}{2} (\Sigma^{-1}) $\\
+For the third term, since there are derivative rules in the appendix, it easier to find an alternate form if the term in terms of the trace. 
+So as long as the result ends up the same (i.e the same entries in the vectors and matrices  get multiplied and added correctly) the term can be rewritten as trace. So rewrite $ \sum\limits_{n=1}^N (x_n - \mu)^T \Sigma^{-1} (x_n - \mu)$ with $ Tr[\Sigma^{-1} \sum\limits_{n=1}^N (x_n - \mu)^T  (x_n - \mu)]$ 
+So: \\
+$ -  \frac{1}{2} \sum\limits_{n=1}^N (x_n - \mu)^T \Sigma^{-1} (x_n - \mu) $\\
+$ =  -  \frac{1}{2}   Tr[\Sigma^{-1} \sum\limits_{n=1}^N (x_n - \mu)^T  (x_n - \mu)]$\\
+$ =  -  \frac{1}{2} \frac{N}{N}   Tr[\Sigma^{-1} \sum\limits_{n=1}^N (x_n - \mu)^T  (x_n - \mu)]$\\
+$ =  -  \frac{1}{2} \frac{N}{N}   Tr[\Sigma^{-1} \sum\limits_{n=1}^N (x_n - \mu)^T  (x_n - \mu)]$\\
+$ =  -  \frac{1}{2} N  Tr[\Sigma^{-1} \frac{1}{N} \sum\limits_{n=1}^N (x_n - \mu)^T  (x_n - \mu)]$\\
+$ =  -  \frac{1}{2} N  Tr[\Sigma^{-1} Q]$ (hide  terms with Q to make the math simpler to read)\\
+So when the derivative is taken this term:\\
+$\frac{d}{d \Sigma_{i,j} } -  \frac{1}{2} N  Tr[\Sigma^{-1} Q]$\\
+$ = -  \frac{1}{2} N  Tr[ \frac{d}{d \Sigma_{ij}} \Sigma^{-1} Q]$ \ \ \ (2.26) used here\\
+$ = -  \frac{1}{2} N  Tr[ \frac{d}{d \Sigma_{ij}} \Sigma^{-1} Q \Sigma^{-1}]$\\
+$ =   \frac{1}{2} N  Tr[ \Sigma^{-1} Q \Sigma^{-1}]$\\
+$ =   \frac{1}{2} N  ( \Sigma^{-1} Q \Sigma^{-1})_{ij}$\\
+\\
+So : $ \frac{1}{2} N ( \Sigma^{-1} Q \Sigma^{-1}] -\frac{N}{2} (\Sigma^{-1})_{ij} = 0$\\
+ $ \frac{1}{2} N  ( \Sigma^{-1} Q \Sigma^{-1})_{ij}  = \frac{N}{2} (\Sigma^{-1}) = 0$\\
+ $ \frac{1}{2} N  ( \Sigma^{-1} Q \Sigma^{-1})_{ij}  = \frac{N}{2} (\Sigma^{-1}) = 0$\\
+$\Sigma  = \frac{1}{N} \sum\limits_{n=1}^N (x_n - \mu)^T  (x_n - \mu)$ which is the same equation as 1.22.\\
+\newpage
+\section{2.40}
+
+Given a prior distribution $p(\mu) = N(\mu|\mu_0,\Sigma_0)$ find the corresponding posterior distribution $p(\mu|x)$.\\
+\\
+We know that posterior is proportional to prior and likelihood. The prior is given as $p(\mu) = N(\mu|\mu_0,\Sigma_0)$. And the likelihoodfor N observations is $\prod\limits_{}^N p(x_n| \mu, \Sigma). $ \\
+So $p(\mu|x) =  p(\mu) \prod\limits_{}^N   p(x_n| \mu, \Sigma) =  N(\mu|\mu_0,\Sigma_0) \prod\limits_{}^N  N(x_n| \mu, \Sigma)$
+Using 2.71 this can be rewritten as:\\
+$= - \frac{1}{2} (\mu - \mu_0)^T \Sigma_0^{-1} (\mu - \mu_0) +- \frac{1}{2} \sum\limits_{n = 1}^N  (x_n - \mu)^T \Sigma^{-1}  (x_n - \mu) $
+Using the second equality in 2.71:\\
+$= - \frac{1}{2} \mu^T \Sigma_0^{-1} \mu + \mu^T \Sigma_0^{-1} \mu_0 - \frac{1}{2} \sum\limits_{}^N x_n^T \Sigma_x^{-1} +  \frac{1}{2} \sum\limits_{}^N  x_n^T  \Sigma^{-1} \mu + const$\\
+$= - \frac{1}{2} \mu^T \Sigma_0^{-1} \mu -   \frac{1}{2} \sum\limits_{}^N  x_n^T  \Sigma^{-1} \mu +  \mu^T \Sigma_0^{-1} \mu_0 - \frac{1}{2} \sum\limits_{}^N x_n^T \Sigma_x^{-1} + const $\\
+$= - \frac{1}{2} \mu^T( \Sigma_0^{-1} + N\Sigma^{-1}) \mu +  \mu^T \Sigma_0^{-1} \mu_0 - \frac{1}{2} \sum\limits_{}^N x_n^T \Sigma_x^{-1} + const$\\
+$= - \frac{1}{2} \mu^T( \Sigma_0^{-1} + N\Sigma^{-1}) \mu +  \mu^T(\Sigma_0^{-1} \mu_0 + \Sigma^{-1} \sum\limits_{}^N x_n) + const$\\
+\\
+So this is the distribution for the posterior
 \end{document}
 

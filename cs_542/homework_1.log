@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.8.1)  5 FEB 2014 23:19
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.8.1)  6 FEB 2014 23:08
 entering extended mode
 **homework_1.tex
 (C:\Users\Shan\Documents\GitHub\grad_school\cs_542\homework_1.tex
@@ -249,118 +249,148 @@ ML/cmm/m/it/10.95 ln\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95
 []))] =
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--105
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--105
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--105
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--105
-
- []
-
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 107--126
+Underfull \hbox (badness 10000) in paragraph at lines 95--121
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--126
+Underfull \hbox (badness 10000) in paragraph at lines 95--121
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--126
+Underfull \hbox (badness 10000) in paragraph at lines 95--121
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--126
+Underfull \hbox (badness 10000) in paragraph at lines 95--121
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 128--155
+Underfull \hbox (badness 10000) in paragraph at lines 123--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--155
+Underfull \hbox (badness 10000) in paragraph at lines 123--142
 
  []
 
 
-Overfull \hbox (8.81212pt too wide) in paragraph at lines 128--155
+Underfull \hbox (badness 10000) in paragraph at lines 123--142
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 123--142
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--171
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--171
+
+ []
+
+
+Overfull \hbox (8.81212pt too wide) in paragraph at lines 144--171
 [] \OT1/cmr/m/n/10.95 + [] = [] = []$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--155
+Underfull \hbox (badness 10000) in paragraph at lines 144--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--155
+Underfull \hbox (badness 10000) in paragraph at lines 144--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--155
+Underfull \hbox (badness 10000) in paragraph at lines 144--171
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 173--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--176
+Underfull \hbox (badness 10000) in paragraph at lines 173--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--176
+Underfull \hbox (badness 10000) in paragraph at lines 173--192
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 202--213
+
+ []
+
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 216--241
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--176
+Underfull \hbox (badness 10000) in paragraph at lines 216--241
 
  []
 
-[4] [5] [6] (C:\Users\Shan\Documents\GitHub\grad_school\cs_542\homework_1.aux) 
-) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--241
+
+ []
+
+[8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 244--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 244--257
+
+ []
+
+[10] (C:\Users\Shan\Documents\GitHub\grad_school\cs_542\homework_1.aux) ) 
 Here is how much of TeX's memory you used:
  1963 strings out of 493921
  25340 string characters out of 3144880
- 84375 words of memory out of 3000000
+ 83352 words of memory out of 3000000
  5235 multiletter control sequences out of 15000+200000
  22037 words of font info for 61 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  27i,6n,24p,461b,207s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program F
-iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fil
-es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files 
-(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x8
-6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files (x86)/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
-/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
-nts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/u
-rw/times/utmr8a.pfb>
-Output written on homework_1.pdf (6 pages, 136371 bytes).
+{C:/Pr
+ogram Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files (x86)/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
+public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/time
+s/utmr8a.pfb>
+Output written on homework_1.pdf (10 pages, 151259 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
+ 88 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

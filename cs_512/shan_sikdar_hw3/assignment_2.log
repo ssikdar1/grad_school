@@ -1,7 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.8.1)  7 FEB 2014 21:35
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.8.1)  10 FEB 2014 22:14
 entering extended mode
 **assignment_2.tex
-(C:\Users\Shan\Documents\GitHub\grad_school\cs_512\assignment_2.tex
+
+(C:\Users\Shan\Documents\GitHub\grad_school\cs_512\shan_sikdar_hw3\assignment_2
+.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -149,55 +151,8 @@ LaTeX Info: Redefining \bm on input line 204.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\helvet.sty"
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
-(C:\Users\Shan\Documents\GitHub\grad_school\cs_512\tex\latex\misc\prooftree.sty
-<Paul Taylor's Proof Trees, 2 August 1996>
-\proofrulebreadth=\dimen115
-\proofdotseparation=\dimen116
-\proofrulebaseline=\dimen117
-\proofdotnumber=\count100
-\shortenproofleft=\dimen118
-\shortenproofright=\dimen119
-\proofbelowshift=\dimen120
-\proofabove=\box28
-\proofbelow=\box29
-\proofrulename=\box30
-)
-(C:\Users\Shan\Documents\GitHub\grad_school\cs_512\tex\latex\misc\boxproof.sty
-<Paul Taylor's Proof Boxes, 8 November 1993>
- ****** This is an experimental version - please get an up-to-date one ******
- by anonymous FTP theory.doc.ic.ac.uk /tex/contrib/Taylor/tex/boxproof.tex
-\prooflinenowidth=\dimen121
-\proofboxfullwidth=\dimen122
-\proofboxleftmargin=\dimen123
-\proofboxrightmargin=\dimen124
-\proofboxrulebreadth=\dimen125
-\proofboxseparation=\dimen126
-\proofboxbaselineskip=\dimen127
-\proofcolumns=\count101
-\prooflinetotal=\count102
-\prooflineinbox=\count103
-\proofboxproposition=\box31
-\proofboxreason=\box32
-\proofboxuse=\box33
-\proofboxvariables=\box34
-\proofboxintercol=\dimen128
-\proofboxsurround=\dimen129
-\proofboxformulawidth=\dimen130
-\proofboxmargin=\dimen131
-\proofboxlefttabskip=\skip46
-\proofboxrighttabskip=\skip47
-\pb@L=\box35
-\pb@T=\dimen132
-\pb@U=\dimen133
-\pb@M=\dimen134
-\pb@N=\dimen135
-\pb@O=\dimen136
-\pb@P=\dimen137
-\pb@Q=\dimen138
-\pb@R=\dimen139
-\pb@S=\dimen140
-)
-(C:\Users\Shan\Documents\GitHub\grad_school\cs_512\assignment_2.aux)
+(C:\Users\Shan\Documents\GitHub\grad_school\cs_512\shan_sikdar_hw3\assignment_2
+.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
@@ -211,22 +166,21 @@ LaTeX Font Info:    ... okay on input line 42.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 42.
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (C:\Users\Shan\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count104
-\scratchdimen=\dimen141
-\scratchbox=\box36
-\nofMPsegments=\count105
-\nofMParguments=\count106
+\scratchcounter=\count100
+\scratchdimen=\dimen115
+\scratchbox=\box28
+\nofMPsegments=\count101
+\nofMParguments=\count102
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count107
-\MPscratchDim=\dimen142
-\MPnumerator=\count108
-\makeMPintoPDFobject=\count109
+\MPscratchCnt=\count103
+\MPscratchDim=\dimen116
+\MPnumerator=\count104
+\makeMPintoPDFobject=\count105
 \everyMPtoPDFconversion=\toks22
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
@@ -243,172 +197,32 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
 
-Underfull \hbox (badness 10000) in paragraph at lines 48--51
+Underfull \hbox (badness 10000) in paragraph at lines 47--58
 
  []
 
 [1
 
 {C:/Users/Shan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 72--79
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 72--79
-
- []
-
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--117
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--117
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--117
-
- []
-
-
-Overfull \hbox (89.45763pt too wide) in paragraph at lines 80--117
-\OT1/ptm/m/n/10.95 LCM(b,c)) = LCM(GCD(a,b),GCD(b,c)) and LCM(a,GCD(b,c)) = GCD
-(LCM(a,b),LCM(a,c)). 
- []
-
-
-Overfull \hbox (9.59998pt too wide) in paragraph at lines 80--117
-\OT1/ptm/m/n/10.95 Number tho-ery proof from Cop-pel : Us-ing the fact that LCM
-(a,b) * GCD(a,b)
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--117
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--117
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--117
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 119--124
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 119--124
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 137--143
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 173--196
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--196
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--196
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--196
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--196
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 209--223
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--223
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--223
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--223
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 252--256
-
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 259--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 259--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 259--267
-
- []
-
-[8] [9] (C:\Users\Shan\Documents\GitHub\grad_school\cs_512\assignment_2.aux) ) 
+(C:\Users\Shan\Documents\GitHub\grad_school\cs_512\shan_sikdar_hw3\assignment_2
+.aux) ) 
 Here is how much of TeX's memory you used:
- 2194 strings out of 493921
- 28095 string characters out of 3144880
- 87131 words of memory out of 3000000
- 5456 multiletter control sequences out of 15000+200000
- 25559 words of font info for 68 fonts, out of 3000000 for 9000
+ 1966 strings out of 493921
+ 25484 string characters out of 3144880
+ 77381 words of memory out of 3000000
+ 5238 multiletter control sequences out of 15000+200000
+ 22037 words of font info for 61 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,14n,24p,624b,202s stack positions out of 5000i,500n,10000p,200000b,50000s
-{
-C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program F
-iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fil
-es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files (x86)/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2
-.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
-nts/type1/urw/times/utmr8a.pfb>
-Output written on assignment_2.pdf (9 pages, 142951 bytes).
+ 27i,6n,24p,295b,198s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
+Output written on assignment_2.pdf (1 page, 53365 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
+ 27 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
