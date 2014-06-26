@@ -1,0 +1,9 @@
+theory PigeonHole3
+imports Main 
+begin
+
+(* Pigeon Hole 3 holes: Instead of doing the implication on doing the one with negation and joined wth the or
+so the one where there empty holes and two pidgeons in a hole*) 
+lemma "((¬P11 ∧ ¬P21 ∧P31 ) ∨ (¬P12 ∧ ¬P22 ∧ ¬P32 ))
+      ∨ ((P11 ∧ P21) ∨ (P11 ∧ P31) ∨ (P21 ∧ P31) ∨(P12 ∧ P22) ∨ (P12 ∧ P32) ∨ (P22 ∧ P32))"
+nitpick

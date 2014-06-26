@@ -1,0 +1,228 @@
+%% to produce a PDF copy, issue the following command:
+%%
+%%     pdflatex propositional-logic-examples.tex
+%%
+%% in the same directory containing the LaTeX style files:
+%%
+%%     prooftree.sty  and  boxproof.sty
+
+\documentclass[11pt,leqno,fleqn]{article}
+
+\newcommand{\tab}{\hspace*{2em}}
+\usepackage{amsfonts}
+\usepackage{fullpage, enumerate}
+\usepackage{amsmath}
+\usepackage{qtree}
+\usepackage{listings}
+
+\usepackage{graphicx} 
+\usepackage{times}              % better fonts for mathematical symbols
+\usepackage{bm}                 % unlike \boldmath,
+                                % \bm can be used anywhere within math mode
+\usepackage[scaled=0.9]{helvet} % makes text a little smaller throughout,
+                                % but not the text in math mode.
+%\usepackage{./tex/latex/misc/prooftree}
+%\usepackage{./tex/latex/misc/boxproof}
+
+\setlength\hoffset{-5pt}      % horizontal offset, to move text horizontally
+\setlength{\textwidth}{4.5in} % try different widths
+\setlength\voffset{-5pt}      % vertical offset, to move text vertically
+\setlength{\textheight}{7in}  % try different heights
+
+\newcommand{\Hide}[1]{}             % use \Hide{bla bla} to hide ``bla bla''
+\newcommand{\code}[1]{\texttt{#1}}  % use \code{...} to produce ASCII chars
+\newcommand{\Intro}[1]{{#1}{\textrm{i}}}
+\newcommand{\Elim}[1]{{#1}{\textrm{e}}}
+
+\newcommand{\TTT}{\bm{\mathsf{T}}}
+\newcommand{\FFF}{\bm{\mathsf{F}}}
+
+\title{CS 512, Spring 2014
+       \\[1ex]
+       \textbf{Assignment 5}}
+\author{Shan Sikdar} 
+\date{} % omit date
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 1}
+\begin{enumerate}[(a)]
+% (a)
+\item $\phi = \bold{G}a$
+ \begin{enumerate}[(i)]
+ \item the path $q_3 \to q_4 \to q_3 \to q_4 \to q_3$.... ($q_3$ and $q_4$ keep repeating) will satisfy $Ga$
+ \item No because there are other paths do not satsify $Ga$
+\end{enumerate}
+
+%(b)
+\item $\phi = a \bold{U}b$
+ \begin{enumerate}[(i)]
+ \item the path $q_3 \to q_2....$ ($q_2$ goes on forever) will statisfy $\phi = a \bold{U}b$
+ \item  No because there are other paths that do not satsify $\phi = a \bold{U}b$
+\end{enumerate}
+
+%(c)
+\item $\phi = a \bold{U} X(a \land \neg{b})$
+ \begin{enumerate}[(i)]
+ \item the path $q_3 \to q_4 \to q_3 \to q_4 \to q_3$.... ($q_3$ and $q_4$ keep repeating) will satisfy  $\phi = a \bold{U} X(a \land \neg{b})$
+ \item No because not all of the other paths satsify $\phi = a \bold{U} X(a \land \neg{b})$
+\end{enumerate}
+
+%(d)
+\item $\phi = \bold{X} \neg b \land \bold{G}(\neg a \lor \neg b)$
+ \begin{enumerate}[(i)]
+ \item the path $q_3 \to q_1 \to q_2.....$ will satisfy $\phi = \bold{X} \neg b \land \bold{G}(\neg a \lor \neg b)$
+ \item No because all the other paths do not satsify  $\phi = \bold{X} \neg b \land \bold{G}(\neg a \lor \neg b)$
+\end{enumerate}
+
+%(e)
+\item $\bold{X}(a \land b) \land F(\neg a \land \neg b)$
+ \begin{enumerate}[(i)]
+ \item the path $q_3 \to q_4 \to q_3 \to q_1 \to q_2$... 
+ \item No
+\end{enumerate}
+
+%(f)
+\item $a \land  \bold{F} b$
+ \begin{enumerate}[(i)]
+ \item All possible paths satisfy $a \land  \bold{F} b$.
+ \item Yes all paths satisfy  $a \land  \bold{F} b$
+ \end{enumerate}
+ 
+\end{enumerate}
+
+\section{Problem 2}
+ \begin{enumerate}[(a)]
+%a
+\item $\bold{FG} \varphi$ and $\bold{\varphi \to \bold{X} \varphi}$\\
+The path $p \to \neg p \to \neg p \to p \to p \to p \to p ...$ (p goes on forever) satisfies $\bold{FG} \varphi$ but not  $\bold{\varphi \to \bold{X} \varphi}$
+
+%b
+\item  $\bold{FG} \varphi$ and $\neg \varphi \bold{UG} \varphi $\\
+The path $\neg p \to \neg p \to p \to \neg p \to p \to p \to p \to p...$(p go on forever) satisfies $\bold{FG}$ but not $\neg \varphi \bold{UG} \varphi $ 
+
+%c
+\item $ \bold{G}(\varphi \to \bold{X} \varphi)$ and $\neg \varphi \bold{UG} \varphi $
+The path $p \to p \to p \to p$... (p goes on forever), satsisfies $ \bold{G}(\varphi \to \bold{X} \varphi)$  but not $\neg \varphi \bold{UG} \varphi $.\\
+
+%d
+\item $\bold{F}(\varphi \land \psi)$ and $( \bold{F} \varphi \land \bold{F} \psi)$
+The path $ p \to q \to p \to q \to p...$(have $ p, q$ alternate forever). This satisfies  $( \bold{F} \varphi \land \bold{F} \psi)$ but not  $\bold{F}(\varphi \land \psi)$
+
+\item  
+\begin{enumerate}[(a)]
+\item One implication has shown to be false in part a. To see why the implication is false going the other way, note that the path $\neg p \to \neg p \to \neg p ...$ ($\neg p$ goes on forever) will satisfy  $\bold{\varphi \to \bold{X} \varphi}$ but not $\bold{FG} \varphi$.
+\item $\neg \varphi \bold{UG} \varphi $ implies $\bold{FG} \varphi$,
+\\ Because in the first case you wil have $\bold{G} \varphi$ after some $\neg \varphi$ which implies sometime in the future you will have globally $\varphi$.
+\\ The implication does not exist the other way from the counter example shown in part b.
+
+\item $\neg \varphi \bold{UG} \varphi $ implies  $ \bold{G}(\varphi \to \bold{X} \varphi)$
+\\ Because once you have globally $\varphi$, then you know that if you see $\varphi$ the next state must also have $\varphi$.
+\\ The implication does not exist the other way from the counter example shown in part c.
+
+\item  $\bold{F}(\varphi \land \psi)$ implies $( \bold{F} \varphi \land \bold{F} \psi)$
+\\ Since if we know $\varphi \land \psi$ will be true at some point in the future, at that point both $\varphi$ and $\psi$ have to be true seperately as well. (otherwise the $\land$ could not be true. Then we know sometime in the future $( \bold{F} \varphi \land \bold{F} \psi)$
+ \end{enumerate}
+
+ \end{enumerate}
+ 
+ \newpage
+\section{Problem 3}
+$\varphi \bold{U} \psi \equiv \varphi \bold{W} \psi \land \bold{F}\psi$\\
+proof.\\
+\begin{enumerate}[(1)]
+
+\item $\pi \models \varphi \bold{U} \psi$ iff\\
+By definintion:
+\item $(\exists i \geq 1) [ \pi^i \models \psi \land \pi^1 \models \varphi, ....,\pi^{i-1} \models \varphi ]$ iff\\
+since we know $(\exists i \geq 1)  \pi^i \models \psi$ is true, and using properties of $\land$:
+\item $((\exists i \geq 1)  \pi^i \models \psi) \land (\exists i \geq 1) [ \pi^i \models \psi \land \pi^1 \models \varphi, ....,\pi^{i-1} \models \varphi ]$ iff\\
+Since we know that this statment is true, using properties of $\lor$ :
+\item $((\exists i \geq 1)  \pi^i \models \psi) \land (\exists i \geq 1) [ \pi^i \models \psi \land \pi^1 \models \varphi, ....,\pi^{i-1} \models \varphi ] \lor \forall k \pi^k \models \varphi$ iff\\
+by definitions of $\bold{F}$ and $\bold{W}$:
+\item $\bold{F}\psi \land \varphi \bold{W} \psi$
+\item $\pi \models \bold{F}\psi \land \varphi \bold{W} \psi $
+
+Since we have iff at every line we know that implications work both ways. So they are equivelent.
+ \end{enumerate}
+ $\varphi \bold{W} \psi \equiv \varphi \bold{U} \psi \lor \bold{G}\varphi$\\
+proof.\\
+ \begin{enumerate}[(1)]
+ \item $\pi \models \varphi \bold{W} \psi$ iff\\
+ By definition:
+ 
+ \item $(\exists i \geq 1) [ \pi^i \models \psi \land \pi^1 \models \varphi, ....,\pi^{i-1} \models \varphi ] \lor \forall k \ \pi^k \models \varphi$ iff\\
+ By definition of $\bold{G}$:
+ 
+ \item $(\exists i \geq 1) [ \pi^i \models \psi \land \pi^1 \models \varphi, ....,\pi^{i-1} \models \varphi ] \lor \bold{G}\varphi$ iff\\
+ by Definition of $\bold{U}$:
+ 
+ \item $\varphi \bold{U}  \psi  \lor \bold{G}\varphi $ 
+ \item $\pi \models \varphi \bold{U}  \psi  \lor \bold{G}\varphi$\\
+ Since we have iff at every line we know that implications work both ways. So they are equivelent.
+  \end{enumerate}
+\section{Problem 4}
+
+function NNF($\phi$):\\
+\tab $\phi$ is a literal: return $\phi$ \\
+\tab $\phi$ is $\neg \neg \phi_1$: return $NNF(\phi_1)$\\
+\tab $\phi$ is $\phi_1 \land \phi_2$: return $NNF(\phi_1) \land NNF(\phi_2)$ \\
+\tab $\phi$ is $\phi_1 \lor \phi_2$: return $NNF(\phi_1) \lor NNF(\phi_2)$ \\
+\tab $\phi$ is $\neg(\phi_1 \land \phi_2)$: return $NNF(\neg \phi_1) \lor NNF(\neg \phi_2)$ \\
+\tab $\phi$ is $\neg(\phi_1 \lor \phi_2)$: return $NNF(\neg \phi_1) \land NNF(\neg \phi_2)$ \\
+\\
+\tab $\phi$ is $\bold{G}\phi_1$: return $\bold{G} NNF( \phi_1) $\\
+\tab $\phi$ is $\neg \bold{G}\phi_1$: return $\bold{F} NNF(\neg \phi_1)$\\
+\\
+\tab $\phi$ is $\bold{F}\phi_1$: return $\bold{F} NNF( \phi_1 )$\\
+\tab $\phi$ is $\neg \bold{F}\phi_1$: return $\bold{G} NNF(\neg \phi_1)$\\
+\\
+\tab $\phi$ is $\bold{X}\phi_1$: return $\bold{X} NNF( \phi_1) $\\
+\tab $\phi$ is $\neg \bold{X}\phi_1$: return $\bold{X} NNF(\neg \phi_1)$\\
+\\
+\tab $\phi$ is  $\phi_1\ \bold{U}\  \phi_2$: return $NNF(\phi_1)\ \bold{U} \ NNF(\phi_2)$\\
+\tab $\phi$ is $\neg(\phi_1 \bold{U} \phi_2)$: return $NNF(\neg \phi_1)\ \bold{R} \ NNF(\neg \psi)$\\
+\\
+\tab $\phi$ is  $\phi_1 \ \bold{R} \ \phi_2$: return $NNF(\phi_1)\ \bold{R} \ NNF(\phi_2)$\\
+\tab $\phi$ is $\neg(\phi_1 \bold{R} \phi_2)$: return $NNF(\neg \phi_1)\ \bold{U} \ NNF(\neg \psi)$\\
+\\
+\tab $\phi$ is  $\phi_1 \ \bold{W} \ \phi_2$: return $NNF(\phi_1) \bold{U} \ NNF(\phi_2 ) \lor G \ NNF(\phi)$ \\
+\tab $\phi$ is $\neg(\phi_1 \bold{W} \phi_2)$: return $NNF(\neg(\phi_1 U \phi_2)) \land NNF(\neg \bold{G}\phi_1)$  \\
+
+\newpage
+\section{Problem 5}
+ \begin{enumerate}[(a)]
+ 
+ %a
+ \item 
+ No, take the path $s_2 \to s_4 \to s_2 \to s_4 \to s_2 \to s_4$... When you have $s_2$, r is true, when you have $s_4$ r is false. So this cannot satisfy $\bold{FG}r$
+
+%b
+\item
+Yes,\\
+If you start from $s_1$ there are two ways to go $s_3$ and $s_4$. $s_3$ has an r so thats okay. If we then follow a path to $s_4$ we see that from $s_4$ any state that we move to will have an r. If you start from $s_2$, the next state is $s_4$ which like before any state you move to from there will have an r.
+
+%c
+\item
+Yes,\\
+If $\bold{X}\neg r$ then you know the next state has to be $s_4$. Every state that you can move to from $s_4$ will have r as true. Then you know that in the next next state, r will be true. So $\bold{XX}r$
+
+%d
+\item
+No, take the path $s_2 \to s_4 \to s_2 \to s_4 \to s_2 \to s_4$.... When you have $s_2$, q is false, when you have $s_4$ q is true. So this cannot satisfy $\bold{G}q$
+
+%e
+\item
+Yes.\\
+If you start from $s_1$ you have p and the next states contain a q or  r. If you start from $s_2$ you start with r and then you have already staisfied the condition $q \lor r$ of the $\bold{U}$.
+
+%f
+\item
+ No.\\
+ If you take the path $s_1 \to s_4 \to s_2...$ then this doesn't work.
+ 
+  \end{enumerate}
+\end{document}
+

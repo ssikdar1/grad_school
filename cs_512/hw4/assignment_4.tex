@@ -1,0 +1,236 @@
+%% to produce a PDF copy, issue the following command:
+%%
+%%     pdflatex propositional-logic-examples.tex
+%%
+%% in the same directory containing the LaTeX style files:
+%%
+%%     prooftree.sty  and  boxproof.sty
+
+\documentclass[11pt,leqno,fleqn]{article}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{qtree}
+
+\usepackage{graphicx} 
+\usepackage{times}              % better fonts for mathematical symbols
+\usepackage{bm}                 % unlike \boldmath,
+                                % \bm can be used anywhere within math mode
+\usepackage[scaled=0.9]{helvet} % makes text a little smaller throughout,
+                                % but not the text in math mode.
+\usepackage{./tex/latex/misc/prooftree}
+\usepackage{./tex/latex/misc/boxproof}
+
+
+\usepackage{amssymb}
+\usepackage{fullpage, enumerate}
+\usepackage[usenames]{color}
+\usepackage{graphicx, subfig}
+
+
+\setlength\hoffset{-5pt}      % horizontal offset, to move text horizontally
+\setlength{\textwidth}{4.5in} % try different widths
+\setlength\voffset{-5pt}      % vertical offset, to move text vertically
+\setlength{\textheight}{7in}  % try different heights
+
+\newcommand{\Hide}[1]{}             % use \Hide{bla bla} to hide ``bla bla''
+\newcommand{\code}[1]{\texttt{#1}}  % use \code{...} to produce ASCII chars
+\newcommand{\Intro}[1]{{#1}{\textrm{i}}}
+\newcommand{\Elim}[1]{{#1}{\textrm{e}}}
+
+\newcommand{\TTT}{\bm{\mathsf{T}}}
+\newcommand{\FFF}{\bm{\mathsf{F}}}
+
+\title{CS 512, Spring 2014
+       \\[1ex]
+       \textbf{Assignment 4}}
+\author{} 
+\date{} % omit date
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 1: 2.3.11 a }
+
+ $P(b) \vdash\forall x (x  = b \to P(x))$
+
+\begin{proofbox}
+   \label{d1}\: P(b) \= \textrm{premise} \\
+   \[
+      \label{d2}\: x_0  \= \textrm{fresh} \\
+      \[
+         \label{d3}\: x_0 = b    \= \textrm{assume} \\
+         \label{d4}\: P(x_0) \= \Elim = \ \ref{d1},\ref{d3}\\
+      \]
+      \:(x_0 = b) \to P(x_0) \= \Intro\to \ref{d3},\ref{d4} \\
+   \]
+   \: \forall x ((x = b) \to P(x)) \= \Intro {\forall x } \ \  2-5 \\
+\end{proofbox}
+
+\newpage
+\section{Problem 2: 2.3.12 }
+
+ $S \to \forall x Q(x) \vdash \forall x (S \to Q(x))$
+
+\begin{proofbox}
+   \label{d1}\: S \to \forall x Q(x) \= \textrm{premise} \\
+   \[
+      \label{d2}\: x_0  \= \textrm{fresh} \\
+      \[
+         \label{d3}\:S    \= \textrm{assume} \\
+         \label{d4}\: \forall x Q(x) \= \Elim \to \ \ref{d1},\ref{d3}\\
+         \label{d5}\:  Q(x_0) \= \Elim {\forall x \ } \  \ \\ref{d4}\\
+      \]
+      \: S \to Q(x_0) \= \Intro\to \ref{d3},\ref{d5} \\
+   \]
+   \: \forall x (S \to Q(x)) \= \Intro {\forall x } \ \  2-6 \\
+\end{proofbox}
+
+
+
+
+\newpage
+\section{Problem 3: 2.3.13(a) }
+
+ $\forall x P(a,x,x), \forall x \forall y \forall z (P(x,y,z) \to P(f(x), y, f(z)) ) \vdash P(f(a),a,f(a)) $
+
+\begin{proofbox}
+   \label{d1}\: \forall x P(a,x,x) \= \textrm{premise} \\
+   \label{d2}\: \forall x \forall y \forall z (P(x,y,z) \to P(f(x), y, f(z)) ) \= \textrm{premise} \\  
+    \label{d3}\:  P(a,a,a) \= \Elim {\forall x \ } 1\\
+    \label{d4}\: \forall y \forall z (P(a,y,z) \to P(f(a),y,f(z))) \= \Elim  {\forall x \ } 2\\
+     \label{d5}\: \forall z (P(a,a,z) \to P(f(a),a,f(z))) \= \Elim  {\forall y \ } 4\\
+       \label{d5}\: P(a,a,a) \to P(f(a),a,f(a)) \= \Elim  {\forall z \ } 5\\
+         \label{d5}\: P(f(a),a,f(a)) \= \Elim \to 3,6\\
+\end{proofbox}
+
+
+\section{Problem 3: 2.3.13(b) }
+
+ $\forall x P(a,x,x), \forall x \forall y \forall z (P(x,y,z) \to P(f(x), y, f(z)) ) \vdash \exists z P(f(a),z,f(f(a))) $
+
+\begin{proofbox}
+   \label{d1}\: \forall x P(a,x,x) \= \textrm{premise} \\
+   \label{d2}\: \forall x \forall y \forall z (P(x,y,z) \to P(f(x), y, f(z)) ) \= \textrm{premise} \\  
+    \label{d3}\:  P(a,f(a),f(a)) \= \Elim {\forall x \ } 1\\
+    \label{d4}\: \forall y \forall z (P(a,y,z) \to P(f(a),y,f(z))) \= \Elim  {\forall x \ } 2\\
+     \label{d5}\: \forall z (P(a,f(a),z) \to P(f(a),f(a),f(z))) \= \Elim  {\forall y \ } 4\\
+       \label{d5}\: P(a,f(a),f(a)) \to P(f(a),a,f(f(a))) \= \Elim  {\forall z \ } 5\\
+         \label{d5}\: P(f(a),f(a),f(f(a))) \= \Elim \to 3,6\\
+          \label{d5}\: \exists z P(f(a),z,f(f(a))) \= \Intro {\exists z \ } 7 \\        
+\end{proofbox}
+
+\newpage
+\section{Problem 4}
+
+%problem 4
+\begin{enumerate}[(a)]
+\item
+The formula $\forall x \forall y \exists z (R(x,y) \to R(y,z))$ is not true in the model $M$. Eg, we have $(b,a) \in R^M$, but there is no $m \in A$ with $(a,m) \in R^M$ contrary to what the formula claims. Thus, we may defeat this formula by choosing $b$ for $x$ and $a$ for $y$ to construct the contradiction to the truth of this formula over the given model.
+
+\item
+The formula $\forall x \forall y \exists x(R(x,y) \to R(y,z))$ is true in the model $M$. We may list all the elements of $R$ in a cyclic way as $(a,b), (b,c), (c,b)$, the cycle being the last two pairs. Thus, for any choice of $x$ and $y$ we can find some $z$ so that the implication $R(x,y) \to R(y,z)$ is true.
+
+\end{enumerate}
+
+\section{Problem 5}
+
+%priblem 5
+\begin{enumerate}[(i)]
+\item
+We choose a model with $A$ being the set of integers. We define $(n,m) \in P^M$ if and only if, $n$ is less than or equal to $m$ i.e $(n \leq m)$. Evidently, this interpretation of $P$ is reflexive (every integer is less than equal to itself) and transitive: $n \leq m$ and $m \leq k$ implies $n \leq k$. However, 2 $\leq$ 3 and 3 $\nleq$ 2 show that this interpretation cannot be symmetric.
+
+\item
+We choose as set $A$ the sons of a gentleman. We interpret $P(x,y)$ as "$x$ is brother of $y$". Clearly, this relation is transitive and symmetric but not reflexive.
+
+\item
+We define $A = {a,b,c}$ and $P^M = \{(a,a),(b,b),(c,c),(a,c),(a,b),(b,a),(c,a)\}$. \\
+Note that this interpretation is reflexive and symmetric. We also have that $(b,a)$ and $(a,c)$ are in $P^M$. Thus, we would need $(b,c) \in P^M$ to secure transitivity of $P^M$. Since this is not the case, we infer that this interpretation of $P$ is not transitive.
+\end{enumerate}
+
+
+
+\newpage
+\section{Problem 6}
+\begin{enumerate}[(1)]
+\item %number 1
+What does Lemma 'one' says? Express it in English precisely. Is it satisfiable, unsatisfiable, or valid?\\
+\\
+Lemma 1 states:\\
+ If:\\
+- R contains an edge between every pair of nodes.\\
+-  S contains at most one edge between every node\\
+- R is contained in S\\
+\\
+Then all three of these things imply: S is contained in R.\\
+\\
+This lemma is valid.
+\item %number 2
+Is Lemma 'three' equivalent to Lemma 'one' and Lemma 'two' above ? Express it in English precisely. If not, is it satisfiable, unsatisfiable,  or valid ?\\
+\\
+Lemma 3 states:\\
+If:\\
+- R contains an edge between every pair of nodes. \\
+-  S contains at most one edge between every node \\
+- R is contained in S. \\
+\\
+Then all three of these things imply: S = R.\\
+\\
+Since for S = R, S must be contained in R, Lemma 3 is equivelent to Lemma 1 and 2.\\
+This lemma is valid.\\
+
+\newpage
+\item %number 3
+Is Lemma 'four' equivalent to Lemmas 'one', 'two' or 'three' above? Justify your answer carefully in English. If not, is it satisfiable, unsatisfiable, or valid?\\
+Lemma 4 states:\\
+If:\\
+- R contains an edge between every pair of nodes. \\
+- S has no edges. \\
+- R is contained in S. \\ 
+Then all three of these things imply: S = R.\\
+\\
+Lemma four is not equivalent to lemmas 1,2,3 because lemma 4 states that if S(x, y) then x = y which is a more strict assertion than in lemmas 1,2,3.
+This lemma is valid.\\
+
+\item %number 4
+Is Lemma 'five' equivalent to 'one', 'two', 'three', or 'four' above? Justify your answer carefully in English. If not, is it satisfiable, unsatisfiable, or valid?\\
+\\
+Lemma 5 specifies  that there exists three distinct nodes, while the previous lemma's do not mention how many nodes there need to be. Therefore Lemma 5 is not equivelent to Lemmas 1,2,3,4.  Also, the conclusion in lemma five is that S is not equal to R, which is not what lemmas one through three conclude. 
+\\
+The lemma is satisfiable.
+
+\item  %number 5
+Is Lemma 'six' equivalent to 'one', 'two', 'three', 'four', or 'five'? Justify your answer carefully in English. If not, is it satisfiable, unsatisfiable, or valid ?\\
+Lemma 6 is not equivelent to lemmas 1,2,3 because in lemma 1,2,3 we have that for a node x, there must  be R(x,x), but in lemma 6 this is not allowed since x = x.\\
+Lemma 6 is not equivelent to lemma 4 since in lemma 6 we could have S(x,y) where x and y are different, but according to lemma 4 S(x,y) implies that x and y are the same.\\
+Lemma 6 is not equivelent to lemma 5 since it does not specifiy that there has to exist three distinct nodes.\\
+Lemma is satisfiable.\\
+
+\end{enumerate}
+
+\section{Problem 7}
+%problem 6
+\begin{enumerate}[(i)]
+\item
+``there exists exactly three values of x which make $\varphi(x)$ true" \\
+$\exists a \exists b \exists c (\varphi(a) \land \varphi(b) \land \varphi(c) \land \neg(a = b) \land \neg(b = c) \land \neg(a = c) \land \forall x(\neg (x = a) \land \neg(x = b) \land \neg(x = c)) \to \neg \varphi(x))$
+\\
+\item
+``there exists at least three values of x which makes $\varphi(x)$ true" \\
+$\exists a \exists b \exists c (\varphi (a) \land \varphi(b) \land \varphi(c) \land \neg(a = b) \land \neg (b = c) \land \neg (a = c))$
+\\
+\item
+``there exists at most three values of $x$ which makes $\varphi(x)$ true" \\
+$\forall x(\exists a \exists b \exists c(\varphi(a) \land \varphi(b) \land \varphi(c)) \to ((\neg(x = a) \land \neg(x = b) \land \neg(x = c)) \to \neg \varphi(x)))$
+\\
+\item
+``for all but finitely many values of $x$ it holds that $\varphi(x)$ is true" \\
+$\exists x \forall y(\neg \varphi(y) \to y \leq x)$
+\\
+\item
+``there are infinitely many values of $x$ for which $\varphi(x)$ is true" \\
+$\forall x( \varphi(x) \to \exists y(x \leq y \land \neg(x = y) \land \varphi(y)))$
+\end{enumerate}
+\end{document}
+

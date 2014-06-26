@@ -1,0 +1,633 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.8.1)  25 MAR 2014 09:05
+entering extended mode
+**assignment_4.tex
+(C:\Users\Shan\Documents\GitHub\grad_school\cs_512\assignment_4.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\leqno.clo"
+File: leqno.clo 1998/08/17 v1.1c Standard LaTeX option (left equation numbers)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\fleqn.clo"
+File: fleqn.clo 1998/08/17 v1.1c Standard LaTeX option (flush left equations)
+\mathindent=\dimen102
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size11.clo"
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen103
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks14
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks15
+\ex@=\dimen104
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen105
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count87
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count88
+\leftroot@=\count89
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count90
+\DOTSCASE@=\count91
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count92
+\c@MaxMatrixCols=\count93
+\dotsspace@=\muskip10
+\c@parentequation=\count94
+\dspbrk@lvl=\count95
+\tag@help=\toks16
+\row@=\count96
+\column@=\count97
+\maxfields@=\count98
+\andhelp@=\toks17
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks18
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(C:\Users\Shan\AppData\Roaming\MiKTeX\2.9\tex\latex\qtree\qtree.sty
+Package: 2008/12/12 v.3.1bQtree: tree-drawing for linguistics
+Package: qtree 2008/12/12 v.3.1bQtree: tree-drawing for linguistics
+(C:\Users\Shan\AppData\Roaming\MiKTeX\2.9\tex\latex\pict2e\pict2e.sty
+Package: pict2e 2014/01/12 v0.2z Improved picture commands (HjG,RN,JT)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\pict2e.cfg"
+File: pict2e.cfg 2005/12/29 v1.0 MiKTeX 'pict2e' configuration
+)
+Package pict2e Info: Driver file: pdftex.def on input line 119.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count99
+)
+Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 121.
+
+(C:\Users\Shan\AppData\Roaming\MiKTeX\2.9\tex\latex\pict2e\p2e-pdftex.def
+File: p2e-pdftex.def 2011/04/05 v0.1t Driver-dependant file (RN,HjG,JT)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+\pIIe@GRAPH=\toks20
+\@arclen=\dimen113
+\@arcrad=\dimen114
+\@tempdimd=\dimen115
+)
+\c@treecount=\count100
+\c@branchcount=\count101
+\parentbox=\box28
+\treebox=\box29
+\treeboxone=\box30
+\treeboxtwo=\box31
+\treeboxthree=\box32
+\treeboxfour=\box33
+\treeboxfive=\box34
+\treeboxsix=\box35
+\treeboxseven=\box36
+\treeboxeight=\box37
+\treeboxnine=\box38
+\treeboxten=\box39
+\treeboxeleven=\box40
+\treeboxtwelve=\box41
+\treeboxthirteen=\box42
+\treeboxfourteen=\box43
+\treeboxfifteen=\box44
+\treeboxsixteen=\box45
+\treeboxseventeen=\box46
+\treeboxeighteen=\box47
+\treeboxnineteen=\box48
+\treeboxtwenty=\box49
+\treeoffsetone=\skip46
+\treeoffsettwo=\skip47
+\treeoffsetthree=\skip48
+\treeoffsetfour=\skip49
+\treeoffsetfive=\skip50
+\treeoffsetsix=\skip51
+\treeoffsetseven=\skip52
+\treeoffseteight=\skip53
+\treeoffsetnine=\skip54
+\treeoffsetten=\skip55
+\treeoffseteleven=\skip56
+\treeoffsettwelve=\skip57
+\treeoffsetthirteen=\skip58
+\treeoffsetfourteen=\skip59
+\treeoffsetfifteen=\skip60
+\treeoffsetsixteen=\skip61
+\treeoffsetseventeen=\skip62
+\treeoffseteighteen=\skip63
+\treeoffsetnineteen=\skip64
+\treeoffsettwenty=\skip65
+\treeshiftone=\skip66
+\treeshifttwo=\skip67
+\treeshiftthree=\skip68
+\treeshiftfour=\skip69
+\treeshiftfive=\skip70
+\treeshiftsix=\skip71
+\treeshiftseven=\skip72
+\treeshifteight=\skip73
+\treeshiftnine=\skip74
+\treeshiftten=\skip75
+\treeshifteleven=\skip76
+\treeshifttwelve=\skip77
+\treeshiftthirteen=\skip78
+\treeshiftfourteen=\skip79
+\treeshiftfifteen=\skip80
+\treeshiftsixteen=\skip81
+\treeshiftseventeen=\skip82
+\treeshifteighteen=\skip83
+\treeshiftnineteen=\skip84
+\treeshifttwenty=\skip85
+\treewidthone=\skip86
+\treewidthtwo=\skip87
+\treewidththree=\skip88
+\treewidthfour=\skip89
+\treewidthfive=\skip90
+\treewidthsix=\skip91
+\treewidthseven=\skip92
+\treewidtheight=\skip93
+\treewidthnine=\skip94
+\treewidthten=\skip95
+\treewidtheleven=\skip96
+\treewidthtwelve=\skip97
+\treewidththirteen=\skip98
+\treewidthfourteen=\skip99
+\treewidthfifteen=\skip100
+\treewidthsixteen=\skip101
+\treewidthseventeen=\skip102
+\treewidtheighteen=\skip103
+\treewidthnineteen=\skip104
+\treewidthtwenty=\skip105
+\daughteroffsetone=\skip106
+\daughteroffsettwo=\skip107
+\daughteroffsetthree=\skip108
+\daughteroffsetfour=\skip109
+\branchwidthone=\skip110
+\branchwidthtwo=\skip111
+\branchwidththree=\skip112
+\branchwidthfour=\skip113
+\parentoffset=\skip114
+\treeoffset=\skip115
+\daughteroffset=\skip116
+\branchwidth=\skip117
+\parentwidth=\skip118
+\treewidth=\skip119
+\qta=\toks21
+\qtb=\toks22
+\nbranches=\count102
+\qroofx=\count103
+\qroofy=\count104
+\@qrscratchbox=\box50
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks23
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+)
+\Gin@req@height=\dimen116
+\Gin@req@width=\dimen117
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\times.sty"
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\bm.sty"
+Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 138.
+LaTeX Info: Redefining \bm on input line 204.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\helvet.sty"
+Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+(C:\Users\Shan\Documents\GitHub\grad_school\cs_512\tex\latex\misc\prooftree.sty
+<Paul Taylor's Proof Trees, 2 August 1996>
+\proofrulebreadth=\dimen118
+\proofdotseparation=\dimen119
+\proofrulebaseline=\dimen120
+\proofdotnumber=\count105
+\shortenproofleft=\dimen121
+\shortenproofright=\dimen122
+\proofbelowshift=\dimen123
+\proofabove=\box51
+\proofbelow=\box52
+\proofrulename=\box53
+)
+(C:\Users\Shan\Documents\GitHub\grad_school\cs_512\tex\latex\misc\boxproof.sty
+<Paul Taylor's Proof Boxes, 8 November 1993>
+ ****** This is an experimental version - please get an up-to-date one ******
+ by anonymous FTP theory.doc.ic.ac.uk /tex/contrib/Taylor/tex/boxproof.tex
+\prooflinenowidth=\dimen124
+\proofboxfullwidth=\dimen125
+\proofboxleftmargin=\dimen126
+\proofboxrightmargin=\dimen127
+\proofboxrulebreadth=\dimen128
+\proofboxseparation=\dimen129
+\proofboxbaselineskip=\dimen130
+\proofcolumns=\count106
+\prooflinetotal=\count107
+\prooflineinbox=\count108
+\proofboxproposition=\box54
+\proofboxreason=\box55
+\proofboxuse=\box56
+\proofboxvariables=\box57
+\proofboxintercol=\dimen131
+\proofboxsurround=\dimen132
+\proofboxformulawidth=\dimen133
+\proofboxmargin=\dimen134
+\proofboxlefttabskip=\skip120
+\proofboxrighttabskip=\skip121
+\pb@L=\box58
+\pb@T=\dimen135
+\pb@U=\dimen136
+\pb@M=\dimen137
+\pb@N=\dimen138
+\pb@O=\dimen139
+\pb@P=\dimen140
+\pb@Q=\dimen141
+\pb@R=\dimen142
+\pb@S=\dimen143
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(C:\Users\Shan\AppData\Roaming\MiKTeX\2.9\tex\latex\preprint\fullpage.sty
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip122
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\enumerate.sty"
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks24
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(C:\Users\Shan\AppData\Roaming\MiKTeX\2.9\tex\latex\subfig\subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(C:\Users\Shan\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(C:\Users\Shan\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen144
+\captionmargin@=\dimen145
+\captionwidth=\dimen146
+\caption@tempdima=\dimen147
+\caption@indent=\dimen148
+\caption@parindent=\dimen149
+\caption@hangindent=\dimen150
+)
+\c@ContinuedFloat=\count109
+)
+\c@KVtest=\count110
+\sf@farskip=\skip123
+\sf@captopadj=\dimen151
+\sf@capskip=\skip124
+\sf@nearskip=\skip125
+\c@subfigure=\count111
+\c@subfigure@save=\count112
+\c@lofdepth=\count113
+\c@subtable=\count114
+\c@subtable@save=\count115
+\c@lotdepth=\count116
+\sf@top=\skip126
+\sf@bottom=\skip127
+)
+(C:\Users\Shan\Documents\GitHub\grad_school\cs_512\assignment_4.aux
+
+LaTeX Warning: Label `d1' multiply defined.
+
+
+LaTeX Warning: Label `d2' multiply defined.
+
+
+LaTeX Warning: Label `d3' multiply defined.
+
+
+LaTeX Warning: Label `d4' multiply defined.
+
+
+LaTeX Warning: Label `d1' multiply defined.
+
+
+LaTeX Warning: Label `d2' multiply defined.
+
+
+LaTeX Warning: Label `d3' multiply defined.
+
+
+LaTeX Warning: Label `d4' multiply defined.
+
+
+LaTeX Warning: Label `d5' multiply defined.
+
+
+LaTeX Warning: Label `d5' multiply defined.
+
+
+LaTeX Warning: Label `d5' multiply defined.
+
+
+LaTeX Warning: Label `d1' multiply defined.
+
+
+LaTeX Warning: Label `d2' multiply defined.
+
+
+LaTeX Warning: Label `d3' multiply defined.
+
+
+LaTeX Warning: Label `d4' multiply defined.
+
+
+LaTeX Warning: Label `d5' multiply defined.
+
+
+LaTeX Warning: Label `d5' multiply defined.
+
+
+LaTeX Warning: Label `d5' multiply defined.
+
+
+LaTeX Warning: Label `d5' multiply defined.
+
+)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 50.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(C:\Users\Shan\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count117
+\scratchdimen=\dimen152
+\scratchbox=\box59
+\nofMPsegments=\count118
+\nofMParguments=\count119
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count120
+\MPscratchDim=\dimen153
+\MPnumerator=\count121
+\makeMPintoPDFobject=\count122
+\everyMPtoPDFconversion=\toks26
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 52.
+LaTeX Font Info:    Try loading font information for U+msa on input line 52.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 52.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 54.
+ [1
+
+{C:/Users/Shan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+Overfull \hbox (4.44601pt too wide) in paragraph at lines 96--97
+$\OMS/cmsy/m/n/10.95 8\OML/cmm/m/it/10.95 xP\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/1
+0.95 a; x; x\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/10.95 8\OML
+/cmm/m/it/10.95 x\OMS/cmsy/m/n/10.95 8\OML/cmm/m/it/10.95 y\OMS/cmsy/m/n/10.95 
+8\OML/cmm/m/it/10.95 z\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.
+95 (\OML/cmm/m/it/10.95 x; y; z\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ! \OML/
+cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.95 (\O
+ML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; y; f\OT1/cmr/m/n/1
+0.95 (\OML/cmm/m/it/10.95 z\OT1/cmr/m/n/10.95 ))) \OMS/cmsy/m/n/10.95 ` \OML/cm
+m/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.95 (\OML
+/cmm/m/it/10.95 a\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; a; f\OT1/cmr/m/n/10.
+95 (\OML/cmm/m/it/10.95 a\OT1/cmr/m/n/10.95 ))$ 
+ []
+
+
+Overfull \hbox (30.94534pt too wide) in paragraph at lines 111--112
+$\OMS/cmsy/m/n/10.95 8\OML/cmm/m/it/10.95 xP\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/1
+0.95 a; x; x\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/10.95 8\OML
+/cmm/m/it/10.95 x\OMS/cmsy/m/n/10.95 8\OML/cmm/m/it/10.95 y\OMS/cmsy/m/n/10.95 
+8\OML/cmm/m/it/10.95 z\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.
+95 (\OML/cmm/m/it/10.95 x; y; z\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ! \OML/
+cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.95 (\O
+ML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; y; f\OT1/cmr/m/n/1
+0.95 (\OML/cmm/m/it/10.95 z\OT1/cmr/m/n/10.95 ))) \OMS/cmsy/m/n/10.95 ` 9\OML/c
+mm/m/it/10.95 zP\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.95 (\O
+ML/cmm/m/it/10.95 a\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; z; f\OT1/cmr/m/n/1
+0.95 (\OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 a\OT1/cmr/m/
+n/10.95 )))$ 
+ []
+
+[3]
+Overfull \hbox (53.82256pt too wide) in paragraph at lines 148--150
+[]\OT1/ptm/m/n/10.95 We de-fine $\OML/cmm/m/it/10.95 A \OT1/cmr/m/n/10.95 = []$
+ \OT1/ptm/m/n/10.95 and $\OML/cmm/m/it/10.95 P[] \OT1/cmr/m/n/10.95 = \OMS/cmsy
+/m/n/10.95 f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 a; a\OT1/cmr/m/n/10.95 )\OM
+L/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 b; b\OT1/cmr/m/n/10.
+95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 c; c\OT1/cmr/
+m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 a; c\O
+T1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95
+ a; b\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/i
+t/10.95 b; a\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/
+cmm/m/it/10.95 c; a\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 g$\OT1/ptm/m/n/10.95
+ . 
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 158--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--182
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--182
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--182
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--182
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 185--195
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--195
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--202
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 204--209
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 216--220
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--224
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--228
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--232
+
+ []
+
+[7] (C:\Users\Shan\Documents\GitHub\grad_school\cs_512\assignment_4.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4001 strings out of 493921
+ 57156 string characters out of 3144880
+ 121208 words of memory out of 3000000
+ 7229 multiletter control sequences out of 15000+200000
+ 21973 words of font info for 62 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 44i,12n,42p,421b,209s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/
+MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/urw/times/utmr8a.pfb>
+Output written on assignment_4.pdf (7 pages, 90891 bytes).
+PDF statistics:
+ 59 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

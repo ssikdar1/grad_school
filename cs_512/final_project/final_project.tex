@@ -1,0 +1,123 @@
+%% to produce a PDF copy, issue the following command:
+%%
+%%     pdflatex propositional-logic-examples.tex
+%%
+%% in the same directory containing the LaTeX style files:
+%%
+%%     prooftree.sty  and  boxproof.sty
+
+\documentclass[11pt,leqno,fleqn]{article}
+
+\newcommand{\tab}{\hspace*{2em}}
+\usepackage{amsfonts}
+\usepackage{fullpage, enumerate}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{qtree}
+\usepackage{listings}
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{automata}
+
+
+\newcommand{\handout}[6]{{
+    \begin{center}
+    \begin{minipage}{16cm}
+    \setlength{\parindent}{0cm}%
+        \fbox{\vbox{%
+            {#1}%
+            \hfill
+#2
+
+                \center{\Large{#5}}
+
+            \emph{#3}\hfill #4
+        }}%
+    \vskip0pt
+        \vbox{\hfill  #6}%
+        \end{minipage}
+    \end{center}
+    \vspace{2cm}
+}}
+
+
+
+
+\usepackage{graphicx} 
+\usepackage{times}              % better fonts for mathematical symbols
+\usepackage{bm}                 % unlike \boldmath,
+                                % \bm can be used anywhere within math mode
+\usepackage[scaled=0.9]{helvet} % makes text a little smaller throughout,
+                                % but not the text in math mode.
+%\usepackage{./tex/latex/misc/prooftree}
+%\usepackage{./tex/latex/misc/boxproof}
+
+\setlength\hoffset{-5pt}      % horizontal offset, to move text horizontally
+\setlength{\textwidth}{4.5in} % try different widths
+\setlength\voffset{-5pt}      % vertical offset, to move text vertically
+\setlength{\textheight}{7in}  % try different heights
+
+\newcommand{\Hide}[1]{}             % use \Hide{bla bla} to hide ``bla bla''
+\newcommand{\code}[1]{\texttt{#1}}  % use \code{...} to produce ASCII chars
+\newcommand{\Intro}[1]{{#1}{\textrm{i}}}
+\newcommand{\Elim}[1]{{#1}{\textrm{e}}}
+
+
+\newcommand{\TTT}{\bm{\mathsf{T}}}
+\newcommand{\FFF}{\bm{\mathsf{F}}}
+
+
+
+
+
+\begin{document}  
+\handout{CS 512, Formal Methods, Spring 2014}
+{Instructor:Assaf Kfoury}
+{May 5, 2014}
+{Noah McCarn and Shan Sikdar}
+{Technical Report}  \\
+
+\section{Simple Graph}
+First we needed to formulate a model of a graph that captures the concepts of node, edge, path, and directness. First we created two signatures, node and edge that are abstract as to easily implement each node and edge when encoding the Konigsburg bridge problem. Node took no parameters and Edge took one parameter, connects. Connects is a set of exactly two Nodes. We also created another signature called DirEdge that also is abstract. DirEdge would be implemented if you wanted a directed graph whereas Edge would be implemented if one would want an undirected graph.
+ 
+To implement a path of the graph, we constructed two signatures, Path and Step. Path took one parameter which was a Step. Step took four parameters, from and to which are Nodes, via which is an Edge and nextStep which is of type Step and set the nextStep to be taken in the path. The fact, all curr : Step, next : curr.nextStep $|$ next.from = curr.to, ensures that the destination of the current step is the start of the next step. The function steps return the next steps. Finally, we implement a predicate for Alloy to find a model given the constraints called path. 
+
+
+
+\section{ Seven Bridges}
+
+
+\textbf{Formulate the concepts of is connected and  has a Eulerian path . Encode the Konigsburg bridge problem (shown below) using Alloy initializers and demonstrate that it is connected, but does not have any Eulerian path. Create the smallest possible modification to the Konigsburg bridge problem such that the modified version is connected and has a Euleria path.}
+
+(From wikipedia: In graph theory, an Eulerian trail (or Eulerian path) is a trail in a graph which visits every edge exactly once.)\\
+\begin{enumerate}[(a)]
+\item \textbf{Formulation.}\\
+\begin{enumerate}[(i)]
+\item \textbf{Connectedness}\\
+We defined connectedeness as there exists a path  for all nodes such that all nodes are in this path. We then tested on different cases. We first had one isolated node in the graph and alloy returned that the model was inconsistent. We then created a graph that contained two connected components that were disjoint. Alloy still returned that the model was inconsistent. Finally we created a connected graph and alloy found an instance. After that we encoded the seven bridges graph and alloy found an instance. Therefore the seven bridges contains a path that contains all nodes. Therefore the seven bridges problem is connected.
+\item \textbf{Eulerian Path.}\\
+To formulate the concept of having an eulerian path, we first defined what it means to have a Path across different edges.  (This is done above). To make sure that the path crossed all edges we had a predicate that made sure that there was one path that went through edges. (So that there was a path that didn't simply go from one node to itself forever). \\
+To ensure that the path crossed each edge exactly once, we limted running the path to seven and see that it run for exactly one path. (run path for 7 but exactly 1 path). When the model runs it couldn't find an instance and therefore we know the predicate is inconsistent. Therefore the graph has no Eulerian graph.\\
+\end{enumerate}
+\item \textbf{The smallest possible modification.}\\
+\\
+From wikipedia: For the existence of Eulerian trails it is necessary that zero or two vertices have an odd degree. Looking at the graph for the seven bridges, we see that degrees of the nodes are 3,5,3,3. So if we add or subtract an edge we should be able to get a Eulerian trail. So we tried adding an edge between East and West will create an eulerian path. Changing the code to have run show() for 8 but 1 path, alloy can find an instance of the model, and say it's consistent. Therefore we know our new formulation has an Eulerian path.
+
+\end{enumerate}
+
+\textbf{Acknowlements and References:}
+\begin{enumerate}[(i)]
+\item Software Abstractions. (Daniel Jackson)
+\item A Guide to alloy. (Wong,Herrman,Tayeb)\\
+found here:\\
+\url{https://www.doc.ic.ac.uk/project/examples/2007/271j/suprema_on_alloy/Final\%20Report/LaTeX/report.pdf}
+
+\end{enumerate}
+
+
+
+\end{document}
+

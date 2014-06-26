@@ -1,0 +1,45 @@
+Just Strandardizing using Zcores:
+ Trial 1
+ 0.6974 Linear
+0.6974 Quadratic
+0.6711 poly order 3
+0.2500 rbf
+0.5526  rbf sigma 16
+0.4342 mlp
+0.6974  svmtrain(TrainingSet,G1vAll,'kernel_function','quadratic','boxconstraint',6);	
+0.6974 svmtrain(TrainingSet,G1vAll,'kernel_function','quadratic','boxconstraint',7);
+
+Trial 2
+0.6579 Linear 
+0.7237 Quadratic
+0.7105 poly order 3
+0.3684 rbf sigma 1
+0.5132 rbf sigma 16
+0.3553 mlp 
+0.7237 models(k) = svmtrain(TrainingSet,G1vAll,'kernel_function','quadratic','boxconstraint',6);
+0.7237 models(k) = svmtrain(TrainingSet,G1vAll,'kernel_function','quadratic','boxconstraint',7);
+
+
+After Standardizing and doing PCA and then taking the first 10 dimensions in the new basis 
+
+	Trial 1
+   0.7105  Linear
+	0.8421 Quadratic
+	0.8421 poly order 3
+	0.7763 rbf sigma 1
+	0.6579 rbf sigma 16
+	 0.4868 mlp
+	 0.8421 models(k) = svmtrain(TrainingSet,G1vAll,'kernel_function','quadratic','boxconstraint',6);
+	 0.8553 models(k) = svmtrain(TrainingSet,G1vAll,'kernel_function','quadratic','boxconstraint',7);
+
+
+
+	 Trial 2 
+	 0.8026 Linear
+	0.9211 Quadratic
+	 0.8816 poly order 3
+	 0.6447 rbf sigma 1
+	  0.7632 rbf sigma 16
+	  0.5789 mlp
+	     0.9079 svmtrain(TrainingSet,G1vAll,'kernel_function','quadratic','boxconstraint',6);	  
+	     0.9079 svmtrain(TrainingSet,G1vAll,'kernel_function','quadratic','boxconstraint',7);

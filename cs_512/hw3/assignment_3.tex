@@ -1,0 +1,175 @@
+%% to produce a PDF copy, issue the following command:
+%%
+%%     pdflatex propositional-logic-examples.tex
+%%
+%% in the same directory containing the LaTeX style files:
+%%
+%%     prooftree.sty  and  boxproof.sty
+
+\documentclass[11pt,leqno,fleqn]{article}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{qtree}
+
+\usepackage{graphicx} 
+\usepackage{times}              % better fonts for mathematical symbols
+\usepackage{bm}                 % unlike \boldmath,
+                                % \bm can be used anywhere within math mode
+\usepackage[scaled=0.9]{helvet} % makes text a little smaller throughout,
+                                % but not the text in math mode.
+%\usepackage{./tex/latex/misc/prooftree}
+%\usepackage{./tex/latex/misc/boxproof}
+
+\setlength\hoffset{-5pt}      % horizontal offset, to move text horizontally
+\setlength{\textwidth}{4.5in} % try different widths
+\setlength\voffset{-5pt}      % vertical offset, to move text vertically
+\setlength{\textheight}{7in}  % try different heights
+
+\newcommand{\Hide}[1]{}             % use \Hide{bla bla} to hide ``bla bla''
+\newcommand{\code}[1]{\texttt{#1}}  % use \code{...} to produce ASCII chars
+\newcommand{\Intro}[1]{{#1}{\textrm{i}}}
+\newcommand{\Elim}[1]{{#1}{\textrm{e}}}
+
+\newcommand{\TTT}{\bm{\mathsf{T}}}
+\newcommand{\FFF}{\bm{\mathsf{F}}}
+
+\title{CS 512, Spring 2014
+       \\[1ex]
+       \textbf{Assignment 3}}
+\author{Shan Sikdar} 
+\date{Due Monday Feburary 17th} % omit date
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 1 }
+Excercise 2.1.4 parts (a),(b),(c),(d),(e),(g). Skip part f which is ambiguous.\\
+(a) Everybody has a mother.\\
+$\forall x \ \ \exists y \ \ M(y,x)$\\
+(b) Everbody has a father and a mother.\\
+$\forall x \ \ \exists y  \ \ \exists z  \ \ M(y,x) \land F(z,x)$\\
+(c) Whoever has a mother has a father.\\
+$\forall x \ ( \exists y M(y,x) \to \exists z \ \   F(z,x))$\\
+(d) Ed is a grandfather.\\
+$ \exists x \exists y (M(y,x) \lor F(y,x)) \land F(Ed,y)$\\
+(e) All fathers are parents.\\
+$\forall x \ \ (\exists y F(x,y) \to \exists y ( F(x,y) \lor M(x,y)))  $\\
+(g) No uncle is an aunt.\\
+$\forall x \; ( \exists y (F(x,y) \vee H(x,y) \vee B(x,y)) \; \rightarrow \; ( \; \neg(M(x,y) \vee S(x,y))))$.
+
+\newpage
+\section{Problem 2}
+Excercise 2.24 (a),(b),(c) and (d) only.\\
+Let $\phi$ be $\exists x (P(y,z) \land (\forall y ( \neg{Q(y,x)} \lor P(y,z)))) $\\
+(a) 
+\\
+\\
+\Tree[.$\exists x$
+          [.$\land$
+          	 [.P
+          	 	 [. y ]
+               		[. z ] ]
+                [.$\forall y$
+                	 [.$\lor$
+                	 	[.$\neg$ [.Q
+                	 		 [.y  ]
+               				[.x ]  ]]
+                          	 [.P
+                           		 [.y  ]
+                               		 [.z 
+                                     ]]]]]]
+\\ \\
+(b) Identify all bound and free variable leaves in $\phi$\\
+All the leaf nodes with z are free. the leaf of y on the left side of the tree is free. The two y leafs on the right side of the tree are bound.\\
+\\
+(c) Is there are variables in $\phi$ which has a bound and fee occurances?\\
+Yes the variable y.\\
+(d)\\
+(i) Compute $\phi[w/x], \phi[w/y], \phi[f(x)/y]$ and $\phi[ g(y,z)/z]$\\
+ $\phi[w/x] $ is $\phi$ since all occurances of x in $\phi$ are bound.\\
+ $ \phi[w/y] $ is $\exists x (P(w,z) \land \forall y (\neg{Q(y,x)} \lor P(y,z)))$ (replace the sole free occurance of y with w)\\
+ $ \phi[f(x)/y]$ is $\exists x (P(f(x),z) \land \forall y (\neg{Q(y,x)} \lor P(y,z)))$ (replace the sole free occurance of y with f(x) )\\
+ $\phi[ g(y,z)/z]$ is  $\exists x (P(y,g(y,z)) \land \forall y (\neg{Q(y,x)} \lor P(y,g(y,z))))$ since we replace all free occurances of z with g(y,z) \\
+ (ii) Since there are no free occurances of x in $\phi$ you can say all of them are free for x in $\phi$\\
+ (iii) Only w and g(y,z). You can't use f(x) is not free for y because there is an $\exists x$ quantifier above it.
+  
+\section{}
+Let $\phi$ be a propostional WFF in NNF and let $CNF(\phi) = <l, \Delta>$. Then $\phi$ is satisfiable iff ${l} \cup \Delta$  is satisfiable.\\
+Proof: induction on the number of times the 4 cases of CNF() are used. \\
+Base Case: \\
+(i)If $\phi = p$ then $CNF(\phi) = <p, \emptyset>$ . Then looking at $p \cup \emptyset$, it will be satisfiable if and only if p is satisfiable.\\
+(ii) If $\phi = \neg{p}$.  $CNF(\phi) = <\neg{p} , \emptyset>$ Then looking at $\neg{p} \cup \emptyset$, it will be satisfiable if and only if $\neg{p}$ is satisfiable.\\
+(iii) If $\phi = p \land q$ for some propsitonal atoms p and q. From the application of the formula on the handout we get\\
+For some propsitonal atom l:
+$CNF(\phi) = \left\langle l \cup \left\lbrace \neg l \vee p, \neg l \vee q, \neg p \vee \neg q \vee l \right\rbrace \right\rangle$. \\
+Let everything inside the brace be denoted by $\Delta$. Now look at $\Delta \cup \{l\}$. If $\phi$ is satsifiable,  $\Delta \cup \{l\}$ will be satisfiable since the atoms must either be true or false. If either are  true the  $\lor$ statements will $\neg l \vee p$ or  $\neg l \vee q$ will valuate to True. If both are false then  $\neg p \vee \neg q \vee l $ will valuate to true. \\
+Now look at $\Delta \cup \{l\}$ and show that implies $\phi$ is satisfiable. Assume that $\phi$ was not satisfiable, then delta would end up being not satisfiable based on the recursive definition o CNF and using similar logic as above. Similary the propostinal atom l would also not be satisifiable\\
+(iv) $\phi = p \lor q$ this case is similar to (iii) except istead of worrying about both p and q being true because of the $\land$ we now only need one of them to get satisfibility. \\
+Assume true for k, show for k+1:\\
+Well by the recursive definiton of CNF, a wff that uses the number of cases k+1 times, will need to use it at least k times in the process. Then those k times will hold by induction hypothesis and reduces the k+1 case to the cases above. Therefore the k+1 case holds.
+
+\newpage{}
+\section{}
+To make it look neater im using * instead of x for multiplication.\\
+\\
+(a) write a first order WFF $\rho_1(x)$ which defines the set \{0\}\\
+\\
+$\rho_1(x) := \forall y (x + y = y) $\\
+\\
+(b) write a first order WFF $\rho_2(x)$ which defines the set \{1\}\\
+\\
+$\rho_2(x) := \forall y (x * y = y) $\\
+\\
+(c) first order WFF $\rho_3(x,y)$ which defines  $\{ <m,n>| n = m + 1 \in \mathbb{N}\}$\\
+\\
+$\rho_3(x) := \exists c \ \ (\rho_2(c) \land (x = y + c))$\\
+\\
+(d) first order WFF $\rho_3(x,y)$ which defines  $\{ <m,n>| m < n \in \mathbb{N}\}$\\
+\\
+$\rho_4(x,y) := \exists z \ \ (\neg{(\rho_1(z))}  \land (x  + z =   y))$\\
+%$\rho_4(x,y) := \exists q \ \  \exists r  \ \ (x =  y * q + r) \land ( r < y) $\\
+
+\newpage
+\section{}
+(a) Formalize the PHP as a satisfibility problem. Specifically write a propostional WFF $\phi$ whoose satisfiability means the PHP holds.\\
+Let $P_{ij}$ indicate that pigeon i is in hole j, where$1 \leq i \leq n$ and $1 \leq j \leq n$.\\
+
+If there is an empty hole, since the number of holes is less than number of pigeons, there must a hole that has more than one pigeon.
+If the number of holes and pigeons was 3 for example we could express an empty hole as: 
+$(\neg{P_{1 1} \land \neg P_{21} \land \neg P_{31}}) \lor (\neg{P_{1 2} \land \neg P_{22} \land \neg P_{32}})  \lor (\neg{P_{1 3} \land \neg P_{23} \land \neg P_{33}})$ and so on.\\
+Generalizing to the n case we can write this as:\\
+$\bigvee_{j}^{n-1} (\bigwedge_{i}^n \neg{P_{ij}})  $ Where I use to $\bigvee$ and $\bigwedge$ as a shorthand for first ranging through all pigeons and then holes. 
+Now if there are two birds in one hole, then the pidgeon principle must also be true. Expressed in terms of the example condition from before:\\
+$(P_{11} \land P_{21}) \lor (P_{11} \land P_{31}) \lor (P_{21} \land P_{31}) ...$ and so on.\\
+More Generally we have: $\bigvee_j \bigvee_i (P_{i_1 j} \land P_{i_2 j})$ where $i_1 \neq i_2$ (First range over all holes and then for each hole through each possible pair of pigeon combinations.)\\
+\\
+Combining these two facts togther we have: \\
+ $\bigvee_{j}^{n-1} (\bigwedge_{i}^n \neg{P_{ij}})  \lor  \bigvee_j \bigvee_i (P_{i_1 j} \land P_{i_2 j})$\\
+ Using the fact that $\phi \to \psi \equiv \neg{\phi} \lor \psi$ :\\
+ $\bigwedge (\bigvee P_{ij}) \to  \bigvee_j \bigvee_i (P_{i_1 j} \land P_{i_2 j})$\\
+
+ Choosing the left to $\rho_1$ and the right expression to be $\rho_2$ we have:\\
+ $\rho := \rho_1 \to \rho_2 $\\
+ And so we have a propositonal wff for the pigeon hole principle.\\
+ 
+(b) Implmentation. I wrote two different implmentation cases in Isabelle, one for the n = 3 and one for n =4. 
+In my experience the n = 3 case pretty much ran almost instantly. For the n = 4 case it turned out to run a little slower. To handle the n = 10 case I would try and optomize the wff so that it can backtrack less.
+
+\section{}
+(1) 2, \\
+Using the DPLL transitonal rules and procedure, there are three different Models which make $\rho_1$ true:\\
+$M_1 = \{p,q,r,s\}$\\
+$M_2 = \{p,\neg q,r,s\}$\\
+$M_3 = \{p,q,\neg r,s\}$\\
+The last two will make $\rho_1$ true so they will terminate without any more iterations. Only the one in the hint takes 2 iterations.\\
+So the maximum number is 2.
+\\
+(2)
+Take the original $\rho_0$ and add wffs that contain contradictions. This will force the SMT to do 3 more iterations.
+So let\\
+ $\psi_0 = x + y \geq 0 \land (x = z \to z+y = -1) \land z>3t \land (g = 1 \land g > 1) \land (h = 2 \land h >2) \land (j = 3 \land j > 3) $\\
+
+\end{document}
+

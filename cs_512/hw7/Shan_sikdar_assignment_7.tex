@@ -1,0 +1,219 @@
+%% to produce a PDF copy, issue the following command:
+%%
+%%     pdflatex propositional-logic-examples.tex
+%%
+%% in the same directory containing the LaTeX style files:
+%%
+%%     prooftree.sty  and  boxproof.sty
+
+\documentclass[11pt,leqno,fleqn]{article}
+
+\newcommand{\tab}{\hspace*{2em}}
+\usepackage{amsfonts}
+\usepackage{fullpage, enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{qtree}
+\usepackage{listings}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{automata}
+
+\usepackage{graphicx} 
+\usepackage{times}              % better fonts for mathematical symbols
+\usepackage{bm}                 % unlike \boldmath,
+                                % \bm can be used anywhere within math mode
+\usepackage[scaled=0.9]{helvet} % makes text a little smaller throughout,
+                                % but not the text in math mode.
+%\usepackage{./tex/latex/misc/prooftree}
+%\usepackage{./tex/latex/misc/boxproof}
+
+\setlength\hoffset{-5pt}      % horizontal offset, to move text horizontally
+\setlength{\textwidth}{4.5in} % try different widths
+\setlength\voffset{-5pt}      % vertical offset, to move text vertically
+\setlength{\textheight}{7in}  % try different heights
+
+\newcommand{\Hide}[1]{}             % use \Hide{bla bla} to hide ``bla bla''
+\newcommand{\code}[1]{\texttt{#1}}  % use \code{...} to produce ASCII chars
+\newcommand{\Intro}[1]{{#1}{\textrm{i}}}
+\newcommand{\Elim}[1]{{#1}{\textrm{e}}}
+
+
+\newcommand{\TTT}{\bm{\mathsf{T}}}
+\newcommand{\FFF}{\bm{\mathsf{F}}}
+
+\title{CS 512, Spring 2014
+       \\[1ex]
+       \textbf{Assignment 7}}
+\author{Shan Sikdar} 
+\date{} % omit date
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 1.3.48 a,b,c,d}
+\begin{enumerate}[(a)]
+\item  $\bold{AF}q$\\
+$s_0$: Yes: satisfies since q is true at $s_0$.\\
+$s_2$: Yes: From $s_2$ you can only go to $s_0$ and $s_3$ where q is true
+\item $\bold{AG}(\bold{EF}(p \lor r))$\\
+$s_0$: Yes: since in every  state p or r is true\\
+$s_2$: Yes: since in every state p or r is true
+\item $\bold{EX}(\bold{EX}r)$\\
+$s_0$: Yes: look at the path $s_0 s_1 s_1...$\\
+$s_2$: Yes: look at the path $s_2 s_0 s_1...$
+\item $\bold{AG}(\bold{AF}q)$\\
+$s_0$: No: since we can have the path $s_0 s_1 s_1....$\\
+$s_2$: No: since we can have the path $s_2 s_0 s_1...$
+\end{enumerate}
+
+\newpage
+\section{Problem 3.4.9}
+new $\bold{AG} \phi$: \tab $\bold{AX}(\bold{AG} \phi)$\\
+new $\bold{EG} \phi$: \tab $\bold{EX}(\bold{EG}\phi)$\\
+new $\bold{AF} \phi$': \tab$\bold{AXA}\phi$\\
+new $\bold{EF} \phi$: \tab$\bold{EXEF}\phi$\\
+new $\bold{A}[\phi_1 \bold{U} \phi_2]$: \tab $\phi_1 \land \bold{AXA}[\phi_1 \bold{U} \phi_2]$\\
+new $\bold{A}[\phi_1 \bold{U} \phi_2]$: \tab $\phi_1 \land \bold{EXE}[\phi_1 \bold{U} \phi_2]$
+
+\section{Problem 3.4.10 a,b,c,d,e}
+\begin{enumerate}[(a)]
+
+\item $\bold{EF}\phi$ and $\bold{EG}\phi$\\
+In the state transition system below note that: $\mathcal{M},s_0 \models \bold{EF}\phi $ but not   $\bold{EG}\phi$. So they are not equivelent.\\
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+  \node[main node] (1) {$s_0: \neg p$};
+  \node[main node] (2) [ right of=1] {$s_1: p$};
+  \node[main node] (4) [ right of=2] {$s_2: \neg p$};
+\draw[<-] (1) -- node[above] {start} ++(-2cm,0);
+  \path[every node/.style={font=\sffamily\small}]
+    (1) 
+        edge [ right] node[left] {} (2)
+    (2) 
+        edge node {} (4)
+
+    (4) edge [loop right] node {} (4);
+\end{tikzpicture}
+
+\item $\bold{EF}\phi \lor \bold{EF}\psi$ and $\bold{EF}(\phi \lor \psi)$\\
+They are equivelent.\\
+1. First, assume that $s \models \bold{EF}\phi \lor \bold{EF}\psi$. Without loss of generality, assume that $s \models \bold{EF}\phi$. This means that there is a future state $s_n$, reachable from s, such that $s_n \models \phi$. But then $s_n \models \phi \lor \psi$ follows. But this means that there is a state rechable from s which satisfies $\phi \lor \psi$. Thus, $s \models \bold{EF}(\phi \lor \psi)$ follows.\\
+2. Second, assume that $s \models \bold{EF}(\phi \lor \psi)$. Then there exists a state $s_m \models \phi \lor \psi$Withou loss of generality, we may assume that $s_m \models \psi$. Buth then we can conclude that $s \models \bold{EF} \psi$, as $s_m$ is reachable from s. Therefore, we also have $s \models \bold{EF} \phi \lor \bold{EF}\psi$
+\item  $\bold{AF}\phi \lor \bold{AF} \psi$ and $\bold{AF}(\phi \lor \psi)$\\
+In the state transition system below, look at paths $\pi_1 = s_0 s_1 s_1...$ and $\pi_2 = s_0 s_2 s_2 ....$. They both statisy  $\bold{AF}(\phi \lor \psi)$ but $\pi_1$ does not statisy $\bold{AF}\psi$ and $\pi_2$ does not statisfy $\bold{AF}\phi$  and therefore $\bold{AF}\phi \lor \bold{AF} \psi$ cannot hold  \\
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+
+  \node[main node] (1) {$s_0$};
+  \node[main node] (2) [below left of=1] {$s_1: \phi$};
+  \node[main node] (4) [below right of=1] {$s_2: \psi$};
+\draw[<-] (1) -- node[above] {start} ++(-2cm,0);
+  \path[every node/.style={font=\sffamily\small}]
+    (1) edge node [left] {} (4)
+        edge node [right] {} (2)
+    (2) 
+        edge [bend right] node {} (4)
+        edge [loop left] node {} (4)
+    (4) 
+        edge [loop right] node {} (4)
+        edge [bend right] node[right] {} (2);
+\end{tikzpicture}
+
+\item $\bold{AF} \neg \phi$ and $\neg \bold{EG} \phi$\\
+They are equivelent.\\
+1. Assume $s \models  \bold{EF \neg \phi}$ Then at some state along this path we have $s_m \models \neg \phi$ Then  this path $s \not \models \bold{G} \phi$. Since was any arbitary path, then we know that $s \not \models EG \phi$. Then by definition we know $s \models \neg \bold{EG}\phi$.\\
+2. Assume  $s \models \neg \bold{EG} \phi$ . Then we know at some point that $s_m \models \neg \phi$ So we know for all paths at some point will have $\neg \phi$. Therefore $s \models \bold{AF}\neg \phi$
+
+\item $\bold{EF} \neg \phi$ and $\neg \bold{AF}\phi$\\
+Look at the state transition diagram below. The path $s_0 s_1 s_1 ...$ satisfies  $\bold{EF} \neg \phi$ but not  $\neg \bold{AF}\phi$\\
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+
+  \node[main node] (1) {$s_0$};
+  \node[main node] (2) [below left of=1] {$s_1: \phi$};
+  \node[main node] (4) [below right of=1] {$s_2: \psi$};
+\draw[<-] (1) -- node[above] {start} ++(-2cm,0);
+  \path[every node/.style={font=\sffamily\small}]
+    (1) edge node [left] {} (4)
+        edge node [right] {} (2)
+    (2) 
+        edge [bend right] node {} (4)
+        edge [loop left] node {} (4)
+    (4) 
+        edge [loop right] node {} (4)
+        edge [bend right] node[right] {} (2);
+\end{tikzpicture}
+\end{enumerate}
+
+\newpage
+\section{3.5.6 a,b,c}
+\begin{enumerate}[(a)]
+\item $\bold{AFG}p$ and $\bold{AFAG}p$\\
+Look at the transition digram below $\mathcal{M},s_0 \models \bold{AFG}p$ but not $\bold{AFAG}p$.\\
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+
+  \node[main node] (1) {$s_0$};
+  \node[main node] (2) [below left of=1] {$s_1$};
+  \node[main node] (4) [below right of=1] {$s_2: p$};
+\draw[<-] (1) -- node[above] {start} ++(-2cm,0);
+  \path[every node/.style={font=\sffamily\small}]
+    (1) edge node [left] {} (4)
+        edge node [right] {} (2)
+    (2) 
+        edge [bend right] node {} (4)
+    
+    (4) 
+        edge [loop right] node {} (4)
+        edge [bend right] node[right] {} (2);
+\end{tikzpicture}
+\item $\bold{AGF}p$ and $\bold{AGEF}p$\\
+In the state transition system below note that: $\mathcal{M},s_0 \models \bold{AGEF}p$ but not   $\bold{AGF}p$. So they are not equivelent.\\
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+  \node[main node] (1) {$s_0: \neg p$};
+  \node[main node] (2) [ right of=1] {$s_1: p$};
+  \node[main node] (4) [ right of=2] {$s_2: \neg p$};
+\draw[<-] (1) -- node[above] {start} ++(-2cm,0);
+  \path[every node/.style={font=\sffamily\small}]
+    (1) 
+        edge [ right] node[left] {} (2)
+    (2) 
+        edge node {} (4)
+
+    (4) edge [loop right] node {} (4);
+\end{tikzpicture}
+\item $\bold{A}[(p \bold{U}r) \lor (q \bold{U} r)]$ and $\bold{A}[(p \lor q) \bold{U} r]$\\
+Look at the transition diagram above. note that:\\
+ $\mathcal{M},s_0 \models \bold{A}[(p \lor q) \bold{U} r]$ but not $\bold{A}[(p \bold{U}r) \lor (q \bold{U} r)]$. so they are not equivelent.\\
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+  \node[main node] (1) {$s_0:p$};
+  \node[main node] (2) [ right of=1] {$s_1: q$};
+    \node[main node] (3) [ right of=2] {$s_2: p$};
+  \node[main node] (4) [ right of=3] {$s_3:r$};
+\draw[<-] (1) -- node[above] {start} ++(-2cm,0);
+  \path[every node/.style={font=\sffamily\small}]
+    (1) 
+        edge [ right] node[left] {} (2)
+    (2) 
+        edge node {} (3)
+    (3) edge node {} (4)
+    (4) edge [loop right] node {} (4);
+\end{tikzpicture}
+
+
+\end{enumerate}
+
+
+\end{document}
+

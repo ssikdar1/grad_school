@@ -1,0 +1,245 @@
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ cut -f4 -d, crx.data.training |sort | uniq -c
+      6 ?
+      1 l
+    412 u
+    133 y
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '+$' crx.data.training |cut -f4 -d, | sort |uniq -c
+      4 ?
+      1 l
+    209 u
+     38 y
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '-$' crx.data.training |cut -f4 -d, | sort |uniq -c
+grep: invalid option -- $
+Usage: grep [OPTION]... PATTERN [FILE]...
+Try `grep --help' for more information.
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '\-$' crx.data.training |cut -f4 -d, | sort |uniq -c
+      2 ?
+    203 u
+     95 y
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$
+
+
+
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ cut -f5 -d, crx.data.training |sort | uniq -c
+      6 ?
+    412 g
+      1 gg
+    133 p
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '+$' crx.data.training |cut -f5 -d, | sort |uniq -c
+      4 ?
+    209 g
+      1 gg
+     38 p
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '\-$' crx.data.training |cut -f5 -d, | sort |uniq -c
+      2 ?
+    203 g
+     95 p
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$
+
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ cut -f6 -d, crx.data.training |sort | uniq -c
+      8 ?
+     42 aa
+    110 c
+     32 cc
+     23 d
+     20 e
+     40 ff
+     44 i
+     10 j
+     42 k
+     33 m
+     64 q
+      2 r
+     48 w
+     34 x
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '+$' crx.data.training |cut -f6 -d, | sort |uniq -c
+      4 ?
+     16 aa
+     55 c
+     21 cc
+      5 d
+     10 e
+      7 ff
+     11 i
+      3 j
+     10 k
+     15 m
+     42 q
+      1 r
+     24 w
+     28 x
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '\-$' crx.data.training |cut -f6 -d, | sort |uniq -c
+      4 ?
+     26 aa
+     55 c
+     11 cc
+     18 d
+     10 e
+     33 ff
+     33 i
+      7 j
+     32 k
+     18 m
+     22 q
+      1 r
+     24 w
+      6 x
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$
+
+
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ cut -f7 -d, crx.data.training |sort | uniq -c
+      8 ?
+     46 bb
+      6 dd
+     42 ff
+    113 h
+      8 j
+      4 n
+      2 o
+    319 v
+      4 z
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '+$' crx.data.training |cut -f7 -d, | sort |uniq -c
+      4 ?
+     23 bb
+      2 dd
+      7 ff
+     72 h
+      3 j
+      2 n
+      1 o
+    135 v
+      3 z
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '\-$' crx.data.training |cut -f7 -d, | sort |uniq -c
+      4 ?
+     23 bb
+      4 dd
+     35 ff
+     41 h
+      5 j
+      2 n
+      1 o
+    184 v
+      1 z
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$
+
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ cut -f9 -d, crx.data.training |sort | uniq -c
+    257 f
+    295 t
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '\-$' crx.data.training |cut -f9 -d, | sort |uniq -c
+    239 f
+     61 t
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '+$' crx.data.training |cut -f9 -d, | sort |uniq -c
+     18 f
+    234 t
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$
+
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ cut -f10 -d, crx.data.training |sort | uniq -c
+    316 f
+    236 t
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '+$' crx.data.training |cut -f10 -d, | sort |uniq -c
+     83 f
+    169 t
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '\-$' crx.data.training |cut -f10 -d, | sort |uniq -c
+    233 f
+     67 t
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$
+
+
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ cut -f12 -d, crx.data.training |sort | uniq -c
+    309 f
+    243 t
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '\-$' crx.data.training |cut -f12 -d, | sort |uniq -c
+    172 f
+    128 t
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '+$' crx.data.training |cut -f12 -d, | sort |uniq -c
+    137 f
+    115 t
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$
+
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ cut -f13 -d, crx.data.training |sort | uniq -c
+    500 g
+      8 p
+     44 s
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '\-$' crx.data.training |cut -f13 -d, | sort |uniq -c
+    264 g
+      3 p
+     33 s
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$ grep '+$' crx.data.training |cut -f13 -d, | sort |uniq -c
+    236 g
+      5 p
+     11 s
+
+Shan@SHAN-PC ~/Documents/GitHub/grad_school/cs_542/hw2 (master)
+$
+
+A16 No question mark found!
+
+
+

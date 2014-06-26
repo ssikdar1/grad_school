@@ -1,0 +1,143 @@
+%% to produce a PDF copy, issue the following command:
+%%
+%%     pdflatex propositional-logic-examples.tex
+%%
+%% in the same directory containing the LaTeX style files:
+%%
+%%     prooftree.sty  and  boxproof.sty
+
+\documentclass[11pt,leqno,fleqn]{article}
+
+\newcommand{\tab}{\hspace*{2em}}
+\usepackage{amsfonts}
+\usepackage{fullpage, enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{qtree}
+\usepackage{listings}
+
+\usepackage{graphicx} 
+\usepackage{times}              % better fonts for mathematical symbols
+\usepackage{bm}                 % unlike \boldmath,
+                                % \bm can be used anywhere within math mode
+\usepackage[scaled=0.9]{helvet} % makes text a little smaller throughout,
+                                % but not the text in math mode.
+%\usepackage{./tex/latex/misc/prooftree}
+%\usepackage{./tex/latex/misc/boxproof}
+
+\setlength\hoffset{-5pt}      % horizontal offset, to move text horizontally
+\setlength{\textwidth}{4.5in} % try different widths
+\setlength\voffset{-5pt}      % vertical offset, to move text vertically
+\setlength{\textheight}{7in}  % try different heights
+
+\newcommand{\Hide}[1]{}             % use \Hide{bla bla} to hide ``bla bla''
+\newcommand{\code}[1]{\texttt{#1}}  % use \code{...} to produce ASCII chars
+\newcommand{\Intro}[1]{{#1}{\textrm{i}}}
+\newcommand{\Elim}[1]{{#1}{\textrm{e}}}
+
+\newcommand{\TTT}{\bm{\mathsf{T}}}
+\newcommand{\FFF}{\bm{\mathsf{F}}}
+
+\title{CS 512, Spring 2014
+       \\[1ex]
+       \textbf{Assignment 6}}
+\author{Shan Sikdar} 
+\date{} % omit date
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 1}
+\begin{enumerate}[(a)]
+% (a)
+\item Apply the translation of the proceeding formula's to four wwf's of ``First-Order Mondaic Logic of Linear Order'':
+\begin{enumerate}[(1)]
+%(1)
+ \item $\varphi_1 \equiv p \bold{U} q$\\
+ $\exists \ t' \ [t' \geq t \land q(t') \land \forall \ t'' \ [t \leq t'' \leq t' \to p(t'')]]$
+ 
+ %(2)
+ \item $\varphi_2 \equiv \bold{W} q \land \bold{F}q$\\
+  %def of W
+  $\exists \ t' \ [t' \geq t \land q(t') \land \forall \ t'' \ [t \leq t'' \leq t' \to p(t'')]] \lor \forall t''' (t''' \geq t \to  p(t))$
+  %def of AND F
+  $\land \exists t^{IV} ( t''''\geq t \land q(t''''))$
+ %(3)
+ \item $p \bold{W} q$\\
+ %def of W
+  $\exists \ t' \ [t' \geq t \land q(t') \land \forall \ t'' \ [t \leq t'' \leq t' \to p(t'')]] \lor \forall t'''  (t''' \geq t \to p(t'''))$
+ %(4)
+ \item $p \bold{U} q \lor \bold{G}p$\\
+  $\exists \ t' \ [t' \geq t \land q(t') \land \forall \ t'' \ [t \leq t'' \leq t' \to p(t'')]] \ \ \lor \ \ \forall t' [t' \geq t \to p(t')] $
+ 
+ \end{enumerate}
+ \item For $\psi_1$ and $\psi_2$ to be equivelent they will be able to imply each other in first oder monadic logic. So $\psi_1 \to \psi_2$ as well as $\psi_2 \to \psi_1$.  $\psi_1$ and $\psi_2$ will also be equivelent if they contain the same semantic models, so that they would have the same truth values under any interpretation. Thus for any t and other variables that satisfy $\phi_1$, this arrangement will also lead to $\psi_2$ being satisfied. (Similar Reasoning for $\psi_3$ and $\psi_4$)
+ \\For WFF's containing free varibles, free variables are implicitly universally quantified, so universal quantifiers over these variables can be added, resulting in a formula with no free variables. (source wikipedia). 
+
+ \item You could use the deductive system of the first order logic(we did this in class) to prove the equivelence of $\psi_1$ and $\psi_2$  ($\psi3$ and $\psi 4$ as well)
+  We could also show that models of $\psi_1$ are models of $\psi_2$, and the show that the models of $\psi_2$ are models of $\psi_1$.
+  We could also convert these formulas back to Linear Temporal Logic and show equivelence in that logic as well.
+ According to wikipedia: Any deductive system of first order logic can be used to prove the equivelence. One such one is  The Tableux Method. Other include  Sequent Calculus, Hilbert deductive system, and resolution.
+ So these are some of the multiple ways to show equivelence.
+\end{enumerate}
+
+\newpage
+\section{Problem 2}
+\begin{enumerate}[(a)]
+
+%(a)
+\item Precisely specify the paths of M that saitsfy $\varphi_{fair}$
+	\begin{enumerate}[(1)]
+
+		\item 	
+		$\omega$-regular expression:\\
+		$(s_0 s_1)^{\omega} + s_0 s_1 (s_0 s_1)^* s_2^{\omega} + s_3 s_3^* s_4 s_5^{\omega}$\\ \\
+	Note that $\varphi_{fair} \triangleq (\bold{GF}(p \land q)\to \bold{GF}\neg r) \land (\bold{FG}(p \land q) \to \bold{FG}\neg q)$\\
+	can be reduced to: \\
+	$(\bold{FG}(p \to q) \lor \bold{GF} \neg r) \land (\bold{GF}(\neg p \lor \neg q) \lor \bold{GF \neg q})$\\
+	and I used this form to see which paths satisfied the fairness statement.
+
+		
+	\end{enumerate}
+
+%(b)
+\item 
+	\begin{enumerate}[(1)]
+	
+		\item $\psi_1 \triangleq \bold{X}\neg p \to \bold{FG}p \equiv \neg \bold{X}\neg p \lor  \bold{FG}p \equiv \bold{X} p \lor  \bold{FG}p  $\\
+		$\pi =(s_0 s_1)^{\omega}$\\
+		This path satisfies the fairness statement but not $\psi_1$ since when the path starts $\bold{X}p$ is false and $\bold{FG}p$ will never be true.
+	
+		\item $\psi_2 \triangleq q \bold{ \ U \ G} \neg q   $\\
+		$\pi =(s_0 s_1)^{\omega}$\\
+		This path satisfies the fairness statement but not $\psi_2$ since $\neg q$ never becomes true
+		\item $\mathcal{M} \models_{fair} \psi_3$\\
+		All paths that satisfy the fairness condiiton satisfy the conditions for weak until.
+	\end{enumerate}
+\end{enumerate}
+
+\newpage
+\section{Problem 3}
+	\begin{enumerate}[(a)]
+	\item $[|\top|] = S$\\
+	By definition the statisfaction of a WFF of CTL is defined if for all $s \in S$, $\mu, s \models \top$. So this follows straight from definition.
+	\item  $[|\bot|] = \emptyset$\\
+		By definition the statisfaction of a WFF of CTL is defined if for all $s \in S$, $\mu, s \not\models \bot$. Then no $s \in S$ can model  falisty. Then the set of states the model falsity is empty.
+	\item $[|\neg \phi|] = S - [|\phi|]$\\
+		By definition $\mu, s \models \neg \phi$ if and only if $\mu, s \not\models \phi$. So if you take all the $s \in S$ that models $\phi$  and remove them from the set of all possible states, you will be left with all the states that do not model $\phi$ and therefore must model $\neg \phi$
+	\item $[|\phi_1 \land \phi_2|] = [|\phi_1|] \cap [|\phi_2|]$\\
+	By definition  $\mu, s \models \phi \land \psi$ if and only if $\mu, s \models \phi$ and $\mu, s \models \psi$.
+	So look at the set of all states that model $\phi$. Then also look at the set of states that model $\psi$, the intersection of these two sets will then contain the set of states such that $\mu, s \models \phi$ and $\mu, s \models \psi$ and therefore by definition will be the set of states that satisfies $\mu, s \models \phi \land \psi$ 
+	\item $[|\phi_1 \lor \phi_2|] = [|\phi_1|] \cup [|\phi_2|]$\\
+	By definition  $\mu, s \models \phi \lor \psi$ if and only if $\mu, s \models \phi$ or $\mu, s \models \psi$. So look at the set of all states that model $\phi$. Then also look at the set of states that model $\psi$, the union of these two sets will then contain the set of states such that $\mu, s \models \phi$ or $\mu, s \models \psi$ and therefore by definition will be the set of states that satisfies $\mu, s \models \phi \lor \psi$ 
+	
+	\item $[|\phi_1 \to \phi_2|] = (S- [|\phi_1|]) \cup [|\phi_2|]$\\
+	 $[|\phi_1 \to \phi_2|] \equiv [|\neg \phi_1 \lor \phi_2|]$. So by the cases above we know  that $[|\neg \phi_1 \lor \phi_2|] =  [| \neg \phi_1|] \cup [|\phi_2|] =  (S - [|\phi_1|]) \cup [|\phi_2|] $
+	 
+	\item $[| \bold{AX} \phi|] = S - [|\bold{EX} \neg \phi|]  $\\
+	Fact: $\bold{AX} \phi$ is equivelent to $\neg  \bold{EX} \neg \phi$. Therefore we can reomve from S all s such that $M,s \models \bold{EX} \neg \phi$ and are left with $S-[|\bold{EX}\neg \phi|]$
+	
+	\end{enumerate}
+\end{document}
+
