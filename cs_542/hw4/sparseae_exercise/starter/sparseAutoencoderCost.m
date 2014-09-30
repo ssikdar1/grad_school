@@ -42,21 +42,68 @@ b2grad = zeros(size(b2));
 % the gradient descent update to W1 would be W1 := W1 - alpha * W1grad, and similarly for W2, b1, b2. 
 % 
 
+[rows,columns] = size(data);
+% m = columns; % number of traning examples
+m=10000; %using this to test faster
+s2 = hiddenSize; % number of nodes in layer2
+
+rho1 = zeros(hiddenSize,1);
+for i = 1:m
+    x = data(:,i);
+    a2 = sigmoid(W1*x + b1);
+    rho1 = rho1 + a2;
+end
+rho1 = rho1/m;
+
+%
+% Backward propogation pg 9
+%
+for i = 1:m
+
+    % Feedforward pass
+    x = data(:,i);
+    a2 = sigmoid(W1*x + b1);     % (25 x 64) (64 x 1) + (25x1) = 25 x 1
+    a3 = sigmoid(W2*a2+b2);     % (64 x 25) x (25 x 1) + (64 x 1) = (64 x 1)
+
+    cost = cost + 1/2 * (norm((a3 - x)))^2;  %1st term of the cost function on page 6
+    %cost = cost/2;
+    delta3 = -(x-a3).*(a3.*(1-a3));     %2. Calculate the output layer
 
 
+    %3. For l= nl-1, nl-2, nl-3,....2
+     % With the sparsity param pg 16
+   delta2 = ((W2'*delta3) + (beta*((-sparsityParam./rho1)+(1-sparsityParam)./(1-rho1)))).*(a2.*(1-a2));
+%    delta2 = (W2'*delta3).*(a2.*(1-a2)); %Without the sparsity param
+    
+    %4. Compute the desired partial derivatives add to the running total or W1grab a
+    W1grad = W1grad + delta2*x';
+    W2grad = W2grad+ delta3*a2';
+    b1grad = b1grad+ delta2;
+    b2grad = b2grad+ delta3;
+end
+
+W1grad = W1grad/m + lambda * W1;
+W2grad = W2grad/m + lambda * W2;
+b1grad = b1grad/m;
+b2grad = b2grad/m;
+
+%divide J by number of samples
+cost = cost/m;
+%add the regularization term to cost (pg 6)
+cost = cost + (lambda/2)*(sum(sum(W1.^2))+sum(sum(W2.^2)));
 
 
-
-
-
-
-
-
-
-
-
-
-
+% Calculate the third term in order to implement J_Sparse
+ 
+penalty = 0;
+for j=1:s2    
+    rho_hat_j = rho1(j);
+    % Kullback - Leibler Divergence
+     KL = sparsityParam*log(sparsityParam/rho_hat_j) + (1-sparsityParam)*log((1-sparsityParam)/(1-rho_hat_j));
+     penalty = penalty + KL;  
+end
+% %J_sparse(W,b) = J(W,b,data) + beta * penalty; 
+cost = cost + beta * penalty; 
 
 
 
@@ -75,7 +122,6 @@ end
 % column) vector (say (z1, z2, z3)) and returns (f(z1), f(z2), f(z3)). 
 
 function sigm = sigmoid(x)
-  
     sigm = 1 ./ (1 + exp(-x));
 end
 

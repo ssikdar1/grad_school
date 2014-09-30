@@ -24,14 +24,18 @@ patches = zeros(patchsize*patchsize, numpatches);
 %  patch corresponding to the pixels in the block (21,21) to (30,30) of
 %  Image 1
 
+%Your code should sample 10000 image patches and concatenate them into a 64×10000 matrix.
 
+[rows,cols,numberImgs] = size(IMAGES);
+rng('shuffle');
 
-
-
-
-
-
-
+for ii = 1:numpatches
+    randImg = randi(numberImgs,1);
+    randRow = randi(rows-patchsize+1, 1);
+    randCol = randi(cols-patchsize+1,1);
+    %creates the box
+    patches(:,ii)=reshape(IMAGES(randRow:randRow+patchsize-1,randCol: randCol+patchsize-1,randImg), patchsize*patchsize,1);
+end
 
 %% ---------------------------------------------------------------
 % For the autoencoder to work well we need to normalize the data

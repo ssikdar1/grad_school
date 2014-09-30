@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Assignment2_part1", "Assignment2_part1\Assignment2_part1.vcxproj", "{6DE87333-9C67-4DF1-8D6B-847F55A9CF82}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Assignment2_part2", "Assignment2_part2\Assignment2_part2.vcxproj", "{D4A2FFAC-FA1F-4384-BC1C-77874EF12216}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DE87333-9C67-4DF1-8D6B-847F55A9CF82}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6DE87333-9C67-4DF1-8D6B-847F55A9CF82}.Debug|Win32.Build.0 = Debug|Win32
+		{6DE87333-9C67-4DF1-8D6B-847F55A9CF82}.Release|Win32.ActiveCfg = Release|Win32
+		{6DE87333-9C67-4DF1-8D6B-847F55A9CF82}.Release|Win32.Build.0 = Release|Win32
+		{D4A2FFAC-FA1F-4384-BC1C-77874EF12216}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D4A2FFAC-FA1F-4384-BC1C-77874EF12216}.Debug|Win32.Build.0 = Debug|Win32
+		{D4A2FFAC-FA1F-4384-BC1C-77874EF12216}.Release|Win32.ActiveCfg = Release|Win32
+		{D4A2FFAC-FA1F-4384-BC1C-77874EF12216}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
