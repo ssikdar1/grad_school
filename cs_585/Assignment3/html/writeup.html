@@ -1,0 +1,465 @@
+<html>
+<head>
+
+<title> CS585 Homework Template: HW[3] Shan Sikdar </title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<style>
+<!-- 
+body{
+font-family: 'Trebuchet MS', Verdana;
+}
+p{
+font-family: 'Trebuchet MS', Times;
+margin: 10px 10px 15px 20px;
+font-size:18px;
+}
+h3{
+margin: 5px;
+}
+h2{
+margin: 10px;
+}
+h3{
+margin: 5px;
+font-size:20px;
+}
+h4{
+margin:5px;
+font-size:20px;
+}
+h1{
+margin: 10px 0px 0px 20px;
+}
+div.main-body{
+align:center;
+margin: 30px;
+}
+hr{
+margin:20px 0px 20px 0px;
+}
+-->
+</style>
+</head>
+
+<body>
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div>
+<center>
+<a href="http://www.bu.edu"><img border="0" src="http://www.cs.bu.edu/fac/betke/images/bu-logo.gif"
+width="119" height="120"></a>
+</center>
+	<h1> Characterizing Cancer Images</h1>
+	<p> 
+		CS 585 HW 3 <br>
+		Shan Sikdar <br>
+		Partners: Sweekriti Satpathy and Daniel Monahan <br/>
+		10/6/2014
+	</p>
+	<div class="main-body">
+<hr>
+<h2> Problem Definition </h2>
+
+<!--
+<p> <i>
+Give a concise description of current problem. For instance, what
+needs to be solved and why it is useful?  Do you make any assumptions?
+What are the difficulties?
+</i></p>
+-->
+<p>
+<b> Part 1: </b> For this assignment we were given samples of satined breast cancer tissues. Our task was to implement algorithms that would help characterize
+the samples. These were real images provided to us by Charles MGH, that the Vision Department is doing research with.
+The historical sections of tumors are placed on slides, tagged by patient ID, and viewed with silde scanners, that are stored in a hospital for at least five years.
+So if we are able to come up with an algorithm to characterize the slides it could be used to come up with a database that contains information about the slides.
+<br/>
+<b> Part 2: </b> The second part was to see if we could come up with skeleton characterizations of tissue folds in the breast cancer.
+<br/>
+<b> Assumptions: </b> We assumed that we could use opencv and all its morphological functions.
+<p>
+
+<hr>
+<h2> Method and Implementation </h2>
+<!--
+<p><i>
+	Give a concise description of the implemented method. 
+	For example, you might describe the motivation of current idea, the algorithmic steps or any formulation used in current method.
+	</i>
+</p>
+<p><i>
+Briefly outline the functions you created in your code to carry out your algorithmic steps described above.
+</i></p>
+<p>
+</p>
+-->
+<div>
+	<h2> Part 1 </h2>
+	<br/>
+	<h4> Trying to Implement one of the Segmentation Algorithms found in Class</h4>
+	<p>
+		To implement segmentation we tried experimenting with adaptive thresholding, sobel edge detection, largest contours and double thresholding.
+	</p>
+	
+	<h3> Experimenting with Methods that Didnt work so well</h3>
+	<p>
+		For our failed experimental methods we tried a mix adaptive thresholding, sobel edge detection, and largest contours.
+		However as the pictures below show the results were pretty poor for segmentation.
+		
+	<table style="border-collapse:separate; border-spacing:5em;">
+		<tr>
+		  <td> <img src="img/wrong1.png" alt="Original" style="width:150px;height:150px"> </td>  
+		  <td> <img src="img/wrong2.png" alt="Original" style="width:150px;height:150px"> </td> 
+		  <td> <img src="img/wrong3.png" alt="Original" style="width:150px;height:150px"> </td> 
+		</tr> 
+	</table>
+
+		
+	</p>
+	<h3>Double Thresholding</h3>
+	<p>
+	For double thresholding we chose two different thresholds as a high and low. We then thresholded the image with both threshhold values. 
+	After that we iteratited through both images. 
+	We then checked if the lower thresholded image's pixel was black and the higher thresholded image's pixel was white. We then checked pixels in the proximity and 
+	based on that we reassigned that pixel to either black or white. After double thresholding we did some morphological functions to the double thresholded image.
+	Specifically we closed the image twice. After that we then took the largest contour. With this method we experienced much success.
+	
+	<table style="border-collapse:separate; border-spacing:5em;">
+		<tr><td colspan=3><center><h3>Before and After Double Thresholding</h3></center></td></tr>
+		<tr>
+			 <td> </td>  <td> <b> Original Input Image </b> </td>  <td> <b> After Double Thresholding </b> </td>  <td> <b> After getting largest Contour </b> </td> 
+		</tr>
+		<tr>
+		  <td> <b> Image 0  </b> </td> 
+		  <td> <img src="img/bcancer1.png" alt="Original" style="width:320px;height:320px"> </td> 
+		  <td> <img src="img/After double0.jpg" alt="Original" style="width:320px;height:320px"> </td> 
+		  <td> <img src="img/Contours0.jpg" alt="Original" style="width:320px;height:320px"> </td> 
+		</tr> 
+
+		<tr>
+		  <td> <b> Image 1</b> </td> 
+		  <td> <img src="img/bcancer2.png" alt="Original" style="width:320px;height:320px"> </td> 
+		  <td> <img src="img/After double1.jpg" alt="Original" style="width:320px;height:320px"> </td> 
+		  <td> <img src="img/Contours1.jpg" alt="Original" style="width:320px;height:320px"> </td> 
+		</tr> 
+		<tr>
+		  <td> <b> Image 2 </b> </td> 
+		  <td> <img src="img/bcancer3.png" alt="Original" style="width:320px;height:320px"> </td> 
+		  <td> <img src="img/After double2.jpg" alt="Original" style="width:320px;height:320px"> </td> 
+		  <td> <img src="img/Contours2.jpg" alt="Original" style="width:320px;height:320px"> </td> 
+		</tr> 
+		<tr>
+		  <td> <b> Image 3 </b> </td> 
+		  <td> <img src="img/bcancer4.png" alt="Original" style="width:320px;height:320px"> </td> 
+		  <td> <img src="img/After double3.jpg" alt="Original" style="width:320px;height:320px"> </td> 
+		  <td> <img src="img/Contours3.jpg" alt="Original" style="width:320px;height:320px"> </td> 
+		</tr> 
+	</table>
+	<br/>
+	Sample Code:
+	</p>
+	<pre><code>Mat doubleThreshold(Mat src)
+	{
+		int thresh = 215;
+		int thresh2 = 230;
+		Mat thres_output1, thres_output2;
+		thres_output1 = src < thresh;
+		thres_output2 = src < thresh2;
+		Mat threshoutput = Mat::zeros(Size(src.cols, src.rows), thres_output1.type());
+		
+		for(int j = 0; j < thres_output1.cols; j++){
+			for (int i = 0; i < thres_output1.rows; i++){
+				uchar pixel1 = thres_output1.at<uchar>(i,j);
+				uchar pixel2 = thres_output2.at<uchar>(i,j);
+				if(pixel1 == 255){threshoutput.at<uchar>(i,j) = 255;}
+				else if (pixel2 == 0){	threshoutput.at<uchar>(i,j) = 0;}
+				else if(pixel1 == 0 && pixel2 == 255 && i < src.rows - 1 && j < src.cols - 1 && i > 0 && j > 0){
+					if (thres_output1.at<uchar>(i-1, j) == 255 || thres_output1.at<uchar>(i + 1, j) || thres_output1.at<uchar>(i, j - 1) || thres_output1.at<uchar>(i, j + 1))
+					{
+						threshoutput.at<uchar>(i,j) = 255;
+					}
+					else{threshoutput.at<uchar>(i,j) = 0;}
+				}
+				else{ threshoutput.at<uchar>(i,j) = 0;}
+			}
+		}
+		return threshoutput;
+	}
+</code></pre>
+<h4> Computing qualities of the breast Cancer Cell Images</h4>
+<h3>Finding Area, Perimeter, Euler Number, Compactness, Orientation, Circulatiry.</h3>
+<p>
+	For Area and Perimiter we got the information straight from the largest contour.
+	Compactness was a ratio of area and perimeter.  For Euler number we used the hierarchy information to count the number of holes in our image. 
+	For orientationand circulatiry we first got the moments given the contours and then applied the formula given in class and found in a paper referenced in
+	the bibliography.	
+</p>
+
+</div>
+
+
+<h2> Part 2 </h2>
+	<br/>
+	
+<div>
+	<h4> Skeleton's of the Tissue Folds</h4>
+	<p>
+		For this we tried a mix of skin detection, absolute thresholding, and morphology. We eventually decided to ditch thresholding when
+		it was affecting results and when we started to realize that the ranges for the skin tissue could vary from image to image, so 
+		given a completely different image we hadn't seen before it might not perform that well. However adaptive thresholding
+		is more extensible at a small expense of keeping a little excess pixels resulting in a slightly different skeleton.
+		<br/>
+		We first converted to grayscale, then gaussian blurred, then used adaptive thresholding.
+		After that we used a close and 2 erodes to clean up the image.
+		After that we found the larges contour. After getting the binary image created with the largest contour we  closed and
+		eroded again in order to clean up the image further. Finally we used a type of p tiling by finding the contours of the image
+		and only keeping ones with an area .025% of the entire image size.
+		<br/>
+
+		<pre>
+		<code>
+			double area = contourArea(contours2[i]);
+			if (area > .025*((double)(img3.rows * img3.cols))) {
+				drawContours(cont2, contours2, i, 	Scalar(255, 255, 255), CV_FILLED, 8, hierarchy2);
+				drawContours(cont2, contours2, i, Scalar(255,255,255), 2, 8, hierarchy2);
+			}
+		</code>
+		</pre>
+		<p>
+		After that we found a skeleton code online at: http://felix.abecassis.me/2011/09/opencv-morphological-skeleton/.
+		This used a series morphologies and bitwise or's to get the skeleton. After walking through the code and understanding what it was doing, we decided to use
+		his function to create the skeleton. 
+		<br/>
+		Below are some screenshots of the process described up above.
+		</p>
+	</p>
+
+	<table style="border-collapse:separate; border-spacing:5em;">
+		<tr><td colspan=3><center><h3>Below are some screenshots of the process described up above</h3></center></td></tr>
+
+		<tr>
+		<td></td>
+		  <td> <img src="img/BinaryFold_Step1_AdaptiveThreshold.jpg" alt="Original" > </td> 
+		  <td></td>
+		</tr> 
+		<tr>
+		<td></td>
+		  <td> <img src="img/BinaryFold_Step3_2Erodes.jpg" alt="Original" > </td> 
+		  <td></td>
+		</tr> 
+		<tr>
+		<td></td>
+		  <td> <img src="img/BinaryFold_Step6_PTile_BestContour.jpg" alt="Original" > </td> 
+		  <td></td>
+		</tr> 
+		<tr>
+		<td></td>
+		  <td> <img src="img/foldResults1.jpg" alt="Original" > </td> 
+		  <td></td>
+		</tr> 
+	</table>
+	
+</div>
+
+
+<div>
+	
+	<h4>  Question 4,5,6 Method Implementation and Discussion</h4>
+	<p>
+		For question 4 we decided to create a function that calculates "similarity" between an image and all your images that would be in a database.
+		(In our implmentation we used an array instead of a database, but in to do this in real life we could just use a hashtable.)
+		Here similarity is determined by the difference of compactness, orientation, circularity and euler number. The image in your database that produces
+		the smallest distance with the lost image is then chosen to be the match in your database. In our tests this worked really well. We think this is a good method since only the 
+		id is lost but the sample preserved. A sample should have the same compactness, euler number, and orientation if nothing has happened to the 
+		actual sample itself.
+		<br/>
+		<br/>
+		For Question 5 we decided to use template matching. We simulated a broken slide by cropping one of the images. We did template matching using normalized correlation
+		against all images in our "database."(again here we just used an array to store images in real life would use a better data structure). 
+		We then kept track of which image had the normalized correlation and said that was the corresponding image in our database. In our trial runs it worked accurately.
+		One downside to this in practice is that it would be very slow.
+		<br/>
+		For question 6: Our method should work for aged image since compactness, orientation, and circularity should not change very much.
+		One consideration would be to adjust double threshold parameters.
+		<br/>
+		<br/>
+		Here is a screenshot of template matching for question 5:
+		 <img src="img/brokenMatch.png" alt="Original" style="width:720px;height:520px" > 
+	</p>
+	
+</div>
+
+
+
+
+<hr>
+<h2>Experiments</h2>
+<!--
+<p> <i>
+Describe your experiments, including the number of tests that you
+performed, and the relevant parameter values.  </p>
+</i>
+<p><i>
+Define your evaluation
+metrics, e.g., detection rates, accuracy, running time. 
+</i></p>
+-->
+
+	Our experiments invovled testing the algorithms by trial and error. We had a lot of imshow's to see what our code was doing.
+	For area and perimeter we actually used an opencv function to double check our code. A lot of the other evaluation's involved comaparison by hand.
+<hr>
+<h2> Results</h2>
+
+<p>
+Below are uploaded the images as results for both part I and part 2. Overall we are happy with these results.
+	<table style="border-collapse:separate; border-spacing:5em;">
+		<tr><td colspan=3><center><h3>Results for segmentations</h3></center></td></tr>
+		<tr>
+			 <td> </td>  <td> <b> Original Input Image </b> </td> <td> <b> Results for Part I </b> </td> 
+		</tr>
+		<tr>
+		  <td> <b> Image 0  </b> </td> 
+		  <td> <img src="img/bcancer1.png" alt="Original" style="width:320px;height:320px"> </td> 
+		  <td> <img src="img/Contours0.jpg" alt="Original" style="width:320px;height:320px"> </td> 
+		</tr> 
+
+		<tr>
+		  <td> <b> Image 1</b> </td> 
+		  <td> <img src="img/bcancer2.png" alt="Original" style="width:320px;height:320px"> </td> 
+		  <td> <img src="img/Contours1.jpg" alt="Original" style="width:320px;height:320px"> </td> 
+		</tr> 
+		<tr>
+		  <td> <b> Image 2 </b> </td> 
+		  <td> <img src="img/bcancer3.png" alt="Original" style="width:320px;height:320px"> </td> 
+		  <td> <img src="img/Contours2.jpg" alt="Original" style="width:320px;height:320px"> </td> 
+		</tr> 
+		<tr>
+		  <td> <b> Image 3 </b> </td> 
+		  <td> <img src="img/bcancer4.png" alt="Original" style="width:320px;height:320px"> </td> 
+		  <td> <img src="img/Contours3.jpg" alt="Original" style="width:320px;height:320px"> </td> 
+		</tr> 
+	</table>
+	
+	<table style="border-collapse:separate; border-spacing:5em;">
+		<tr><td colspan=3><center><h3>Results for Skeletons</h3></center></td></tr>
+		<tr>
+			 <td> </td>  <td> <b> Original Input Image </b> </td> <td> <b> Results for Part II </b> </td> 
+		</tr>
+		<tr>
+		  <td> <b> Image 0  </b> </td> 
+		  <td> <img src="img/bcancer2.1.png" alt="Original" > </td> 
+		  <td> <img src="img/Binaryfold1.jpg" alt="Original"  </td> 
+		</tr> 
+
+		<tr>
+		  <td> <b> Image 1</b> </td> 
+		  <td> <img src="img/bcancer2.2.png" alt="Original" > </td> 
+		  <td> <img src="img/Binaryfold2.jpg" alt="Original" > </td> 
+		</tr> 
+		<tr>
+		  <td> <b> Image 2 </b> </td> 
+		  <td> <img src="img/bcancer3.1.png" alt="Original" > </td> 
+		  <td> <img src="img/Binaryfold3.jpg" alt="Original" > </td> 
+		</tr> 
+		<tr>
+		  <td> <b> Image 3 </b> </td> 
+		  <td> <img src="img/bcancer3.2.png" alt="Original" > </td> 
+		  <td> <img src="img/Binaryfold4.jpg" alt="Original" > </td> 
+		</tr> 
+	</table>
+
+</p>
+
+<!--
+<p><i>
+List your experimental results.  Provide examples of input images and output
+images. If relevant, you may provide images showing any intermediate steps
+</i></p>
+-->
+
+
+
+<hr>
+<h2> Discussion </h2>
+
+<!--
+<p> 
+Discuss your method and results:
+<ul>
+<li>What are the strengths and weaknesses of your method? </li>
+<li>Do your results show that your method is generally successful or
+     are there limitations? Describe what you expected to find in your
+     experiments, and how that differed or was confirmed by your
+     results. </li>
+<li>Potential future work. How could your method be improved?   What
+would you try (if you had more time) to overcome the
+failures/limitations of your work?</li> 
+</ul>
+</p>
+-->
+<p>
+Overall we think our algorithms worked well. One big thing to change would be to implement a datastructure for questions 4 and 5
+instead of using arrays. There were no efficiency issue this time in contrast to the previous assignment. Implementing p-tile and 
+double thresholding was definetely the most important part of our algorithm. The experiments pretty much were pretty much what we expected, however
+skeleton code could be improved.
+</p>
+
+
+<hr>
+<h2> Conclusions </h2>
+<!--
+<p><i>
+Based on your discussion, what are your conclusions?  What is your
+main message?
+</i></p>
+-->
+<p>
+Overall I'm happy with our results. We thought it was cool to have implemented a different variation of p-tiling and to implement
+double threshold directly. It was nice to see what we learned to be used in a real life application. Given more time
+we would have liked to improved our segmentation alogrithm and our lost tag and broken sample algorithms.
+</p>
+
+
+<hr>
+<h2> Credits and Bibliography </h2>
+<!--
+<p><i>
+Cite any papers or other references you consulted while developing
+your solution.  Citations to papers should include the authors, the
+year of publication, the title of the work, and the publication
+information (e.g., book name and publisher; conference proceedings and
+location; journal name, volume and pages; technical report and
+institution).  Material on the web should include the url and date of
+access.
+</i><p>
+-->
+
+<p>
+<!-- Credit any joint work or discussions with your classmates.  -->
+Joint work was done with Sweekriti Satpathy and Daniel Monahan.
+</p>
+
+<p>
+<!-- template matching -->
+http://docs.opencv.org/doc/tutorials/imgproc/histograms/template_matching/template_matching.html <br/>
+http://cfile7.uf.tistory.com/attach/210E193853E08FC026EDA4
+http://docs.opencv.org/doc/tutorials/imgproc/imgtrans/sobel_derivatives/sobel_derivatives.html
+http://codingexodus.blogspot.it/2013/01/find-holes-in-binary-image.html
+http://felix.abecassis.me/2011/09/opencv-morphological-skeleton/
+</p>
+
+<hr>
+</div>
+</div>
+
+</body>
+
+</html>

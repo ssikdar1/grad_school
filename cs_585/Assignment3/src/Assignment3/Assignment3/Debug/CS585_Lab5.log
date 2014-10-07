@@ -1,0 +1,19 @@
+﻿Build started 10/5/2014 10:31:38 PM.
+     1>Project "C:\Users\ssikdar1\Downloads\Assignment3\CS585_Lab5\CS585_Lab5\CS585_Lab5.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\OpenCV\opencv\build\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\CS585_Lab5.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt CS585_Lab5.cpp
+         CS585_Lab5.cpp
+     1>c:\users\ssikdar1\downloads\assignment3\cs585_lab5\cs585_lab5\cs585_lab5.cpp(410): warning C4305: 'initializing' : truncation from 'unsigned __int64' to 'double'
+     1>c:\users\ssikdar1\downloads\assignment3\cs585_lab5\cs585_lab5\cs585_lab5.cpp(458): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\ssikdar1\downloads\assignment3\cs585_lab5\cs585_lab5\cs585_lab5.cpp(615): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\ssikdar1\downloads\assignment3\cs585_lab5\cs585_lab5\cs585_lab5.cpp(620): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\ssikdar1\downloads\assignment3\cs585_lab5\cs585_lab5\cs585_lab5.cpp(738): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\ssikdar1\Downloads\Assignment3\CS585_Lab5\Debug\CS585_Lab5.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\OpenCV\opencv\build\x86\vc11\lib\\" opencv_calib3d249d.lib opencv_contrib249d.lib opencv_core249d.lib opencv_features2d249d.lib opencv_flann249d.lib opencv_gpu249d.lib opencv_highgui249d.lib opencv_imgproc249d.lib opencv_legacy249d.lib opencv_ml249d.lib opencv_nonfree249d.lib opencv_objdetect249d.lib opencv_photo249d.lib opencv_stitching249d.lib opencv_superres249d.lib opencv_ts249d.lib opencv_video249d.lib opencv_videostab249d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\ssikdar1\Downloads\Assignment3\CS585_Lab5\Debug\CS585_Lab5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\ssikdar1\Downloads\Assignment3\CS585_Lab5\Debug\CS585_Lab5.lib" /MACHINE:X86 Debug\CS585_Lab5.obj
+         Debug\stdafx.obj
+         CS585_Lab5.vcxproj -> C:\Users\ssikdar1\Downloads\Assignment3\CS585_Lab5\Debug\CS585_Lab5.exe
+     1>Done Building Project "C:\Users\ssikdar1\Downloads\Assignment3\CS585_Lab5\CS585_Lab5\CS585_Lab5.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.48

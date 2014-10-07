@@ -1,0 +1,165 @@
+%% to produce a PDF copy, issue the following command:
+%%
+%%     pdflatex propositional-logic-examples.tex
+%%
+%% in the same directory containing the LaTeX style files:
+%%
+%%     prooftree.sty  and  boxproof.sty
+
+\documentclass[11pt,leqno,fleqn]{article}
+
+\newcommand{\tab}{\hspace*{2em}}
+\usepackage{amsfonts}
+\usepackage{fullpage, enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{qtree}
+\usepackage{listings}
+
+\usepackage{graphicx} 
+\usepackage{times}              % better fonts for mathematical symbols
+\usepackage{bm}                 % unlike \boldmath,
+                                % \bm can be used anywhere within math mode
+\usepackage[scaled=0.9]{helvet} % makes text a little smaller throughout,
+                                % but not the text in math mode.
+%\usepackage{./tex/latex/misc/prooftree}
+%\usepackage{./tex/latex/misc/boxproof}
+
+\setlength\hoffset{-5pt}      % horizontal offset, to move text horizontally
+\setlength{\textwidth}{4.5in} % try different widths
+\setlength\voffset{-5pt}      % vertical offset, to move text vertically
+\setlength{\textheight}{7in}  % try different heights
+
+\newcommand{\Hide}[1]{}             % use \Hide{bla bla} to hide ``bla bla''
+\newcommand{\code}[1]{\texttt{#1}}  % use \code{...} to produce ASCII chars
+\newcommand{\Intro}[1]{{#1}{\textrm{i}}}
+\newcommand{\Elim}[1]{{#1}{\textrm{e}}}
+
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\matrixA}{ $ 
+\begin{bmatrix}
+  a_{11} & ... & a_{1N} \\
+  . & . & . \\
+  . & . & .  \\
+   a_{m1} & ... & a_{mN}
+ \end{bmatrix}
+ $}
+
+\newcommand{\vectorX}{ $ 
+\begin{bmatrix}
+  x_{1} \\
+  .  \\
+  .   \\
+  x_{N}
+ \end{bmatrix}
+ $}
+ 
+ \newcommand{\vectorAx}{  
+\begin{bmatrix}
+  a_{11}x_1 + ... + a_{1N}x_N \\
+  .  \\
+
+  .   \\
+ a_{m1}x_1 + ... + a_{mN}x_N
+ \end{bmatrix}
+ }
+
+\title{CS 591, Fall 2014
+       \\[1ex]
+       \textbf{Assignment 1}}
+\author{Shan Sikdar} 
+\date{} % omit date
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}[(1)]
+% (1)
+\item Recall from class that for a matrix $A = (a_{jk} \in C^{m x N})$, the operator norm of A from $l_p$ into $l_p$ is defined as:
+$|| A ||_{p \to p} := max_{||x||_p = 1} ||Ax||_p$
+\begin{enumerate}[(a)]
+%(a)
+ \item $|| A ||_{1 \to 1} = max_{k \in [N]}\sum_j^m |a_{jk}|$\\
+ proof.\\
+ If  A = \matrixA, and x = \vectorX, then $Ax = \vectorAx$\\ \\
+ Therefore:\\ \\
+$\norm{A}_{1 \to 1} = max_{||x||_1 = 1} \norm{Ax}  =  max_{||x||_1 = 1} \norm{  \vectorAx }_1$ \\ \\ \\
+$ = max_{||x||_1 = 1}   \ |a_{11}x_1 + ... + a_{1N}x_N| + ... + |a_{m1}x_1 + ... + a_{mN}x_N|  $\\ 
+
+Since this is the max over all $||x||_1 = 1$, this would happen when $x_i = 1$  for some index i and 0 for all other indices. \\
+The result would then be $\sum_{j=1}^m |a_{jk}|$ for an index k. We would have to go through each index k from 1 to N to see which would give the 
+greatest result for the maximum.  Then:\\
+$ max_{||x||_1 = 1}   \ |a_{11}x_1 + ... + a_{1N}x_N| + ... + |a_{m1}x_1 + ... + a_{mN}x_N|  $\\  \\
+$ = max_{k \in [N]} \sum_{j=1}^m |a_{jk}| $
+
+ \newpage
+\item $|| A ||_{\infty \to \infty} = max_{j \in [m]}\sum_{k = 0}^N |a_{jk}|$\\ \\
+proof.\\ \\
+Using A, x and Ax as defined in part (a):\\ \\
+$\norm{A}_{\infty \to \infty} = max_{||x||_{\infty} = 1} \norm{Ax}_{\infty} =  max_{||x||_{\infty} = 1} \norm{  \vectorAx }_{\infty} $ \\ \\ \\
+$= max_{||x||_{\infty} = 1} max(| a_{11}x_1 + ... + a_{1N}x_N|, ... , |a_{m1}x_1 + ... a_{mN}x_N| ) $\\
+
+Since this is the max over all $||x||_{\infty} = 1$, this will happen when we take x to be a vector made up of 1's and -1's. \\ \\
+$=  max(|a_{11}| + ... + |a_{1N}|, ... , |a_{m1}| + ... + |a_{mN}| ) $\\ \\
+$ = max(\sum_{k =1}^N |a_{1k}|, ... , \sum_{k =1}^N |a_{mk}|) $ \\ \\
+So the result is the maximum of the L1 norms of every row:\\
+$ = max_{j \in [m]} \sum_{k =1}^N |ajk|$
+
+\newpage
+\item $\norm{A}_{2 \to 2} = \sigma_{max}(A) = \sqrt{\lambda_{max}(A^*A)}$ where $ \sigma_{max}(A)$ denotes the largest singular value
+of A and $ \sqrt{\lambda_{max}(A^*A)}$ is the largest eigenvalue of $A^*A$.\\
+proof.\\ \\
+Let $\Gamma = A^*A$, let $\lambda_1 .... \lambda_n$ be the eigenvalues of $\Gamma$. \\
+Let ${e_1,...e_n}$ be the orthonormal basis of the Euclidian Space.\\
+Let $v \in C^N$ be $v = a_1 e_1 + ... + a_n e_n = \sum_i^n a_i e_i$. So that: \\
+ $\norm{v}^2 = |<v,v>| = |<\sum_i^n a_i e_i, \sum_i^n a_i e_i>| = \sum_i^n a_i ^2$ \\ \\
+ Now look at $\Gamma v$:\\
+ $\Gamma v = \Gamma (\sum_i^n a_i e_i) = \sum_i a_i \Gamma(e_i) = \sum a_i \lambda_i e_i$. \\
+ Denote the largest $\lambda_i$ value to be $\lambda_{max}$.\\ \\
+ Now want to show $\norm{A} \leq \sqrt{\lambda_{max}(A^*A)}$ ,\\
+ $\norm{Av}^2 = <Av,Av>$\\
+ $= (Av)^T (Av) = v^T A^T Av = <v, A^T A v>$\\
+ $= <v, \Gamma v> = <\sum a_i e_i, \sum \lambda_i a_i e_i>$\\
+$= \sum (a_i e_i)(\lambda_i a_i e_i)^T = \sum a_i e_i e_i^T a_i^T \lambda_i^T$\\
+$ = \sum a_i a_i^T \lambda_i^T \leq \sum a_i a_i^T \lambda_{max} = \lambda_{max} \norm{v}^2$\\
+So $\norm{A}^2 \leq \lambda_{max} $. \\
+So $\norm{A} \leq \sqrt{\lambda_{max}(A^*A)}$\\ \\
+
+Now want to show $\norm{A} \geq \sqrt{\lambda_{max}(A^*A)}$, \\
+Consider $x_0 = e_{max}$. $\norm{x} = 1$. Where $e_{max}$ is the eigenvector corresponding to $\lambda_{max}$ .\\
+$<x,\Gamma x> = <e_{max}, \Gamma(e_{max})> = <e_{max}, \lambda_{j_0} e_{max}> = |\lambda_{max}| $.
+But $<x_0, \Gamma x_0> \leq \norm{A}^2$ \\ \\
+So  $\norm{A} \geq \sqrt{\lambda_{max}(A^*A)}$.\\ 
+
+If  $\norm{A} \geq \sqrt{\lambda_{max}(A^*A)}$ and  $\norm{A} \leq \sqrt{\lambda_{max}(A^*A)}$,\\ \\
+Then  $\norm{A} = \sqrt{\lambda_{max}(A^*A)}$
+
+
+	
+ \end{enumerate}
+ 
+ \item 
+ Given a 
+ 
+ \item Let V be a normed vector space with an inner product. Prove Cauchy Shqartz Inequality. \\
+ Proof.\\ \\
+ Let $u,v \in V$. If v = 0 then the equality holds trivially. So assume $v \neq 0$. \\
+ Look at its orthogonal decomposition.\\
+ $u = \frac{<u,v>}{\norm{v}^2} v + (u - \frac{<u,v>}{\norm{v}^2}v)$\\
+ $= \frac{<u,v>}{\norm{v}^2} v + w$ here w is orthognal to v.\\
+ Using Pythgorean Theorem:\\
+ $\norm{u}^2 = \norm{\frac{<u,v>}{\norm{v}^2} v}^2 + \norm{w}^2$\\
+ $\geq \frac{|<u,v>|^2}{\norm{v}^2}$.\\ \\ \\
+ So:
+ $\norm{u}^2 \geq \frac{|<u,v>|^2}{\norm{v}^2}$\\ \\
+ Then: $ \norm{v}^2 \norm{u}^2 \geq |<u,v>|^2 $\\ \\
+ Then:  $ \norm{v} \norm{u} \geq |<u,v>| $
+  
+  \end{enumerate}
+ 
+ 
+\end{document}
+
