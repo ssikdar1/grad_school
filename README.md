@@ -36,7 +36,9 @@ TODO: Go on to the csa2 computers and recover more of these assignments
 
 <h3> CS 655: Introduction to Computer Networks <h3> <br />
 <ul>
-  <li>TODO</li>
+  <li>PA1: Echo Client-Server Application/Performing RTT and Throughput Measurements</li>
+  <li>PA2: Implementing Go-Back-N and Selective Repeat</li>
+  <li>PA3: TODO find this assignment</li>
 </ul>
 
 <h3> CS 552: Operating Systems <h3> <br />
