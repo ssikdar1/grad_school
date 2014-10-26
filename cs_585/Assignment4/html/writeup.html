@@ -1,0 +1,271 @@
+<html>
+<head>
+
+<title> CS585 Homework Template: HW[4] Shan Sikdar </title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<style>
+<!-- 
+body{
+font-family: 'Trebuchet MS', Verdana;
+}
+p{
+font-family: 'Trebuchet MS', Times;
+margin: 10px 10px 15px 20px;
+font-size:18px;
+}
+h3{
+margin: 5px;
+}
+h2{
+margin: 10px;
+}
+h3{
+margin: 5px;
+font-size:20px;
+}
+h4{
+margin:5px;
+font-size:20px;
+}
+h1{
+margin: 10px 0px 0px 20px;
+}
+div.main-body{
+align:center;
+margin: 30px;
+}
+hr{
+margin:20px 0px 20px 0px;
+}
+-->
+</style>
+</head>
+
+<body>
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div>
+<center>
+<a href="http://www.bu.edu"><img border="0" src="http://www.cs.bu.edu/fac/betke/images/bu-logo.gif"
+width="119" height="120"></a>
+</center>
+	<h1> Basic Tracking</h1>
+	<p> 
+		CS 585 HW 4 <br>
+		Shan Sikdar <br>
+		Partners: Sweekriti Satpathy and Daniel Monahan <br/>
+		10/26/2014
+	</p>
+	<div class="main-body">
+<hr>
+<h2> Problem Definition </h2>
+
+<!--
+<p> <i>
+Give a concise description of current problem. For instance, what
+needs to be solved and why it is useful?  Do you make any assumptions?
+What are the difficulties?
+</i></p>
+-->
+<p>
+For this assignment we implemented basic tracking, inorder to study the movements
+of bats in a cave and fishes in an aquariam. Series of images in both situations
+were provided to us. We decided to implement the tracking using an alpha-beta filter.
+We then tried to implement an instance of opencv's Kalman filter class, but ran into
+complications in having it predict accurately and extend to more than one object.
+<br/>
+Tracking can be useful in studying the behavior of animal's over time. The challenges
+that arise in tracking an animal, is that animal's can change the speed and direction
+of movement at any time. Also animals can go in and out of the frame, making constant 
+tracking difficult. As with most Image and Video problems ambiguities created by lighting
+and image quality can also throw off tracking performance.
+<p>
+
+<hr>
+<h2> Method and Implementation </h2>
+<!--
+<p><i>
+	Give a concise description of the implemented method. 
+	For example, you might describe the motivation of current idea, the algorithmic steps or any formulation used in current method.
+	</i>
+</p>
+<p><i>
+Briefly outline the functions you created in your code to carry out your algorithmic steps described above.
+</i></p>
+<p>
+</p>
+-->
+<div>
+	
+	<h4>Bats</h4>
+	<p>
+		For the tracking of bat's segmentation and localization files were provided to us.
+		We used these files and and already written code to obtain the locations of bats, at 
+		any image. We assumed the bat positions in frame 1 as our initial predictions, and a initial
+		velocity of 0 for all bats. For the alpha and beta values we ended up choosing those
+		experimentally as we were trying to tune the parameters.
+		<br/>
+		We then calculated for every initial point a new prediction point and then used
+		smallest L1 distance between every measurement in the new frame to the set of
+		predictions as a greedy algorithm to obtain a bipartite matching.
+		<br/>
+		After obtaining a bipartite matching, we then found the residual for every pair
+		of points and then updated the predictive position and velocites accordingly.
+		<br/>
+		Finally before doing the next round of calculations we ploted a circle of the prediction
+		on the original image to show each objects movement over time.
+		
+		
+	</p>
+	
+	<h3>Fishes in an Aquarium</h3>
+	<p>
+		For this half of the project we had to first segement the fishes first before
+		we could perform tracking on them. Fortuentely the fishes were circled in red.
+		We then took the image and performed thersholding based on RGB values to try and
+		segement the different fishes. After we then performed some morphological functions on the image.
+		Specifically we dilated, eroded and closed the object in order to get better defined objects.
+		After we used code from lab to get the vector<vector<Point2i>> (blobs) of the image
+		We then ran through all the blobs,any that were less than 10 pixels in size were discounted. (to eliminate small white pixels).
+		We then found an average of all points for each blob to obtain the centroid. We then
+		saved all the centroids into a vector object and used this as our observed data points.
+		After that we then  performed the same methods as above for tracking.
+	</p>
+
+<h3> An attempt at the Kalman Filter</h3>
+<p>
+	We made an attempt attempt at replacing the Aplha-Beta Filter with a Kalman figure.
+	For each observed point, we tried to keep a Kalman filter in a Vector and update
+	each Kalman filter respecitively. However when put into practice the Kalman filter
+	always predicted 0,0. We then tried to reimplement for just one bat, but the predictions
+	of the Kalman filter was still not predicting correctly. 
+</p>
+
+</div>
+
+
+
+
+<hr>
+<h2>Experiments</h2>
+<!--
+<p> <i>
+Describe your experiments, including the number of tests that you
+performed, and the relevant parameter values.  </p>
+</i>
+<p><i>
+Define your evaluation
+metrics, e.g., detection rates, accuracy, running time. 
+</i></p>
+-->
+
+	<p>Our experiments invovled testing the algorithms by trial and error. </p>
+<hr>
+<h2> Results</h2>
+
+
+<!--
+<p><i>
+List your experimental results.  Provide examples of input images and output
+images. If relevant, you may provide images showing any intermediate steps
+</i></p>
+-->
+<p>
+	pictures one day....
+</p>
+<hr>
+<h2> Discussion </h2>
+
+<!--
+<p> 
+Discuss your method and results:
+<ul>
+<li>What are the strengths and weaknesses of your method? </li>
+<li>Do your results show that your method is generally successful or
+     are there limitations? Describe what you expected to find in your
+     experiments, and how that differed or was confirmed by your
+     results. </li>
+<li>Potential future work. How could your method be improved?   What
+would you try (if you had more time) to overcome the
+failures/limitations of your work?</li> 
+</ul>
+</p>
+-->
+<p>
+For objects that didn't leave the frame or experience in lighting issues,
+our managed to work sucessfully. We were able to track majority of the fishes
+and bats. However there were a few edge cases where the basic tracking failed.
+There was a fish that when swimming entered a dark spot in the water tank. 
+The alogrithm track's it to the tank but then looses track of the fish as it disappears and then
+reappears several frames later. The other was when a bat would leave and then re-enter the frame.
+Finally sometimes when the fish were too close together the semgentation in our alogithm would
+group them together as one fish.  In our algorithm,
+spurious detections that do not connect with other measurements in subsequent frames are either
+elimnated in the segmentation phase, or just paired up with the closest coresponding prediction point.
+
+<br/>
+
+One way to deal with the lighting problem as well as objects leaving the frame issue,
+would be to implement multiple hypothesis tracking. 
+
+<br/>
+I do not think it is sufficient to just consider distances, since if a bat flies
+fast enough, it's centroid in subsequent frames may no longer be the cloest point to the prediciton
+of the alpha beta filter and would throw of the tracking algorithm.
+
+</p>
+
+
+<hr>
+<h2> Conclusions </h2>
+<!--
+<p><i>
+Based on your discussion, what are your conclusions?  What is your
+main message?
+</i></p>
+-->
+<p>
+Overall I'm happy with our results. In the future we would like to implement
+mutiple hypothesis tracking utilizing the kalman filter.
+</p>
+
+
+<hr>
+<h2> Credits and Bibliography </h2>
+<!--
+<p><i>
+Cite any papers or other references you consulted while developing
+your solution.  Citations to papers should include the authors, the
+year of publication, the title of the work, and the publication
+information (e.g., book name and publisher; conference proceedings and
+location; journal name, volume and pages; technical report and
+institution).  Material on the web should include the url and date of
+access.
+</i><p>
+-->
+
+<p>
+<!-- Credit any joint work or discussions with your classmates.  -->
+Joint work was done with Sweekriti Satpathy and Daniel Monahan.
+Also code from previous labs were used for segmentation and localization.
+</p>
+
+<p>
+</p>
+
+<hr>
+</div>
+</div>
+
+</body>
+
+</html>
