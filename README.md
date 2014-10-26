@@ -39,6 +39,17 @@ TODO: Go on to the csa2 computers and recover more of these assignments
   <li>TODO</li>
 </ul>
 
+<h3> CS 552: Operating Systems <h3> <br />
+<ul>
+  <li>TODO</li>
+</ul>
+
+<h3> CS 660: Databases <h3> <br />
+<ul>
+  <li>TODO</li>
+</ul>
+
+
 <h3> ISE 415: Graduate Soft Computing (Binghamton) <h3> <br />
 <ul>
   <li>Final Project: A Neural Network in Python used to detect forest fire</li>
