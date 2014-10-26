@@ -7,9 +7,10 @@ TODO: Go on to the csa2 computers and recover more of these assignments
 <h2>All from Boston University except where noted.</h2>
 <h3> CS 585: Image and Video Computing <h3> <br />
 <ul>
-  <li>Assignment 1</li>
-  <li>Assignment 2</li>
-  <li>Assignment 3</li>
+  <li>Assignment 1: Create Warhol Filter</li>
+  <li>Assignment 2: Template Matching </li>
+  <li>Assignment 3: Characterizing Cancer Images</li>
+  <li>Assignment 4: Object Tracking</li>
 </ul>
 
 <h3> CS 512: Formal Methods <h3> <br />
@@ -28,7 +29,7 @@ TODO: Go on to the csa2 computers and recover more of these assignments
 <ul>
    <li>HW1: Written HW + K-Nearest Neighbor Implementation in Python</li>
   <li>HW2: Written HW + Polynomial Regression in Matlab</li>
-  <li>HW3: Written HW +</li>
+  <li>HW3: Written HW </li>
   <li>HW4: Written HW + Implement Sparse AutoEncoder(Neural Network) in Matlab</li>
   <li>HW4: Written HW + Markov Random Field in Matlab</li>
 </ul>
