@@ -57,6 +57,10 @@ TODO: Go on to the csa2 computers and recover more of these assignments
   <li>Final Project: A Neural Network in Python used to detect forest fire</li>
 </ul>
 
+<h3> Research <h3> <br />
+<ul>
+  <li>Some code in a mixture of Python, Matlab and R used when trying to do research</li>
+</ul>
 
 
 
